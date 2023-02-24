@@ -1,0 +1,133 @@
+%======================================================
+\chapter{Introduction}
+%======================================================
+
+
+Having discussed solution strategies for hyperbolic conservation laws in
+Part~\ref{part:finite-volume} (in particular the Euler equations, which describe ideal gases),
+Finite Volume Particle Methods (which are used to solve hyperbolic conservation laws) and their
+implementation in \swift in Part~\ref{part:meshless}, we can now turn our attention to the
+\emph{K\"onigsdisziplin} in this thesis - radiation hydrodynamics.
+
+Radiation hydrodynamics is tricky on many, if not all, fronts. Part of the complexity is the sheer
+dimensionality of the problem: The radiation fields in principle need to keep track of both the
+direction and the intensity of the radiation for each photon frequency individually and for each
+point in space. The equation of radiative transfer, discussed in more detail later, also needs in
+principle to be solved for each photon frequency individually, for each direction, and for each
+point in space. The photon frequency dependency is due to the frequency dependency of the
+interaction rates between particles and photons. A different part of the intricacy is the fact the
+interactions between radiation and particles come with their own set of complexities: Each chemical
+species in the gas has its own set of reactions it undergoes, which are temperature dependent, but
+also depend on the abundances of other elements present. For example, ionized atoms and free
+electrons can recombine, or neutral atoms can excite and ionize each other through collisions, which naturally depend on the number of other species currently present. Hence
+the chemistry of the gas is described through a network of interconnected differential equations
+between each present chemical species, and to make matters worse, they are typically stiff
+equations. The interactions with radiation constitute additional terms in the chemistry equations
+for the creation and destruction of some chemical species, as for example a photo-ionization event of an atom is equivalent to the destruction of the atom, and the creation of an ion and a free
+electron.
+
+To begin with, let's focus on radiative transfer (RT) and leave the thermochemistry for later. Over the years, many different approaches have been developed in order to solve radiative transfer. They can broadly be separated into two classes of methods: (i) ray-tracing, or ray-casting methods, and (ii) moment based methods.
+
+Ray-tracing methods cast photon beams from radiative sources over the volume, and solve the equation
+of radiative transfer along the ray as a one dimensional problem and as a function of the optical
+depth $\tau$, which encodes the probability of the photons to be absorbed or scattered. The optical depth needs to be accumulated along the ray, traversing a multitude of cells. Methods which cast such long rays
+are called ``Long Characteristics'' methods
+\citep[e.g.][]{baczynskiFerventChemistrycoupledIonizing2015, grondTREVRGeneralLog2019,
+susaSmoothedParticleHydrodynamics2006}.
+While generally being very accurate, in parts due to explicitly handling radiation from far-away
+sources, Long Characteristics ray-casting methods' main caveat is arguably the associated
+computational expense. Firstly, the expense scales linearly with the number of radiating sources in
+the simulation volume. Secondly, the non-locality of the method makes parallelization over
+distributed memory architectures tricky and inefficient. Finally, they typically need to be
+performed iteratively. As the radiation photo-ionizes the gas and changes its chemical composition, its optical depth changes as well, whereas the optical depth is required to be accumulated along the
+ray to infer how much radiation is placed at the destination. This process needs to be repeated
+until the optical depths converge.
+
+An approach to reduce the computational cost of Long Characteristics methods is used by Monte
+Carlo schemes \citep[e.g.][]{vandenbrouckeMonteCarloPhotoionization2018,
+smithAREPOMCRTMonteCarlo2020, michel-dansacRASCASRAdiationSCattering2020, baekSimulated21Cm2009,
+molaroARTISTFastRadiative2019, campsSKIRTAdvancedDust2015}, which randomly sample the radiation
+field from radiating sources by emitting a number of photon packets. The sampling is typically
+performed in both frequency and angular direction. The tracing of photon packets allows to also
+trace scatterings of photons, making Monte Carlo methods ideal for line radiation transfer.
+However, due to the sampling nature of the method, statistical noise is introduced, which only
+decreases proportional to the square root of the number of emitted photon packets per source, and
+the expense remains proportional to the number of sources in the simulated volume.
+
+A different approach to reduce the expense of Long Characteristics methods is to try to avoid
+performing the same accumulation of the optical depth of Long Characteristics methods over and over
+again. This is for example the case for cells (or volume elements) close to a radiation source
+which are repeatedly transversed by many rays. To this end, ``Short Characteristics'' methods were
+developed \citep[e.g.][]{mellemaPhotoevaporationClumpsPlanetary1998,
+shapiroPhotoevaporationCosmologicalMinihaloes2004,mellema2RayNewMethod2006,
+sarkarNewIonizationNetwork2021,jauraSPRAICouplingRadiative2018,
+jauraSPRAIIIMultifrequencyRadiative2020,peterSweepMethodRadiative2023}. Rather than casting the
+rays from a source to a destination cell, Short Characteristics methods propagate the radiation and
+accumulate the optical depths on a cell-by-cell basis, and in an ordered fashion. This removes the
+redundancy of the repeated summation over the optical depths, and in some cases removes the linear
+dependency of the number of sources in the simulation volume, but makes the method inherently
+serial, as the cell sweep needs to be performed in a specific order. The casting of Long
+Characteristics rays on the other hand is an ``embarrassingly parallel'' problem, as all castings
+can be performed independently from each other. Hybrid Characteristics methods
+\citep[e.g.][]{rijkhorstHybridCharacteristics3D2006}, which combine elements of Long and Short
+Characteristics to make efficient use of adaptive meshes, have also been proposed.
+
+Other approximate ray-based methods include Adaptive Ray Tracing
+\citep[e.g.][]{abelAdaptiveRayTracing2002, kimModelingUVRadiation2017}, where rays are created at
+point sources and successively split as they are traced outward, adapting to the angular resolution
+depending on the distance from the source. In a similar spirit, some methods
+\citep[e.g.][]{petkovaNovelApproachAccurate2011, pawlikTRAPHICRadiativeTransfer2008,
+pawlikMultifrequencyThermallyCoupled2011} follow the propagation of radiation through cones from
+radiating sources.
+
+
+The second class of RT methods, the moment-based methods, take a fundamentally different approach
+to solving radiative transfer. To reduce the dimensionality of the problem, rather than solving the equation of radiative transfer in all directions, angular moments of the equation of RT are taken, which removes the angular directionality component from the equations. In addition, frequencies are typically discretized into discrete intervals, or groups, and frequency dependent quantities are integral-averaged over the interval.
+
+The removal of directionality through moments is at the same time a great advantage and a great
+disadvantage. The equations to be solved take the shape of a purely local hyperbolic conservation
+law, which, as discussed before, is a well-known and well-studied problem in physics, and many known methods to solve them exist. Furthermore, a local problem can be parallelized more efficiently, even across shared memory domains. It also removes the dependency of the number of radiating sources in the simulation volume.
+
+At the same time, the loss of directionality leads moment-based methods to predict unphysical
+solutions for radiation. The radiation is behaving more akin to a fluid, rather than radiation. For
+example, two colliding photon beams should in reality just pass through each other, whereas
+moment-based methods predict a collision akin to the impact of two fluid waves. Furthermore, the
+formation of sharp shadows is severely limited, as the fluid-like representation of radiation will
+diffuse around corners (see e.g. \citet{ramses-rt13}).
+
+Several versions of moment-based methods have been described to date in literature. The ``Flux Limited Diffusion'' \citep[e.g.][]{commerconRadiationHydrodynamicsAdaptive2011,
+normanSimulatingCosmologicalEvolution2007a}, perhaps the simplest form of a moment-based method, only uses the zeroth moment, and provides a closure in the form of a local diffusion relation that
+diffuses radiation along the local energy gradient. This is a reasonable approximation in optically thick regimes, but not for optically thin ones.
+
+Other approaches use both the zeroth and the first moment w.r.t. angular direction. This results in
+two equations (in 1D), one for the energy density and one for the photon flux. However, these
+equations are not closed, and an approximate closure relation is required. In particular, an
+expression for the pressure tensor, which serves as the hyperbolic flux $\fc$ for the photon flux
+$\mathbf{F}$, is missing. The ``OTVET'' \citep[``Optically Thin Variable Eddington Tensor'',
+e.g.][]{gnedinMultidimensionalCosmologicalRadiative2001, petkovaImplementationRadiativeTransfer2009} closure
+approximates the pressure tensor by gathering the directional components from sources of radiation
+under the assumption of the optically thin limit. This re-introduces some non-locality in the
+radiation fields again, but also re-introduces the dependency on the number of radiating sources in the simulation volume. Other variable Eddington tensor methods have also been proposed
+\citep[e.g.][]{finlatorNewMomentMethod2009,menonVETTAMSchemeRadiation2022}, but usually come at an
+even higher computational expense.
+
+A different approach, the so-called ``M1 Closure''
+\citep[e.g.][]{gonzalezHERACLESThreedimensionalRadiation2007, ramses-rt13,
+kannanAREPORTRadiationHydrodynamics2019, fuksmanRadiativeTransferModule2019,
+chanSmoothedParticleRadiation2021} approximates the pressure tensor based on local quantities only, and keeps the locality, and hence the gains in computational expense. The pressure tensor is then estimated as an interpolation between the optically thin and optically thick limits based on the local photon energy density and flux.
+
+The M1 Closure method has already been used in a variety of simulations of the Epoch of Reionization
+\citep[e.g.][]{rosdahlSPHINXCosmologicalSimulations2018,trebitschObeliskSimulationGalaxies2021,
+xuTHESANProjectLymanalpha2022,borrowTHESANHRHowDoes2022, katzInterpretingALMAObservations2017} and has been demonstrated to be an adequate method for simulations of Cosmic Reionization, albeit with caveats \citep[see][]{wuAccuracyCommonMomentbased2021,ocvirkImpactReducedSpeed2019}. Motivated by the superior computational efficiency of the method, \GEARRT, the novel radiative transfer solver in \swift which will be described in this Part of my thesis, also employs a moment-based method with the M1 Closure. The core idea of the numerical solution for the radiative transfer equations follows the strategy of \cite{ramses-rt13} closely. In particular, I adapt their technique of discretizing frequencies and the operator splitting approach used to evolve moments of the equations of radiative transfer in time. In Section~\ref{chap:rt-equations}, the equations of radiative transfer and the M1 Closure are described. Section~\ref{chap:rt-numerical-strategy} discusses the numerical solution strategies to solve the equations, while Section~\ref{chap:rt-implementation} describes the implementation of \GEARRT in \swift. A series of tests and validations is presented in Section~\ref{chap:rt-validation}.
+
+
+\GEARRT is open source software and available under \url{https://github.com/swiftsim/swiftsim}. It
+is extensively documented and comes along with several prepared example problems which are ready to be run. Additional test examples and many peripheral RT related tools are available under URL
+\url{https://github.com/swiftsim/swiftsim-rt-tools}, including the validation tests used in
+Section~\ref{chap:rt-validation}.
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+main.tex toplevelfile
+
+./figures/RHD/flux_correction_method_plot.py ignore
+./figures/FV/burgers_characteristics.py ignore
+./figures/FV/linear_advection_solution.py ignore
+./figures/FV/riemann_problem.py ignore
+./figures/FV/WAF-hydro.py ignore
+./figures/FV/riemann_problem_linear_advection.py ignore
+./figures/FV/WAF.py ignore
+./figures/FV/burgers_riemann_shock.py ignore
+./figures/FV/flux_limiters.py ignore
+./figures/FV/rankine-hugeniot.py ignore
+./figures/FV/piecewise_const.py ignore
+./figures/FV/riemann_solution.py ignore
+./figures/FV/rarefaction_characteristics.py ignore
+./figures/FV/riemann_exact_solution.py ignore
+./figures/FV/piecewise_linear.py ignore
+./figures/FV/riemann_solution_linear_hyperbolic_systems.py ignore
+./figures/FV/riemann_solution_linear_advection.py ignore
+./figures/ACACIA/draw_potentials.py ignore
+
+./figures/RHD/RTTaskDependencies-simplified.dot ignore
+./figures/RHD/dependency_graph_nosubcycling.dot ignore
+./figures/RHD/RTRescheduling.dot ignore
+./figures/RHD/dependency_graph_full.dot ignore
+./figures/Meshless/tasks_hydro_first_order.dot ignore
+./figures/Meshless/tasks_hydro_nompi.dot ignore
+./figures/Meshless/tasks_hydro_only.dot ignore
+./figures/Meshless/tasks_hydro_second_order.dot ignore
+./figures/Meshless/tasks_hydro_zeroth_order.dot ignore
+./figures/Meshless/dependency_graph_0.dot ignore
+./figures/RHD/run_graphviz.sh ignore
+./figures/Meshless/run_graphviz.sh ignore
+
+./figures/RHD/rescheduler-problem.tex ignore
+./figures/RHD/two_rt_steps_per_hydro_step.tex ignore
+./figures/RHD/rescheduler-reality.tex ignore
+./figures/FV/tikz/sampling_the_solution.tex ignore
+./figures/FV/tikz/boundary_wall.tex ignore
+./figures/FV/tikz/boundary_transmissive.tex ignore
+./figures/FV/tikz/boundary_periodic.tex ignore
+./figures/Meshless/domain_decomposition.tex ignore
+./figures/Meshless/individual_timestepping_operators.tex ignore
+./figures/Meshless/meshless_order_of_operations.tex ignore
+./figures/Meshless/self-pair.tex ignore
+./figures/Meshless/individual_timestepping.tex ignore
+./figures/Meshless/mpi_comm.tex ignore
+./figures/Meshless/pressure_equilibrium.tex ignore
+./figures/Meshless/repeated_mpi_comm.tex ignore
+./figures/ACACIA/tikz/tree_algorithm_flowchart.tex ignore
+./figures/ACACIA/tikz/fracture.tex ignore
+./figures/ACACIA/jumper-demo/jumper-demo-images.tex ignore
+
+./Makefile ignore

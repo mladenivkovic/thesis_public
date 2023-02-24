@@ -1,0 +1,85 @@
+%-----------------------------------
+% Shortcuts
+%-----------------------------------
+
+
+\usepackage{lipsum}
+
+% shortcut for TODO box
+%		usage: \todo{Your text here}
+\newcommand{\todo}[1]{\begin{mdframed}[style=todo,frametitle={TODO}] #1 \end{mdframed}}
+\newcommand{\note}[1]{\begin{mdframed}[style=eyecatcher,frametitle={Note}] #1 \end{mdframed}}
+
+\newcommand{\algo}[2]{\begin{mdframed}[style=algo,frametitle={#1}] #2 \end{mdframed}}
+
+% quickly insert a figure without a caption
+% 		usage: \quickfig{filename}{label}
+\newcommand{\quickfig}[2]{
+       \begin{figure}[H]
+               \includegraphics[width=\textwidth]{#1}
+               \caption{\label{#2}}
+       \end{figure}
+}
+
+
+\newcommand{\quickfigcap}[3]{
+       \begin{figure}[H]
+               \includegraphics[width=\textwidth]{#1}
+               \caption{#3\label{#2}}
+       \end{figure}
+}
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------
+% TEXT IN BOXES
+%-----------------------------------------------
+
+\usepackage[framemethod=TikZ]{mdframed}
+
+% New Colors (needs to be after usepackage mdframed)
+\definecolor{babyblueeyes}{rgb}{0.63, 0.79, 0.95}
+\definecolor{ashgrey}{rgb}{0.7, 0.75, 0.71}
+\definecolor{caribbeangreen}{rgb}{0.0, 0.8, 0.6}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+
+\mdfdefinestyle{todo}{%
+       %rightline=true,
+       innerleftmargin=10,
+       innerrightmargin=10,
+       %frametitlerule=true,
+       %frametitlerulecolor=black,
+       frametitlebackgroundcolor=bittersweet,
+       frametitlerulewidth=2
+}
+
+
+\mdfdefinestyle{eyecatcher}{%
+       %rightline=true,
+       innerleftmargin=10,
+       innerrightmargin=10,
+       %frametitlerule=true,
+       %frametitlerulecolor=black,
+       frametitlebackgroundcolor=bittersweet,
+       frametitlerulewidth=2
+}
+
+
+\mdfdefinestyle{algo}{%
+       %rightline=true,
+       innerleftmargin=10,
+       innerrightmargin=10,
+       %frametitlerule=true,
+       %frametitlerulecolor=black,
+       frametitlebackgroundcolor=ashgrey,
+       frametitlerulewidth=2
+}
+
+
+

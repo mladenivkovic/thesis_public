@@ -1,0 +1,39 @@
+digraph G {
+    compound=true; // Needed to connect subgraphs
+    ranksep=0.5;
+    nodesep=0.55;
+    
+
+    /* Tasks            */
+    /*------------------*/
+
+    gravity [label="gravity", color=red3];
+    hydro [label="hydro", color=blue3];
+    kick2 [color=black];
+
+    rt_top [color=springgreen, label="Top of RT task hierarchy"];
+    rt_work [color=springgreen, label="All other actual RT work"];
+    rt_reschedule [color=springgreen, label="Rescheduler task"];
+
+    rt_out [color = springgreen, label="rt_out" ]
+    kick1 [color=black];
+    timestep [label="timestep", color=black];
+
+    /* Dependencies     */
+    /*------------------*/
+
+    rt_reschedule -> rt_out [color=red3, fontcolor=red3, label="block", constraint=false];
+    // rt_reschedule -> rt_top [color=blue3, fontcolor=blue3, label="reschedule", constraint=false];
+    rt_reschedule -> rt_work [color=blue3, fontcolor=blue3, label="reschedule", constraint=false];
+    rt_reschedule -> rt_top [color=purple, fontcolor=purple, label="reschedule + enqueue", constraint=false];
+
+
+    hydro -> kick2 [color=blue3, style="dashed"];
+    gravity -> kick2 [color=red3, style="dashed"];
+    timestep -> kick1 [color=black, style="dashed"];
+    kick2 -> rt_top [color=black, style="dashed"];
+    rt_top -> rt_work [color=springgreen, style="dashed"];
+    rt_work -> rt_reschedule [lhead=clusterReschedule, color=springgreen, style="dashed"];
+    rt_reschedule -> rt_out [ltail=clusterReschedule, color=springgreen, style="dashed"];
+    rt_out -> timestep [color=springgreen, style="dashed"];
+}

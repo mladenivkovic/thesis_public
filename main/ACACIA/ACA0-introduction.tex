@@ -1,0 +1,111 @@
+%==================================
+\chapter{Introduction}
+%==================================
+
+Mock galaxy catalogues generated using N-body or hydrodynamical
+simulations are important tools for extragalactic astronomy and
+cosmology.  They are used to test current theories of galaxy
+formation, to explore systematic and statistical errors in large scale
+galaxy surveys and to prepare analysis codes for future dark energy
+missions such as Euclid or LSST.  There is a large variety of methods
+to generate such mock galaxy catalogues.  The most ambitious line of
+products is based on full hydrodynamical simulations, where dark
+matter, gas, and star formation are directly simulated
+\citep[e.g.][]{duboisDancingDarkGalactic2014,
+  khandaiMassiveBlackIISimulationEvolution2015,
+  vogelsbergerPropertiesGalaxiesReproduced2014,
+  schayeEAGLEProjectSimulating2015}.
+The intermediate approach is based on semi-analytic modelling
+(hereafter SAM) \citep[e.g.][]{whiteGalaxyFormationHierarchical1991,
+  bowerBreakingHierarchyGalaxy2006, somervilleSemianalyticModellingGalaxy1999,
+    kauffmannFormationEvolutionGalaxies1993,
+  kangSemianalyticalModelGalaxy2005,crotonManyLivesActive2006} for
+which galaxy formation physics, although simplified, is still at the
+origin of the mock galaxy properties. Finally, the simplest and most
+flexible approach is based on a purely empirical modelling of galaxy
+properties, sometimes called Halo Occupation Density (HOD hereafter)
+\citep[e.g.][]{seljakAnalyticModelGalaxy2000, berlindHaloOccupationDistribution2002,
+  peacockHaloOccupationNumbers2000,
+  bensonNatureGalaxyBias2000,wechslerGalaxyFormationConstraints2001,
+  scoccimarroHowManyGalaxies2001}.
+The last two techniques (SAM and HOD) both require the complete
+formation history of dark matter
+haloes, and possibly their sub-haloes. This formation history is
+described by halo `\emph{merger trees}'
+\citep{roukemaSpectralEvolutionMerging1993,
+  roukemaFailureSimpleMerging1993, laceyMergerRatesHierarchical1993}.
+Accurate merger trees are essential to obtain realistic mock galaxy
+catalogues, and constitute the backbone of SAM and HOD models.
+
+
+The advantage of using SAM and HOD techniques to generate mock galaxy
+catalogues is that one does not need to model explicitly the gas
+component, but only the dark matter component.  The corresponding
+N-body simulations are commonly referred to as `\emph{dark matter
+only}' (DMO) simulations.  With growing processing power, improved
+algorithms and the use of parallel computing tools and architectures,
+larger and better resolved DMO simulations are becoming possible.  The
+current state-of-the-art is the Flagship simulation performed for the
+preparation of the Euclid mission \citep{potterPKDGRAV3} and featured 2
+trillion dark matter particles.  Such extreme simulations make
+post-processing analysis tool such as merger tree algorithms
+increasingly difficult to develop and to use, mostly because of the
+sheer size of the data to store on disk and to load up later from the
+same disk back into the processing unit memory.  In some extreme
+cases, the amount of data that needs to be stored to perform a merger
+tree analysis in post-processing is simply too large.  Storing just
+particle positions and velocities in single precision for trillions of
+particles requires dozens of terabytes per snapshot.  Another issue is
+that most modern astrophysical simulations are executed on large
+supercomputers which offer large distributed memory.  Post-processing
+the data they produce may also require just as much memory, so that
+the analysis will also have to be executed on the distributed memory
+infrastructures as well.  The reading and writing of such vast amount
+of data to a permanent storage remains a considerable bottleneck,
+particularly so if the data needs to be read and written multiple
+times.  One way to reduce the computational cost is to include
+analysis tools like halo-finding and the generation of merger trees in
+the simulations and run them ``\textit{on the fly}'', i.e. run them
+during the simulation, while the necessary data is already in memory.
+
+The main motivation for this work is precisely the necessity for such
+a merger tree tool for future ``beyond trillion particle''
+simulations. While many state-of-the-art N-body simulation codes include
+structure finders that are run on-the-fly, codes like \codename{Gadget4}
+\cite{springelSimulatingCosmicStructure2021} who are able to build
+merger trees on-the-fly are still a relative rarity. It is crucial that
+multiple, distinct, codes have the capacity to do this to provide the
+possibility to cross-check results and their convergence.
+To this end, a new algorithm that we named
+\acacia was designed to work on the fly within the parallel
+AMR code \ramses.  One novel aspect of this work is the use of the
+halo finder \phew\ \citep{bleulerPHEWParallelSegmentation2015} for the parent halo catalogue.
+Different halo finders have been shown to have a strong impact on the
+quality of the resulting merger trees \citep{SUSSING_HALOFINDER}.
+\phew\ falls into the category of ``watershed'' algorithms that are
+not so common in the cosmological halo finding literature.  This type
+of algorithm assigns particles (or grid cells) to density peaks above
+a prescribed density threshold and according to the so-called
+``watershed segmentation'' of the negative density field.
+
+This Part of the work is a slightly modified version of the corresponding published article
+\citep{ivkovicACACIANewMethod2022} to fit the format of a thesis better. While the bulk of the
+algorithm development and implementation precedes the starting point of my thesis, a substantial
+effort during my thesis was directed towards finishing the project, fixing a handful of bugs,
+extending the performance analysis of the algorithm, and validating the quality of the resulting
+merger trees by generating mock galaxy catalogues and comparing them to observational data.
+
+This Part is structured as follows. In Chapter \ref{chap:phew}, a brief description of the \phew\
+halo finder and its new particle unbinding method is given. Chapter \ref{chap:making_trees}
+describes some common difficulties that arise when making merger trees and the way we address them
+in our merger algorithm \acacia, which is ultimately described in detail in Chapter
+\ref{chap:my_code}. Chapter \ref{chap:tests} shows test results to determine what parameters give
+the best results.  Using the halo catalogue and its corresponding merger tree generated on the fly
+by a cosmological N-body simulation, we use the stellar-mass-to-halo-mass (SMHM) relation from
+\cite{behrooziAVERAGESTARFORMATION2013} to produce a mock galaxy catalogue. We analyse in
+Section~\ref{chap:mock_catalogues} the properties of our mock galaxy catalogue and show that the
+introduction of orphan galaxies improve the comparison to observations considerably.
+
+The \ramses\ code is  publicly available and  can be  downloaded from
+\url{https://bitbucket.org/rteyssie/ramses/}. Instructions  on how to use \acacia\ and \phew\ during
+a simulation can be found under \url{https://bitbucket.org/rteyssie/ramses/wiki/Content}.

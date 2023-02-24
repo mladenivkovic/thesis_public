@@ -1,0 +1,183 @@
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\markboth{Introduction}{Introduction}
+
+
+A particularly intriguing period of the young Universe is the Epoch of Reionization, where the first
+light emitting sources begin to form and gradually ionize the neutral gas surrounding them,
+eventually fully ionizing the intergalactic medium itself.
+Minutes after the Big Bang \citep[e.g.][]{moGalaxyFormationEvolution2010} the Universe cools off and
+is rarefied sufficiently for primordial nucleosynthesis to begin, where protons, neutrons, helium,
+and traces of other elements begin to form for the first time. As the rapid early expansion of the
+Universe progresses, the energy and matter densities everywhere become increasingly diluted, and the
+temperature of the Universe proceeds to decrease. A couple of hundreds of thousands of years later,
+it has cooled off enough for the ions to combine with the free electrons during the so-called
+``recombination'' epoch, making the Universe largely neutral. After recombination, since the number
+of free electrons decreased steeply, the present radiation decouples from the thermodynamic
+equilibrium with matter held into place through Compton scattering, and is today observable as the
+Cosmic Microwave Background \citep[CMB,][]{peeblesPrinciplesPhysicalCosmology1993b}, albeit
+redshifted due to the ongoing expansion to a blackbody spectrum with temperature
+$\sim2.7$K. The Universe then finds itself in the ``Cosmic Dark Ages'', as no sources of light are present. In the meantime, first cosmological structures begin to form rooted in tiny perturbations and overdensities, which are observable in the CMB, in the initially homogeneous and isotropic matter distribution. The perturbations grow under the attractive influence of gravity, where overdensities gradually accrete matter into what will later become massive halos of dark matter (DM), populated with clusters of galaxies.
+
+The Epoch of Reionization begins with the Cosmic Dawn, the appearance of first luminous sources which emit ionizing UV radiation. The first stars, so-called Pop III stars, are metal-free and predicted to be very massive and very luminous, but short lived with lifetimes in the order of a few Myr \citep[e.g.][]{schaererPropertiesMassivePopulation2002}. First gravitationally bound gas clouds are expected to form around redshift $z \sim 30 - 40$, while first stars are expected a bit later, around $z \sim 30$, due to the inefficient cooling channels of the metal-free primordial gas \citep[e.g.][]{gloverFormationFirstStars2005}. The early phase of the reionization proceeds slowly,
+as more and more radiative sources appear and the density of the IGM decreases through the
+continuous expansion of the Universe. The sources are clustered in space, and hence reionization
+proceeds in a patchy fashion, with ionized HII regions forming first around what are essentially
+point sources on cosmological scales. Once the separate ionized bubbles overlap, the reionization
+proceeds much faster, as the ionizing radiation can propagate unperturbed over large regions of
+space through the optically thin ionized IGM, eventually fully ionizing the entire IGM by redshift
+$z \sim 6$ \citep{robertsonGalaxyFormationReionization2022}, around one billion years after the Big
+Bang.
+
+
+The nature of the main drivers of Cosmic Reionization is still debated. Less massive dwarf galaxies are more numerous than bigger and more massive galaxies, but also less luminous. Furthermore, massive galaxies contain denser gas, which may reduce the amount of escaped ionizing radiation because the recombination rate of the ions is directly proportional to their number density, and thus a bigger fraction of radiation is used to combat the recombination of already ionized gas. On the other hand, more massive galaxies are more likely to contain an Active Galactic Nucleus, which is an additional strong source of ionizing radiation. In any case, one key question with regards to Cosmic Reionization is how much ionizing radiation escapes the galaxies and is able to ionize and heat the IGM. Usually the amount of escaped radiation is described as the ``escape fraction''
+$f_{\mathrm{esc}}$. Unfortunately, this quantity is notoriously difficult to measure
+observationally, calculate theoretically, and to simulate.
+Accurate and detailed analytical predictions of the Epoch of Reionization are unthinkable due to
+the sheer complexity of the problems involved. Detailed modeling of Cosmic Reionization requires the treatment of non-linear physical processes of galaxy formation and evolution. The most notable of these processes are gravity, fluid dynamics, star formation and stellar feedback, and, in particular with regards to the Epoch of Reionization, radiative transfer and thermochemistry. To this end, we need to resort to numerical simulations to solve the equations that govern the processes of structure formation and evolution. Any direct detection of the escape of ionizing Lyman Continuum (LyC) photons from galaxies at $z > 5$ is impossible due to the increasing opacity of the IGM \citep[e.g.][]{inoueUpdatedAnalyticModel2014}. Hence galaxies at the Epoch of Reionization are not observable in LyC, and we have to rely on indirect measurements and on simulations for theoretical predictions. Furthermore, simulations and the generation of mock galaxy catalogues in the Epoch of Reionization will furthermore be necessary to test and validate proposed indirect tracers of the ionizing photons in observations, as direct observation is not an option.
+Recent simulations however face difficulties to find agreement on the escape fraction with respect
+to the galaxy mass  \citep[e.g.][]{wiseBirthGalaxyIII2014a,paardekooperFirstBillionYears2015,xuGalaxyPropertiesUV2016,
+rosdahlSPHINXCosmologicalSimulations2018,yehTHESANProjectIonizing2023} because the propagation of
+the ionization front in the interstellar medium (ISM) of galaxies depends strongly on the
+distribution of the ionizing sources and on the structure of the ISM itself. Both these factors are realized in simulations through sub-grid models of star formation and stellar feedback, which can vary broadly between models \citep[see
+e.g.][]{rosdahlSnapCracklePop2017,kimAGORAHighresolutionGalaxy2016,
+roca-fabregaAGORAHighresolutionGalaxy2021b}. Furthermore, stellar feedback was shown to
+have a pivotal role in regulating the escape fraction  \citep{trebitschFluctuatingFeedbackregulatedEscape2017}. Clearly much effort also needs to be provided from the simulation side to tackle the mysteries of the Epoch of Reionization as well in the upcoming years.
+
+
+% With the recently launched James Webb Space Telescope and the upcoming Square Kilometer Array
+% observatory, astronomers will be able to probe deeper into the early Universe and probe the
+% formation of the first structures. Due to the current scarcity of observational data from that very
+% early time period of the Universe, many open questions regarding the first sources of radiation and
+% the earliest compact objects such as galaxies remain and are not well-constrained, as mentioned
+% above. The eagerly anticipated influx of new data is promising to alleviate these uncertainties.
+% However to understand the formation and evolution of galaxies, the new observational data needs to
+% be matched with advances in our theoretical understanding of the underlying processes and
+% physics.
+
+
+In addition to the complexity of the underlying physics that needs to be solved, state-of-the-art
+simulation codes need to be fast, efficient, and able to solve huge problems on supercomputing
+infrastructure. The codes need to be able to incorporate sophisticated models while maintaining a
+sufficiently high mass and spatial resolution of the results. Simultaneously, they need to cover
+large enough volumes to be able to generate statistically representative samples. As such, the
+underlying optimization strategies are a vital concern for state-of-the-art simulation software,
+and need to be taken into account from the very beginning of the development process.
+
+Motivated by the expected new observational insights into the Epoch of Reionization thanks to the
+recently launched James Webb Space Telescope and the upcoming Square Kilometer Array (SKA) facility,
+as well as the anticipated exa-scale computing facilities in the upcoming years, the goal of my
+thesis was to design a radiative transfer solver for the new simulation code \swift. Notably \swift
+employs a task-based parallelization strategy, uses asynchronous communications, and is geared
+towards making optimal use of current state-of-the-art and future supercomputing infrastructure.
+\swift is an open source code and can be downloaded from
+\url{https://gitlab.cosma.dur.ac.uk/swift/swiftsim}.
+
+The radiative transfer solver I implemented, named \GEARRT, solves the moments of the equation of
+radiative transfer and the closure condition called ``M1''. It is modeled after the method used in
+the \ramses adaptive mesh refinement simulation code (\cite{ramses-rt13}). The major advantages of
+using this method are that it is a well known and studied method, and that it scales well
+independently of the number of sources of radiation in the simulation. However, contrary to the
+\ramses implementation, my implementation in \swift uses (Lagrangian) particles. Indeed in its
+default modes, \swift utilizes particles as discrete elements. To be able to solve the equations of
+radiative transfer in a similar fashion, I make use of the Finite Volume Particle Methods (FVPM).
+FVPM allow to solve partial differential equations that take the form of hyperbolic conservation
+laws using particles as discretization elements, while not needing to construct a mesh to exchange
+fluxes between particles as is done in e.g. moving mesh methods.
+
+The notion of hyperbolic conservation laws and strategies for their solution using numerical
+techniques is a core topic throughout this work. Indeed both the equations of fluid dynamics, i.e.
+the Euler equations, as well as the equations of radiative transfer and the moments thereof can be
+formulated as hyperbolic conservation laws. However, in general exact analytical solutions are not
+available, and we need to resort to numerical methods like the finite volume and finite volume
+particle methods. They are very well suited for hyperbolic conservation laws. Many discretization
+methods and numerical solution strategies have been developed to date, each with its own advantages
+and caveats. As such, finite volume methods come with a wealth of complexities and subtleties. Since
+they take such a prominent role throughout this work, the first part of my thesis aims to establish
+a rudimentary overview and understanding of how finite volume methods in the context of hyperbolic
+conservation laws work, and what complexities and limitations they contain. The outline follows
+selected topics from \citet{toroRiemannSolversNumerical2009} and
+\citet{levequeFiniteVolumeMethods2002}. The theoretical aspects in Part~\ref{part:finite-volume}
+are presented along with results of selected experiments using an extensive stand-alone didactic
+finite volume solver I have written, called \meshhydro. \meshhydro is intended as a didactic
+complement to the theoretical background of finite volume methods, and to provide future students
+with a working solver that can be tested, played, and experimented with. To this end, the
+implementation is kept simple, a detailed documentation of the code and the implemented equations is
+provided, and plenty of examples with reference solutions are available. \meshhydro is open source
+software and available on \url{https://github.com/mladenivkovic/mesh-hydro}.
+
+Using finite volumes as a fundamental building block, a detailed introduction to Finite Volume
+Particle Methods, which are the ones used by \GEARRT, are given in Part~\ref{part:meshless}.
+However, Part~\ref{part:meshless} focuses only on the application of FVPM on hydrodynamics. In
+astrophysical literature, two FVPM methods are mentioned: \cite{hopkinsGIZMONewClass2015} have
+implemented one in their \codename{Gizmo} code, while the one mentioned in
+\cite{ivanovaCommonEnvelopeEvolution2013} isn't used to date. In this work, I test an
+implementation of the \cite{ivanovaCommonEnvelopeEvolution2013} version in \swift and compare the
+results with the implementation of the method following \cite{hopkinsGIZMONewClass2015}.
+Furthermore, a detailed discussion of the implementation of the FVPM applied to fluid dynamics is
+provided, as the implementation of the radiative transfer with \GEARRT is intimately coupled to the
+hydrodynamics.
+
+\GEARRT and the radiative transfer is then the topic of Part~\ref{part:rt} of this thesis, where a
+detailed description of the method and its implementation is given.
+
+
+
+As mentioned above, \swift makes use of a task-based parallelism strategy. In short, that means
+that it splits the entire problem into any number of subsets (e.g. any number of arbitrary groups
+of particles). These subsets define the units of work (tasks) that need to be completed. Alongside
+the tasks, conflicts and dependencies between them need also to be defined, which ensures the
+correct order of execution of the tasks and establishes which tasks may be run concurrently in any
+order. This strategy allows processing units (e.g. cores of the central processing unit) to grab and
+work on any tasks that are currently available. An advantage of this strategy is that it minimizes
+the idle waiting time of processors because there are no global synchronization points between all
+processors during a time step. Furthermore, MPI communications can be run using asynchronous calls
+while processors can keep busy with other work until the MPI messages arrive. A caveat of the method
+is however that all the underlying tasks, dependencies, and conflicts need to be defined and
+implemented manually by the developers first. This implementation is prone to logical errors, as
+many special and corner cases may occur during a simulation that require additional attention and
+are near impossible to predict. A further complication is that the exact order of execution of the
+tasks is in general not reproducible between any two runs using multiple processors. The complexity
+to define dependencies and conflicts correctly in a way that covers all possible corner cases
+combined with the non-reproducible nature of the execution make the development of the additional
+tasking system very tricky and time consuming. The tasks and dependencies required for a
+moment-based radiative transfer solver are now in place in \swift, and have been fully tested
+extensively and rigorously. Any future radiative transfer solvers for \swift will make use of the
+infrastructure I implemented, allowing developers to focus on the physical aspects of the problem
+rather than computational ones. While the essentials of task-based parallelism and its application
+for hydrodynamics in \swift is discussed in Part~\ref{part:meshless}, the additional tasks and
+dependencies required for radiative transfer are described in Part~\ref{part:rt}.
+
+A significant effort during my thesis was dedicated to the additional implementation to allow \swift
+to ``sub-cycle'' the radiative transfer integration step with respect to a hydrodynamics integration
+step. The maximally allowable time step size is determined by the so-called ``CFL'' stability
+condition, which depends on the propagation velocity of the conserved quantity. When comparing the
+highest occurring gas velocities to the propagation velocity of radiation, the speed of light, they
+will be several orders of magnitude lower, thus making the maximal radiation time steps several
+orders of magnitude lower than the hydrodynamic ones. The core idea of sub-cycling is to then
+integrate a (high) number of radiation time steps during a single hydrodynamics time step, and in
+this way omit all the needlessly performed hydrodynamics integrations we would have to do otherwise.
+This required to completely decouple the radiative transfer module in SWIFT from the hydrodynamics,
+and add a second independent internal time integration engine to be able to execute the radiative
+transfer sub-cycles correctly. The sub-cycling scheme still allows for particles to have individual
+independent time step sizes, which are determined by the local state and environment of the
+particles as opposed to some global criterion. The sub-cycling is a completely novel feature in
+\swift, and has been rigorously tested. While currently only the radiative transfer can be
+sub-cycled, the algorithm can also be extended for any other physics that might require it. As
+for performance, in idealized tests with hydrodynamics, self-gravity, and radiative transfer, the
+sub-cycling is able to reduce the time-to-solution by over 90$\%$. A publication of the sub-cycling
+scheme is currently in preparation. The sub-cycling scheme is also discussed in Part~\ref{part:rt}.
+
+
+Beside the main part of my thesis, some effort was directed towards completing \acacia, a
+novel method to create on-the-fly merger trees in the \ramses code, which constitutes the final
+Part~\ref{part:ACACIA} of this thesis. It can track dark matter substructures individually using
+the index of the most bound particle in the clump. Once a halo (or a sub-halo) merges into another
+one, the algorithm still tracks it through the last identified most bound particle in the clump,
+allowing to check at later snapshots whether the merging event was definitive, or whether it was
+only temporary, with the clump only traversing another one. The same technique can be used to track
+orphan galaxies that are not assigned to a parent clump any more because the clump dissolved due to
+numerical overmerging. At the time of first submission, \ramses was the only publicly available
+simulation code which was able to create merger trees on-the-fly. A paper describing and testing
+\acacia is now published. The \ramses code is also publicly available and can be downloaded from
+\url{https://bitbucket.org/rteyssie/ramses/}.

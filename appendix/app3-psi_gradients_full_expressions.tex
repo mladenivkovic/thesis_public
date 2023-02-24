@@ -1,0 +1,244 @@
+%===========================================================================
+\chapter{Full Expressions For Partitions of Unity And Their Gradients}
+\label{app:psi-gradients-full}
+%===========================================================================
+
+In this appendix, the full expressions required to compute the partitions of unity, normalizations,
+and derivatives of the partitions of unity are given. In what follows, we assume that the kernels
+$W$ are defined as
+
+\begin{align}
+	W_i(\x) = W(\x - \x_i, h(\x)) = \frac{1}{h(\x)^\nu} w\left(\frac{| \x - \x_i |}{h(\x)} \right)
+\end{align}
+
+
+To compute the normalizations $\omega(\x_i)$ (eq.~\ref{eq:omega}) for a specific particle
+position $\x_i$, we need to sum over all neighboring particles $j$:
+
+\begin{align}
+    \omega(\x_i) 	&= \sum_j W(\x_i - \x_j, h(\x_i))
+\end{align}
+
+with $h_i = h(\x_i)$.
+
+
+
+For the \cite{ivanovaCommonEnvelopeEvolution2013} expression of the effective surfaces \Aij
+(eq.~\ref{eq:IvanovaAij}), we need analytical gradients in Cartesian coordinates of $\psi_i(\x_j)$.
+
+
+From eq.~\ref{eq:psi} we have that
+\begin{align*}
+	\psi_j(\x_i) &= \frac{ W(\x_i - \x_j, h(\x_i))}{\omega(\x_i)}\\
+\end{align*}
+
+Let $r_{ij} \equiv |\x_i - \x_j|$ and $q_{ij} \equiv \frac{r_{ij}}{h_i}$. Then the gradients are
+
+\begin{align}
+	\deldx \psi_j(\x_i) 	&= \deldx \frac{ W(\x_i - \x_j, h(\x_i))}{\omega(\x_i)}
+							=  \deldx \frac{ W(r_{ij}, h_i)}{\omega(\x_i)}		\nonumber \\
+%
+							&= \frac{
+									\DELDX{W}(r_{ij}, h_i) \  \omega(\x_i) -
+									W(r_{ij}, h_i) \DELDX{\omega}(\x_i)
+									}{\omega(\x_i)^2}		\nonumber  \\
+%
+							&= \frac{1}{\omega(\x_i)} \DELDX{W}(r_{ij}, h_i) -
+							\frac{1}{\omega(\x_i)^2} W(r_{ij}, h_i) \DELDX{}\sum_k W(r_{ik}, h_i)		\nonumber \\
+%
+							&= \frac{1}{\omega(\x_i)} \DELDX{W}(r_{ij}, h_i) -
+									\frac{1}{\omega(\x_i)^2} W(r_{ij}, h_i) \sum_k \DELDX{W}(r_{ik}, h_i)	\label{grad_psi}
+\end{align}
+
+
+
+
+
+The gradient of the kernel $W$ is given by
+
+\begin{align}
+	\deldx W_j (\x_i) 	&= \deldx \left( \frac{1}{h_i^\nu} w ( q_{ij} )	\right)	\nonumber \\
+						&= \frac{1}{h_i^\nu} \frac{\del w(q_{ij})}{\del q_{ij}} \frac{\del q_{ij}(r_{ij})}{\del r_{ij}} \frac{\del r_{ij}}{\del x} 	\label{grad_kernel}
+\end{align}
+
+
+
+
+We now use
+\begin{align}
+	\frac{\del q_{ij}(r_{ij})}{\del r_{ij}} 	&= \frac{\del}{\del r_{ij}} \frac{r_{ij}}{h_i} = \frac{1}{h_i}		\label{dqdr} \\
+	\DELDX{r_{ij}}		&= \deldx \sqrt{(\x_i - \x_j)^2}
+							= \frac{1}{2} \frac{1}{\sqrt{(\x_i - \x_j)^2}} \cdot 2 (\x_i - \x_j) \nonumber \\
+						&= \frac{\x_i - \x_j}{r_{ij}} 	\label{drdx}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+To be perfectly clear, we should in fact write
+\begin{align*}
+	r_j(\x) & \equiv | \x - \x_j | \\
+\end{align*}
+
+which again leads to
+
+\begin{align*}
+	\DELDX{r_{ij}}		&= \DELDX{r_j(\x_i)} = \DELDX{r_j(\x)} \bigg{|}_{\x = \x_i} \\
+						&= \deldx \sqrt{(\x - \x_j)^2} \big{|}_{\x = \x_i}
+							= \frac{1}{2} \frac{1}{\sqrt{(\x - \x_j)^2}} \cdot 2 (\x - \x_j)  \big{|}_{\x = \x_i} \\
+						&= \frac{\x - \x_j}{r_{j}(\x)} \big{|}_{\x = \x_i}
+							= \frac{\x_i - \x_j}{r_{ij}}
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inserting expressions \ref{dqdr} and \ref{drdx} in \ref{grad_kernel}, we obtain
+\begin{equation}
+	\deldx W_j (\x_i)  = \frac{1}{h_i^{\nu + 1}} \frac{\del w(q_{ij})}{\del q_{ij}}  \frac{\x_i - \x_j}{r_{ij}} 	\label{grad_kernel_final}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+Finally, inserting \ref{grad_kernel_final} in \ref{grad_psi} we get
+\begin{align}
+	\deldx \psi_j (\x_i) &=
+		\frac{1}{\omega(\x_i)} \frac{1}{h_i^{\nu + 1}} \deldr{w}(r_{ij}, h_i)  \frac{\x_i -
+\x_j}{r_{ij}} 	 - \nonumber\\
+		& \frac{1}{\omega(\x_i)^2} W(r_{ij}, h_i) \sum_k \frac{1}{h_i^{\nu + 1}} \deldr{w}(r_{ik},
+h_i)  \frac{\x_i - \x_k}{r_{ik}}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The definition of $r_{ij}$ requires a bit more discussion.
+Since the kernels are required to be spherically symmetric, we might as well have defined
+
+\begin{align}
+r'_{ij} = |\x_j - \x_i |
+\end{align}
+
+which would leave the evaluation of the kernels invariant, but the gradients would have the opposite
+direction:
+
+\begin{align}
+\DELDX{r'_{ij}}
+=   \frac{\x_j - \x_i}{r'_{ij}}
+= - \frac{\x_i - \x_j}{r_{ij}}
+= - \DELDX{r_{ij}}
+\end{align}
+
+
+To show why the first choice is the correct one, consider a one-dimensional case where we choose
+two particles $i$ and $j$ such that $x_j > x_i$ and $q_{ij} = | x_j - x_i | / h_i < H / h_i$, where
+$H$ is the compact support radius of the kernel of choice.
+Because we're considering a one-dimensional case with $x_j > x_i$, we can now perform a simple
+translation such that particle $i$ is at the origin, i.e. $x'_i = 0$ and $x'_j = x_j - x_i = | x_j -
+x_i | = r_{ij}$.
+In this scenario, the gradient in Cartesian coordinates and in spherical coordinates must be the same:
+
+
+\begin{align}
+	\frac{\del}{\del x'} W (|x_i' - x'|, h_i)  \big{|}_{x' = x_j' } &= \frac{\del}{\del r_{ij}} W (r_{ij}, h_i) 		\nonumber\\
+%
+	\Rightarrow \quad \frac{1}{h_i^\nu} \frac{\del w(q'_{ij})}{\del q'_{ij}} \frac{\del q'_{ij}(r'_{ij})}{\del r'_{ij}} \frac{\del r'_{i}(x')}{\del x'}	  \big{|}_{x' = x_j' }  &=
+		\frac{1}{h_i^\nu} \frac{\del w(q_{ij})}{\del q_{ij}} \frac{\del q_{ij}(r_{ij})}{\del r_{ij}}				\label{spher_cart}
+\end{align}
+
+
+
+
+We have the trivial case where
+\begin{align*}
+	r'_{ij} &= |x_i' - x_j'| = | x_i - x_j | = r_{ij} \\
+	q'_{ij} &= r'_{ij}/h_i = q_{ij} \\
+	\Rightarrow \quad \frac{\del w(q'_{ij})}{\del q'_{ij}} &= \frac{\del w(q_{ij})}{\del q_{ij}}, \quad \frac{\del q'_{ij}(r'_{ij})}{\del r'_{ij}} = \frac{\del q_{ij}(r_{ij})}{\del r_{ij}}
+\end{align*}
+
+
+
+giving us the condition from \ref{spher_cart}:
+
+
+
+
+
+
+\begin{equation}
+	\frac{\del r'_{i}(x')}{\del x'}	  \big{|}_{x' = x_j' } = 1 = \frac{\del r_{i}(x)}{\del x}
+\end{equation}
+
+
+this is satisfied for
+\begin{align*}
+	r_j(\x) &= | \x - \x_j |
+\end{align*}
+
+but not for
+
+\begin{align*}
+	r_j(\x) &= | \x_j - \x |
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

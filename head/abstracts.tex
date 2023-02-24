@@ -1,0 +1,129 @@
+\cleardoublepage
+\chapter*{Abstract}
+\markboth{Abstract}{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Numerical simulations have become an indispensable tool in astrophysics and cosmology. The constant
+need for higher accuracy, higher resolutions, and models of ever-increasing sophistication and
+complexity drives the development of modern tools which target largest computing systems and employ
+state-of-the-art numerical methods and algorithms. Hence modern tools need to be developed while
+keeping optimization and parallelization strategies in mind from the start.
+
+In this work, the development and implementation of \GEARRT, a radiative transfer solver using the
+M1 closure in the open source code \swift, is presented, and validated using standard tests for
+radiative transfer. \GEARRT is modeled after \codename{Ramses-RT} (\cite{ramses-rt13}) with some key
+differences. Firstly, while \codename{Ramses-RT} uses finite volume methods and an adaptive mesh
+refinement (AMR) strategy, \GEARRT employs particles as discretization elements and solves the
+equations using a Finite Volume Particle Method (FVPM).
+% While in its current state \GEARRT requires hydrodynamics to also be solved using a FVPM, it can be
+% extended to work alongside hydrodynamics solved using a smooth particle hydrodynamics (SPH) method
+% as well.
+Secondly, \GEARRT makes use of the task-based parallelization strategy of \swift, which allows for
+optimized load balancing, increased cache efficiency, asynchronous communications, and a domain
+decomposition based on work rather than on data.
+
+\GEARRT is able to perform sub-cycles of radiative transfer steps w.r.t. a single hydrodynamics
+step. Radiation requires much smaller time step sizes than hydrodynamics, and sub-cycling permits
+calculations which are not strictly necessary to be skipped. Indeed, in a test case with gravity,
+hydrodynamics, and radiative transfer, the sub-cycling is able to reduce the runtime of a simulation
+by over 90\%. Allowing only a part of the involved physics to be sub-cycled is a contrived matter
+when task-based parallelism is involved, and it required the development of a secondary time
+stepping scheme parallel to the one employed for other physics. It is an entirely novel feature
+in \swift.
+
+Since \GEARRT uses a FVPM, a detailed introduction into finite volume methods and finite volume
+particle methods is presented. In astrophysical literature, two FVPM methods are written about:
+\cite{hopkinsGIZMONewClass2015} have implemented one in their \codename{Gizmo} code, while the one
+mentioned in \cite{ivanovaCommonEnvelopeEvolution2013} isn't used to date. In this work, I test an
+implementation of the \cite{ivanovaCommonEnvelopeEvolution2013} version, and conclude that in its
+current form, it is not suitable for use with particles which are co-moving with the fluid, which
+in turn is an essential feature for cosmological simulations.
+
+Finally, the implementation of \acacia, a new algorithm to generate dark matter halo merger trees
+with the AMR code \ramses, is presented.
+% The algorithm is fully parallel and based on the Message Passing Interface (MPI).
+As opposed to most available merger tree tools, it works on the fly during the course of the
+$N$-body simulation. It can track dark matter substructures individually using the index of the most
+bound particles in the clump.
+Once a halo (or a sub-halo) merges into another one, the algorithm still tracks it through the last
+identified most bound particle in the clump, allowing to check at later snapshots whether the
+merging event was definitive. %, or whether it was only temporary, with the clump only traversing
+another one.
+%The same technique can be used to track orphan galaxies that are not assigned to a
+% parent clump anymore because the clump dissolved due to numerical over-merging.
+The performance of the method is compared using standard validation diagnostics, demonstrating that
+it reaches a quality similar to the best available and commonly used merger tree tools. As proof of
+concept, \acacia is used together with a parameterized stellar-mass-to-halo-mass relation to generate
+a mock galaxy catalog that shows good agreement with observational data.
+
+% The performance of the method using standard
+% We study in detail the impact of various parameters on the resulting halo catalogues and
+% corresponding merger histories.
+\hspace{1cm}
+
+\textbf{Keywords}: Numerical Methods -- Numerical Simulations -- Finite Volume Methods -- Finite
+Volume Particle Methods -- Meshless Methods -- Radiative Transfer -- Parallel Computing -- Galaxies
+Formation -- Galaxies Evolution -- Merger Trees -- Dark Matter
+
+
+
+\cleardoublepage
+
+\begin{otherlanguage}{german}
+\chapter*{Zusammenfassung}
+\markboth{Zusammenfassung}{Zusammenfassung}
+
+Numerische Simulationen sind zu einem unabdiglichen Werkzeug in Astrophysik und Kosmologie
+geworden. Der best\"andige Bedarf nach h\"oherer Genauigkeit, nach h\"oherer Aufl\"osung, und nach
+Modellen mit stetig steigender Rafinesse und Komplexit\"at treibt die Entwicklung von modernen
+Werkzeugen an, welche die gr\"ossten Rechnersysteme anzielen und von numerischen Methoden und
+Algorithmen des neusten Standes Gebrauch machen. Statt sich nur auf die Physik und die Modelle zu
+konzentrieren, m\"ussen moderne Werkzeuge von Beginn an unter Beachtung von Optimisation und
+Parallelisationsstrategien entwickelt werden.
+
+In dieser Arbeit wird die Entwicklung und Implementation von \GEARRT pr\"asentiert, das
+Strahlungs\"ubertragung mittels der M1 Schliessung l\"ost, und durch Standardtests f\"ur
+Strahlungs\"ubertragung validiert. \GEARRT ist nach dem Vorbild von \codename{Ramses-RT}
+(\cite{ramses-rt13}) geformt, jedoch mit einigen entscheidenden Unterschieden. Erstents benutzt
+\codename{Ramses-RT} Finite-Volumen-Verfahren und eine adaptive Gitterverfeinerungsstrategie
+(Adaptive Mesh Refinement, AMR), w\"ahrend \GEARRT Teilchen als Diskretisationselemente einsetzt
+und die Gleichungen mittels eines Finite-Volumen-Teilchen-Verfahrens (FVTV) l\"ost. Zweitens
+benutzt \GEARRT die aufgabenbasierte Parallelisationsstrategie von \swift, welche eine optimisierte
+Lastbalancierung, verbesserte Cache-Effizienz, asynchrone Kommunikationen, und eine arbeitsbasierte
+Dom\"anendekomposition statt einer datenbasierten erlaubt.
+
+\GEARRT ist f\"ahig Unterzyklen der Strahlungs\"ubertragung im Bezug auf einzelne hydrodynamische
+Schritte zu t\"atigen. Strahlung ben\"otigt viel kleinere Zeitschritte als Hydrodynamik, und der
+Einsatz von Unterzyklen erlaubt es Schritte, welche nicht streng n\"otig sind, zu \"uberspringen.
+In einem Versuch mit Gravitation, Hydrodynamik, und Strahlungs\"ubertragung war der Einsatz von
+Unterzyklen imstande, die Laufzeit der Simulation \"uber 90\% zu reduzieren.
+Nur einen Teil der beteiligten Physik in Unterzyklen zu l\"osen ist eine vertrackte Angelegenheit
+unter Anbetracht der aufgabenbasierten Parallelisationsstrategie, und erforderte die Entwicklung
+einer sekund\"aren Zeitschrittmethode, die parallel zu der anderen (welche die restliche Physik
+l\"ost) l\"auft. Der Einsatz von Unterzyklen ist eine vollst\"andig neue Funkion in \swift.
+
+Da \GEARRT ein FVTV einsetzt, ist eine detaillierte Einf\"uhrung in Finite-Volumen- und
+Finite-Volumen-Teilchen-Verfahren gegeben. In der Literatur der Astrophysik wird \"uber zwei FVTV
+geschrieben: \cite{hopkinsGIZMONewClass2015} haben eine in ihrem \codename{Gizmo} Code implementiert,
+w\"ahrend diejenige, welche in \cite{ivanovaCommonEnvelopeEvolution2013} erw\"ahnt wird, bis heute
+nicht benutzt wird. In dieser Arbeit teste ich eine Implementation der
+\cite{ivanovaCommonEnvelopeEvolution2013}-Version, und komme zum Schluss, dass es in der heutigen
+Form unbrauchbar f\"ur den Einsatz mit Teilchen ist, welche mit dem Fluid mitbewegt werden, was
+von essentieller Wichtigkeit in kosmologischen Simulationen ist.
+
+
+Letztendlich wird die Implementation von \acacia, einem neuen Algorithmus um Verschmelzungsb\"aume
+(Merger Trees) von Halos bestehend aus dunkler Materie, im AMR Code \ramses pr\"asentiert. Im
+Unterschied zu den meisten verf\"ugbaren Merger Tree Werkzeugen arbeitet \acacia noch w\"ahrend die
+$N$-Teilchen-Simulation verl\"auft. Es kann Unterstrukturen von dunkler Materie durch die Indizes
+von den am st\"arksten gebundenen Teilchen der Klumpen einzeln verfolgen. Wenn ein Halo (oder
+Unter-Halo) mit einem anderen verschmilzt, wird es vom Algorithmus durch den zuletzt als am
+st\"arksten gebunden identifizierten Teilchen weiterhin verfolgt. Dies erm\"oglicht es in sp\"ateren
+Speicherabz\"ugen zu pr\"ufen, ob die Verschmelzung tats\"achlich definitiv war. Die Leistung der
+Methode wird mittels Standardvalidationsdiagnostiken verglichen, und zeigt, dass es vergleichbare
+Qualit\"at mit den besten verf\"ugbaren und h\"aufig benutzten Merger Tree Werkzeugen liefert. Als
+Konzeptnachweis wird \acacia zusammen mit einer parametrisierten Stern-Masse-Zu-Halo-Masse-Beziehung
+eingesetzt, um k\"unstliche Galaxienkataloge zu erstellen, welche gute \"Ubereinstimmung mit
+observierten Daten aufweisen.
+
+\end{otherlanguage}

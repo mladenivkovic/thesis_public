@@ -1,0 +1,46 @@
+\begin{figure*}
+    {
+%        \renewcommand{\arraystretch}{0.1}
+        \setlength\tabcolsep{0em}
+    	\centering
+    	\begin{tabular}{p{4.3cm}p{4.3cm}p{4.3cm}}
+            \centering
+%    		\hline
+    		%
+    		\fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00001.png}}	&
+    		\fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00020.png}}	&
+    		\fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00027.png}}  \\%[-0.5em]
+    		%
+    		%
+    		\fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00031.png}}	&
+    		\fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00033.png}}	&
+            \fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00038.png}}	\\%[-0.5em]
+    	\end{tabular}
+%    	\begin{tabular}{p{5.3cm}p{5.3cm}p{5.3cm}}
+%            \centering
+%%    		\hline
+%    		%
+%    		\fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00001.png}}	&
+%    		\fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00018.png}}	&
+%    		\fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00024.png}}  \\%[-0.5em]
+%    		%
+%    		%
+%    		\fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00030.png}}	&
+%    		\fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00039.png}}	&
+%            \fbox{\includegraphics[width = 4.3cm]{figures/ACACIA/jumper-demo/particleplot_00042.png}}	\\%[-0.5em]
+%    	\end{tabular}
+    }
+	\caption{\label{fig:jumper-demo}
+        Illustration of how haloes can seemingly merge into another one and re-appear a few snapshots later.
+        The blue and orange particles are two initially distinct haloes that pass through each other.
+        The galaxies assigned to them are marked by a star with the same colour as the particles.
+        Fully black stars mark orphan galaxies, which have lost their unique host (sub)halo.
+        The number in the upper right corner of each plot is the snapshot number that is depicted.
+        In snapshots 27-32, the halo-finding algorithm doesn't identify both haloes as distinct objects.
+        However by tracing the blue halo's orphan galaxy it was possible to link the halo in snapshot 33 all the way back to snapshot 26. \hspace{\textwidth}
+        The initial conditions were created using \texttt{DICE} \citep{DICE}.
+%        Both haloes are identical with mass of $5\cdot 10^{10}\msol$, each containing 5000 particles and following a NFW mass profile.
+%        The plotted region corresponds to $400$ kpc on each side.
+        }
+\end{figure*}
+

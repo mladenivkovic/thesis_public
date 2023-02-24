@@ -1,0 +1,1511 @@
+\begin{thebibliography}{}
+
+\bibitem[Abel and Wandelt, 2002]{abelAdaptiveRayTracing2002}
+Abel, T. and Wandelt, B.~D. (2002).
+\newblock Adaptive ray tracing for radiative transfer around point sources.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  330:L53--L56.
+
+\bibitem[Agertz et~al., 2007]{agertzFundamentalDifferencesSPH2007a}
+Agertz, O., Moore, B., Stadel, J., Potter, D., Miniati, F., Read, J., Mayer,
+  L., Gawryszczak, A., Kravtsov, A., Nordlund, {\AA}., Pearce, F., Quilis, V.,
+  Rudd, D., Springel, V., Stone, J., Tasker, E., Teyssier, R., Wadsley, J., and
+  Walder, R. (2007).
+\newblock Fundamental differences between {{SPH}} and grid methods.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  380:963--978.
+
+\bibitem[Ahn and Shapiro, 2007]{ahnDoesRadiativeFeedback2007}
+Ahn, K. and Shapiro, P.~R. (2007).
+\newblock Does radiative feedback by the first stars promote or prevent second
+  generation star formation?
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  375(3):881--908.
+
+\bibitem[Alonso~Asensio et~al.,
+  2023]{alonsoasensioMeshfreeHydrodynamicsPKDGRAV32023}
+Alonso~Asensio, I., Dalla~Vecchia, C., Potter, D., and Stadel, J. (2023).
+\newblock Mesh-free hydrodynamics in {{PKDGRAV3}} for galaxy formation
+  simulations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  519:300--317.
+
+\bibitem[Alvarez et~al., 2006]{alvarezIIRegionFirst2006}
+Alvarez, M.~A., Bromm, V., and Shapiro, P.~R. (2006).
+\newblock The {{H II Region}} of the {{First Star}}.
+\newblock {\em ApJ}, 639(2):621--632.
+
+\bibitem[Amdahl, 1967]{amdahlValiditySingleProcessor1967}
+Amdahl, G.~M. (1967).
+\newblock Validity of the single processor approach to achieving large scale
+  computing capabilities.
+\newblock In {\em Proceedings of the {{April}} 18-20, 1967, Spring Joint
+  Computer Conference}, {{AFIPS}} '67 ({{Spring}}), pages 483--485, {New York,
+  NY, USA}. {Association for Computing Machinery}.
+
+\bibitem[Aubert et~al., 2004]{aubertOriginImplicationsDark2004}
+Aubert, D., Pichon, C., and Colombi, S. (2004).
+\newblock The origin and implications of dark matter anisotropic cosmic infall
+  on \textasciitilde{{L}}* haloes.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  352:376--398.
+
+\bibitem[Avila et~al., 2014]{SUSSING_HALOFINDER}
+Avila, S., Knebe, A., Pearce, F.~R., Schneider, A., Srisawat, C., Thomas,
+  P.~A., Behroozi, P., Elahi, P.~J., Han, J., Mao, Y.-Y., Onions, J., and
+  {Rodriguez-Gomez}, V. (2014).
+\newblock Sussing {{Merger Trees}}: The influence of the halo finder.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  441(4):3488--3501.
+
+\bibitem[Baczynski et~al., 2015]{baczynskiFerventChemistrycoupledIonizing2015}
+Baczynski, C., Glover, S. C.~O., and Klessen, R.~S. (2015).
+\newblock Fervent: Chemistry-coupled, ionizing and non-ionizing radiative
+  feedback in hydrodynamical simulations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  454:380--411.
+
+\bibitem[Baek et~al., 2009]{baekSimulated21Cm2009}
+Baek, S., Matteo, P.~D., Semelin, B., Combes, F., and Revaz, Y. (2009).
+\newblock The simulated 21 cm signal during the epoch of reionization: Full
+  modeling of the {{Ly-$\alpha$}} pumping.
+\newblock {\em A\&A}, 495(2):389--405.
+
+\bibitem[Barnes et~al., 2020]{barnesRadiativeAGNFeedback2020}
+Barnes, D.~J., Kannan, R., Vogelsberger, M., and Marinacci, F. (2020).
+\newblock Radiative {{AGN}} feedback on a moving mesh: The impact of the
+  galactic disc and dust physics on outflow properties.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  494(1):1143--1164.
+
+\bibitem[Behroozi et~al., 2013a]{behrooziAVERAGESTARFORMATION2013}
+Behroozi, P.~S., Wechsler, R.~H., and Conroy, C. (2013a).
+\newblock The {{Average Star Formation Histories Of Galaxies In Dark Matter
+  Halos From}} z = 0-8.
+\newblock {\em The Astrophysical Journal}, 770(1):57.
+
+\bibitem[Behroozi et~al., 2013b]{behrooziRockstarPhaseSpaceTemporal2013}
+Behroozi, P.~S., Wechsler, R.~H., and Wu, H.-Y. (2013b).
+\newblock The {{Rockstar Phase-Space Temporal Halo Finder}} and the {{Velocity
+  Offsets}} of {{Cluster Cores}}.
+\newblock {\em The Astrophysical Journal}, 762(2):109.
+
+\bibitem[Behroozi et~al., 2013c]{behrooziGravitationallyConsistentHalo2013}
+Behroozi, P.~S., Wechsler, R.~H., Wu, H.-Y., Busha, M.~T., Klypin, A.~A., and
+  Primack, J.~R. (2013c).
+\newblock Gravitationally {{Consistent Halo Catalogs}} and {{Merger Trees}} for
+  {{Precision Cosmology}}.
+\newblock {\em The Astrophysical Journal}, 763:18.
+
+\bibitem[Benson et~al., 2000]{bensonNatureGalaxyBias2000}
+Benson, A.~J., Cole, S., Frenk, C.~S., Baugh, C.~M., and Lacey, C.~G. (2000).
+\newblock The nature of galaxy bias and clustering.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  311:793--808.
+
+\bibitem[Berlind and Weinberg, 2002]{berlindHaloOccupationDistribution2002}
+Berlind, A.~A. and Weinberg, D.~H. (2002).
+\newblock The {{Halo Occupation Distribution}}: {{Toward}} an {{Empirical
+  Determination}} of the {{Relation}} between {{Galaxies}} and {{Mass}}.
+\newblock {\em The Astrophysical Journal}, 575:587--616.
+
+\bibitem[Billet and Toro, 1997]{billetAccuracyStabilityExplicit1997}
+Billet, S.~J. and Toro, E.~F. (1997).
+\newblock On the {{Accuracy}} and {{Stability}} of {{Explicit Schemes}} for
+  {{Multidimensional Linear Homogeneous Advection Equations}}.
+\newblock {\em Journal of Computational Physics}, 131(1):247--250.
+
+\bibitem[Binney and Tremaine, 2008]{binneyGalacticDynamicsSecond2008a}
+Binney, J. and Tremaine, S. (2008).
+\newblock {\em Galactic {{Dynamics}}: {{Second Edition}}}.
+\newblock Princeton {{Series}} in {{Astrophysics}}. {Princeton University
+  Press}.
+
+\bibitem[Bleuler et~al., 2015]{bleulerPHEWParallelSegmentation2015}
+Bleuler, A., Teyssier, R., Carassou, S., and Martizzi, D. (2015).
+\newblock {{PHEW}}: A parallel segmentation algorithm for three-dimensional
+  {{AMR}} datasets - application to structure detection in self-gravitating
+  flows.
+\newblock {\em Computational Astrophysics and Cosmology}, 2(1).
+
+\bibitem[Borrow and Borrisov, 2020]{borrowSwiftsimioPythonLibrary2020}
+Borrow, J. and Borrisov, A. (2020).
+\newblock Swiftsimio: {{A Python}} library for reading {{SWIFT}} data.
+\newblock {\em The Journal of Open Source Software}, 5:2430.
+
+\bibitem[Borrow et~al., 2018]{borrowSWIFTMaintainingWeakscalability2018}
+Borrow, J., Bower, R.~G., Draper, P.~W., Gonnet, P., and Schaller, M. (2018).
+\newblock {{SWIFT}}: {{Maintaining}} weak-scalability with a dynamic range of
+  10\^4 in time-step size to harness extreme adaptivity.
+\newblock In {\em 13th {{SPHERIC International Workshop}}}, pages 44--51,
+  {Galway, Ireland}.
+
+\bibitem[Borrow et~al., 2022]{borrowTHESANHRHowDoes2022}
+Borrow, J., Kannan, R., Garaldi, E., Smith, A., Vogelsberger, M., Pakmor, R.,
+  Springel, V., and Hernquist, L. (2022).
+\newblock {{THESAN-HR}}: {{How}} does reionization impact early galaxy
+  evolution?
+
+\bibitem[Bower et~al., 2006]{bowerBreakingHierarchyGalaxy2006}
+Bower, R.~G., Benson, A.~J., Malbon, R., Helly, J.~C., Frenk, C.~S., Baugh,
+  C.~M., Cole, S., and Lacey, C.~G. (2006).
+\newblock Breaking the hierarchy of galaxy formation.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  370:645--655.
+
+\bibitem[Braspenning et~al.,
+  2022]{braspenningSensitivityNonradiativeCloudwind2022a}
+Braspenning, J., Schaye, J., Borrow, J., and Schaller, M. (2022).
+\newblock Sensitivity of non-radiative cloud-wind interactions to the
+  hydrodynamics solver.
+
+\bibitem[Bruzual and Charlot, 2003]{bruzualStellarPopulationSynthesis2003}
+Bruzual, G. and Charlot, S. (2003).
+\newblock Stellar population synthesis at the resolution of 2003.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  344:1000--1028.
+
+\bibitem[Bryan et~al., 2014]{bryanENZOAdaptiveMesh2014}
+Bryan, G.~L., Norman, M.~L., O'Shea, B.~W., Abel, T., Wise, J.~H., Turk, M.~J.,
+  Reynolds, D.~R., Collins, D.~C., Wang, P., Skillman, S.~W., Smith, B.,
+  Harkness, R.~P., Bordner, J., Kim, J.-h., Kuhlen, M., Xu, H., Goldbaum, N.,
+  Hummels, C., Kritsuk, A.~G., Tasker, E., Skory, S., Simpson, C.~M., Hahn, O.,
+  Oishi, J.~S., So, G.~C., Zhao, F., Cen, R., Li, Y., and Collaboration), T.~E.
+  (2014).
+\newblock {{ENZO}}: {{An}} adaptive mesh refinement code for astrophysics.
+\newblock {\em The Astrophysical Journal Supplement Series}, 211(2):19.
+
+\bibitem[Campbell et~al., 2018]{campbellGalaxyClusteringCrisis2018}
+Campbell, D., van~den Bosch, F.~C., Padmanabhan, N., Mao, Y.-Y., Zentner,
+  A.~R., Lange, J.~U., Jiang, F., and Villarreal, A. (2018).
+\newblock The {{Galaxy Clustering Crisis}} in {{Abundance Matching}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  477(1):359--383.
+
+\bibitem[Camps and Baes, 2015]{campsSKIRTAdvancedDust2015}
+Camps, P. and Baes, M. (2015).
+\newblock {{SKIRT}}: {{An}} advanced dust radiative transfer code with a
+  user-friendly architecture.
+\newblock {\em Astronomy and Computing}, 9:20--33.
+
+\bibitem[Chan et~al., 2021]{chanSmoothedParticleRadiation2021}
+Chan, T.~K., Theuns, T., Bower, R., and Frenk, C. (2021).
+\newblock Smoothed {{Particle Radiation Hydrodynamics}}: {{Two-Moment}} method
+  with {{Local Eddington Tensor Closure}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  505(4):5784--5814.
+
+\bibitem[{Chaves-Montero} et~al.,
+  2016]{chaves-monteroSubhaloAbundanceMatching2016}
+{Chaves-Montero}, J., Angulo, R.~E., Schaye, J., Schaller, M., Crain, R.~A.,
+  Furlong, M., and Theuns, T. (2016).
+\newblock Subhalo abundance matching and assembly bias in the {{EAGLE}}
+  simulation.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  460(3):3100--3118.
+
+\bibitem[Cheng et~al., 1999]{chengFastAdaptiveMultipole1999}
+Cheng, H., Greengard, L., and Rokhlin, V. (1999).
+\newblock A {{Fast Adaptive Multipole Algorithm}} in {{Three Dimensions}}.
+\newblock {\em Journal of Computational Physics}, 155:468--498.
+
+\bibitem[Ciardi et~al., 2001]{ciardiCosmologicalReionizationFirst2001}
+Ciardi, B., Ferrara, A., Marri, S., and Raimondo, G. (2001).
+\newblock Cosmological reionization around the first stars: {{Monte Carlo}}
+  radiative transfer.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  324:381--388.
+
+\bibitem[Collaboration et~al., 2016]{planckcollaborationPlanck2015Results2016}
+Collaboration, P., Ade, P. a.~R., Aghanim, N., Arnaud, M., Ashdown, M., Aumont,
+  J., Baccigalupi, C., Banday, A.~J., Barreiro, R.~B., Bartlett, J.~G.,
+  Bartolo, N., Battaner, E., Battye, R., Benabed, K., Beno{\^i}t, A.,
+  {Benoit-L{\'e}vy}, A., Bernard, J.-P., Bersanelli, M., Bielewicz, P., Bock,
+  J.~J., Bonaldi, A., Bonavera, L., Bond, J.~R., Borrill, J., Bouchet, F.~R.,
+  Boulanger, F., Bucher, M., Burigana, C., Butler, R.~C., Calabrese, E.,
+  Cardoso, J.-F., Catalano, A., Challinor, A., Chamballu, A., Chary, R.-R.,
+  Chiang, H.~C., Chluba, J., Christensen, P.~R., Church, S., Clements, D.~L.,
+  Colombi, S., Colombo, L. P.~L., Combet, C., Coulais, A., Crill, B.~P., Curto,
+  A., Cuttaia, F., Danese, L., Davies, R.~D., Davis, R.~J., {de Bernardis}, P.,
+  {de Rosa}, A., {de Zotti}, G., Delabrouille, J., D{\'e}sert, F.-X.,
+  Di~Valentino, E., Dickinson, C., Diego, J.~M., Dolag, K., Dole, H., Donzelli,
+  S., Dor{\'e}, O., Douspis, M., Ducout, A., Dunkley, J., Dupac, X.,
+  Efstathiou, G., Elsner, F., En{\ss}lin, T.~A., Eriksen, H.~K., Farhang, M.,
+  Fergusson, J., Finelli, F., Forni, O., Frailis, M., Fraisse, A.~A.,
+  Franceschi, E., Frejsel, A., Galeotta, S., Galli, S., Ganga, K., Gauthier,
+  C., Gerbino, M., Ghosh, T., Giard, M., {Giraud-H{\'e}raud}, Y., Giusarma, E.,
+  Gjerl{\o}w, E., {Gonz{\'a}lez-Nuevo}, J., G{\'o}rski, K.~M., Gratton, S.,
+  Gregorio, A., Gruppuso, A., Gudmundsson, J.~E., Hamann, J., Hansen, F.~K.,
+  Hanson, D., Harrison, D.~L., Helou, G., {Henrot-Versill{\'e}}, S.,
+  {Hern{\'a}ndez-Monteagudo}, C., Herranz, D., Hildebrandt, S.~R., Hivon, E.,
+  Hobson, M., Holmes, W.~A., Hornstrup, A., Hovest, W., Huang, Z.,
+  Huffenberger, K.~M., Hurier, G., Jaffe, A.~H., Jaffe, T.~R., Jones, W.~C.,
+  Juvela, M., Keih{\"a}nen, E., Keskitalo, R., Kisner, T.~S., Kneissl, R.,
+  Knoche, J., Knox, L., Kunz, M., {Kurki-Suonio}, H., Lagache, G.,
+  L{\"a}hteenm{\"a}ki, A., Lamarre, J.-M., Lasenby, A., Lattanzi, M., Lawrence,
+  C.~R., Leahy, J.~P., Leonardi, R., Lesgourgues, J., Levrier, F., Lewis, A.,
+  Liguori, M., Lilje, P.~B., {Linden-V{\o}rnle}, M., {L{\'o}pez-Caniego}, M.,
+  Lubin, P.~M., {Mac{\'i}as-P{\'e}rez}, J.~F., Maggio, G., Maino, D.,
+  Mandolesi, N., Mangilli, A., Marchini, A., Maris, M., Martin, P.~G.,
+  Martinelli, M., {Mart{\'i}nez-Gonz{\'a}lez}, E., Masi, S., Matarrese, S.,
+  McGehee, P., Meinhold, P.~R., Melchiorri, A., Melin, J.-B., Mendes, L.,
+  Mennella, A., Migliaccio, M., Millea, M., Mitra, S., {Miville-Desch{\^e}nes},
+  M.-A., Moneti, A., Montier, L., Morgante, G., Mortlock, D., Moss, A., Munshi,
+  D., Murphy, J.~A., Naselsky, P., Nati, F., Natoli, P., Netterfield, C.~B.,
+  {N{\o}rgaard-Nielsen}, H.~U., Noviello, F., Novikov, D., Novikov, I.,
+  Oxborrow, C.~A., Paci, F., Pagano, L., Pajot, F., Paladini, R., Paoletti, D.,
+  Partridge, B., Pasian, F., Patanchon, G., Pearson, T.~J., Perdereau, O.,
+  Perotto, L., Perrotta, F., Pettorino, V., Piacentini, F., Piat, M.,
+  Pierpaoli, E., Pietrobon, D., Plaszczynski, S., Pointecouteau, E., Polenta,
+  G., Popa, L., Pratt, G.~W., Pr{\'e}zeau, G., Prunet, S., Puget, J.-L.,
+  Rachen, J.~P., Reach, W.~T., Rebolo, R., Reinecke, M., Remazeilles, M.,
+  Renault, C., Renzi, A., Ristorcelli, I., Rocha, G., Rosset, C., Rossetti, M.,
+  Roudier, G., {Rouill{\'e} d'Orfeuil}, B., {Rowan-Robinson}, M.,
+  {Rubi{\~n}o-Mart{\'i}n}, J.~A., Rusholme, B., Said, N., Salvatelli, V.,
+  Salvati, L., Sandri, M., Santos, D., Savelainen, M., Savini, G., Scott, D.,
+  Seiffert, M.~D., Serra, P., Shellard, E. P.~S., Spencer, L.~D., Spinelli, M.,
+  Stolyarov, V., Stompor, R., Sudiwala, R., Sunyaev, R., Sutton, D.,
+  {Suur-Uski}, A.-S., Sygnet, J.-F., Tauber, J.~A., Terenzi, L., Toffolatti,
+  L., Tomasi, M., Tristram, M., Trombetti, T., Tucci, M., Tuovinen, J.,
+  T{\"u}rler, M., Umana, G., Valenziano, L., Valiviita, J., Van~Tent, F.,
+  Vielva, P., Villa, F., Wade, L.~A., Wandelt, B.~D., Wehus, I.~K., White, M.,
+  White, S. D.~M., Wilkinson, A., Yvon, D., Zacchei, A., and Zonca, A. (2016).
+\newblock Planck 2015 results. {{XIII}}. {{Cosmological}} parameters.
+\newblock {\em Astronomy \& Astrophysics}, 594:A13.
+
+\bibitem[Commer{\c c}on et~al.,
+  2011]{commerconRadiationHydrodynamicsAdaptive2011}
+Commer{\c c}on, B., Teyssier, R., Audit, E., Hennebelle, P., and Chabrier, G.
+  (2011).
+\newblock Radiation hydrodynamics with adaptive mesh refinement and application
+  to prestellar core collapse. {{I}}. {{Methods}}.
+\newblock {\em Astronomy \&amp; Astrophysics, Volume 529, id.A35,
+  {$<$}NUMPAGES{$>$}14{$<$}/NUMPAGES{$>$} pp.}, 529:A35.
+
+\bibitem[Conroy et~al., 2006]{conroyModelingLuminositydependentGalaxy2006}
+Conroy, C., Wechsler, R.~H., and Kravtsov, A.~V. (2006).
+\newblock Modeling {{Luminosity-dependent Galaxy Clustering}} through {{Cosmic
+  Time}}.
+\newblock {\em The Astrophysical Journal}, 647:201--214.
+
+\bibitem[Costa et~al., 2018]{costaDrivingGasShells2018}
+Costa, T., Rosdahl, J., Sijacki, D., and Haehnelt, M.~G. (2018).
+\newblock Driving gas shells with radiation pressure on dust in
+  radiation-hydrodynamic simulations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  473(3):4197--4219.
+
+\bibitem[Croton et~al., 2006]{crotonManyLivesActive2006}
+Croton, D.~J., Springel, V., White, S. D.~M., De~Lucia, G., Frenk, C.~S., Gao,
+  L., Jenkins, A., Kauffmann, G., Navarro, J.~F., and Yoshida, N. (2006).
+\newblock The many lives of active galactic nuclei: Cooling flows, black holes
+  and the luminosities and colours of galaxies.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}, 365:11--28.
+
+\bibitem[Davis et~al., 1985]{davisEvolutionLargescaleStructure1985}
+Davis, M., Efstathiou, G., Frenk, C.~S., and White, S. D.~M. (1985).
+\newblock The evolution of large-scale structure in a universe dominated by
+  cold dark matter.
+\newblock {\em The Astrophysical Journal}, 292:371--394.
+
+\bibitem[Dehnen, 2014]{dehnenFastMultipoleMethod2014f}
+Dehnen, W. (2014).
+\newblock A fast multipole method for stellar dynamics.
+\newblock {\em Computational Astrophysics and Cosmology}, 1:1.
+
+\bibitem[Dehnen and Aly, 2012]{dehnenImprovingConvergenceSmoothed2012c}
+Dehnen, W. and Aly, H. (2012).
+\newblock Improving convergence in smoothed particle hydrodynamics simulations
+  without pairing instability.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  425(2):1068--1082.
+
+\bibitem[Dubois et~al., 2014]{duboisDancingDarkGalactic2014}
+Dubois, Y., Pichon, C., Welker, C., Le~Borgne, D., Devriendt, J., Laigle, C.,
+  Codis, S., Pogosyan, D., Arnouts, S., Benabed, K., Bertin, E., Blaizot, J.,
+  Bouchet, F., Cardoso, J.-F., Colombi, S., {de Lapparent}, V., Desjacques, V.,
+  Gavazzi, R., Kassin, S., Kimm, T., McCracken, H., Milliard, B., Peirani, S.,
+  Prunet, S., Rouberol, S., Silk, J., Slyz, A., Sousbie, T., Teyssier, R.,
+  Tresse, L., Treyer, M., Vibert, D., and Volonteri, M. (2014).
+\newblock Dancing in the dark: Galactic properties trace spin swings along the
+  cosmic web.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  444:1453--1468.
+
+\bibitem[Durier and Dalla~Vecchia,
+  2012]{durierImplementationFeedbackSmoothed2012}
+Durier, F. and Dalla~Vecchia, C. (2012).
+\newblock Implementation of feedback in smoothed particle hydrodynamics:
+  Towards concordance of methods.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  419:465--478.
+
+\bibitem[Elahi et~al., 2019]{elahiClimbingHaloMerger2019}
+Elahi, P.~J., Poulton, R. J.~J., Tobar, R.~J., Canas, R., Lagos, C. d.~P.,
+  Power, C., and Robotham, A. S.~G. (2019).
+\newblock Climbing {{Halo Merger Trees}} with {{TreeFrog}}.
+\newblock {\em Publications of the Astronomical Society of Australia}, 36:e028.
+
+\bibitem[Finlator et~al., 2009]{finlatorNewMomentMethod2009}
+Finlator, K., {\"O}zel, F., and Dav{\'e}, R. (2009).
+\newblock A new moment method for continuum radiative transfer in cosmological
+  re-ionization.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  393:1090--1106.
+
+\bibitem[Frenk et~al., 1999]{frenkSantaBarbaraCluster1999}
+Frenk, C.~S., White, S. D.~M., Bode, P., Bond, J.~R., Bryan, G.~L., Cen, R.,
+  Couchman, H. M.~P., Evrard, A.~E., Gnedin, N., Jenkins, A., Khokhlov, A.~M.,
+  Klypin, A., Navarro, J.~F., Norman, M.~L., Ostriker, J.~P., Owen, J.~M.,
+  Pearce, F.~R., Pen, U.~L., Steinmetz, M., Thomas, P.~A., Villumsen, J.~V.,
+  Wadsley, J.~W., Warren, M.~S., Xu, G., and Yepes, G. (1999).
+\newblock The {{Santa Barbara Cluster Comparison Project}}: {{A Comparison}} of
+  {{Cosmological Hydrodynamics Solutions}}.
+\newblock {\em The Astrophysical Journal}, 525:554--582.
+
+\bibitem[Frigo and Johnson, 2005]{frigoDesignImplementationFFTW32005}
+Frigo, M. and Johnson, S. (2005).
+\newblock The {{Design}} and {{Implementation}} of {{FFTW3}}.
+\newblock {\em Proc. IEEE}, 93(2):216--231.
+
+\bibitem[Fuksman and Mignone, 2019]{fuksmanRadiativeTransferModule2019}
+Fuksman, J. D.~M. and Mignone, A. (2019).
+\newblock A radiative transfer module for relativistic magnetohydrodynamics in
+  the {{PLUTO}} code.
+\newblock {\em arXiv:1903.10456 [astro-ph]}.
+
+\bibitem[Gaburov et~al., 2012]{gaburovMagneticallyLevitatingAccretion2012}
+Gaburov, E., Johansen, A., and Levin, Y. (2012).
+\newblock Magnetically levitating accretion disks around supermassive black
+  holes.
+\newblock {\em ApJ}, 758(2):103.
+
+\bibitem[Gaburov and Nitadori, 2011]{gaburovAstrophysicalWeightedParticle2011}
+Gaburov, E. and Nitadori, K. (2011).
+\newblock Astrophysical {{Weighted Particle Magnetohydrodynamics}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  414(1):129--154.
+
+\bibitem[Glover, 2005]{gloverFormationFirstStars2005}
+Glover, S. (2005).
+\newblock The {{Formation Of The First Stars In The Universe}}.
+\newblock {\em Space Science Reviews}, 117:445--508.
+
+\bibitem[Gnedin and Abel,
+  2001]{gnedinMultidimensionalCosmologicalRadiative2001}
+Gnedin, N.~Y. and Abel, T. (2001).
+\newblock Multi-dimensional cosmological radiative transfer with a {{Variable
+  Eddington Tensor}} formalism.
+\newblock {\em New Astronomy}, 6:437--455.
+
+\bibitem[Gnedin et~al., 2009]{gnedinModelingMolecularHydrogen2009}
+Gnedin, N.~Y., Tassis, K., and Kravtsov, A.~V. (2009).
+\newblock Modeling {{Molecular Hydrogen}} and {{Star Formation}} in
+  {{Cosmological Simulations}}.
+\newblock {\em The Astrophysical Journal}, 697(1):55--67.
+
+\bibitem[Gonnet et~al., 2016]{gonnetQuickSchedTaskbasedParallelism2016b}
+Gonnet, P., Chalk, A. B.~G., and Schaller, M. (2016).
+\newblock {{QuickSched}}: {{Task-based}} parallelism with dependencies and
+  conflicts.
+
+\bibitem[Gonnet et~al., 2013]{gonnetSWIFTFastAlgorithms2013}
+Gonnet, P., Schaller, M., Theuns, T., and Chalk, A. B.~G. (2013).
+\newblock {{SWIFT}}: {{Fast}} algorithms for multi-resolution {{SPH}} on
+  multi-core architectures.
+\newblock In {\em 8th {{International SPHERIC Workshop}}}, {Trondheim, Norway}.
+
+\bibitem[Gonz{\'a}lez et~al.,
+  2007]{gonzalezHERACLESThreedimensionalRadiation2007}
+Gonz{\'a}lez, M., Audit, E., and Huynh, P. (2007).
+\newblock {{HERACLES}}: A three-dimensional radiation hydrodynamics code.
+\newblock {\em Astronomy \& Astrophysics}, 464(2):429--435.
+
+\bibitem[Grassi et~al., 2014]{grassiKROMEPackageEmbed2014}
+Grassi, T., Bovino, S., Schleicher, D. R.~G., Prieto, J., Seifried, D.,
+  Simoncini, E., and Gianturco, F.~A. (2014).
+\newblock {{KROME}} - a package to embed chemistry in astrophysical
+  simulations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  439:2386--2419.
+
+\bibitem[Grond et~al., 2019]{grondTREVRGeneralLog2019}
+Grond, J.~J., Woods, R.~M., Wadsley, J.~W., and Couchman, H. M.~P. (2019).
+\newblock {{TREVR}}: {{A}} general {{N}} log\^2 {{N}} radiative transfer
+  algorithm.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  485(3):3681--3695.
+
+\bibitem[Groth et~al., 2023]{grothCosmologicalSimulationCode2023a}
+Groth, F., Steinwandel, U.~P., Valentini, M., and Dolag, K. (2023).
+\newblock The {{Cosmological Simulation Code OpenGadget3}} --
+  {{Implementation}} of {{Meshless Finite Mass}}.
+
+\bibitem[Guo et~al., 2010]{guoHowGalaxiesPopulate2010}
+Guo, Q., White, S., Li, C., and {Boylan-Kolchin}, M. (2010).
+\newblock How do galaxies populate dark matter haloes?
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  404(3):1111--1120.
+
+\bibitem[Hahn and Abel, 2011]{hahnMultiscaleInitialConditions2011}
+Hahn, O. and Abel, T. (2011).
+\newblock Multi-scale initial conditions for cosmological simulations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  415(3):2101--2121.
+
+\bibitem[Hahn et~al., 2010]{hahnLargescaleOrientationsDisc2010}
+Hahn, O., Teyssier, R., and Carollo, C.~M. (2010).
+\newblock The large-scale orientations of disc galaxies.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  405:274--290.
+
+\bibitem[Hayes et~al., 2006]{hayesSimulatingRadiatingMagnetized2006}
+Hayes, J.~C., Norman, M.~L., Fiedler, R.~A., Bordner, J.~O., Li, P.~S., Clark,
+  S.~E., {ud-Doula}, A., and Low, M.-M.~M. (2006).
+\newblock Simulating {{Radiating}} and {{Magnetized Flows}} in {{Multiple
+  Dimensions}} with {{ZEUS-MP}}.
+\newblock {\em The Astrophysical Journal Supplement Series}, 165(1):188.
+
+\bibitem[Hernquist and Katz, 1989]{hernquistTREESPHUnificationSPH1989}
+Hernquist, L. and Katz, N. (1989).
+\newblock {{TREESPH}}: {{A Unification}} of {{SPH}} with the {{Hierarchical
+  Tree Method}}.
+\newblock {\em The Astrophysical Journal Supplement Series}, 70:419.
+
+\bibitem[Hietel et~al., 2001]{hietelFiniteVolumeParticleMethodConservation2001}
+Hietel, D., Junk, M., Keck, R., and Teleaga, D. (2001).
+\newblock The {{Finite-Volume-Particle Method}} for {{Conservation Laws}}.
+\newblock In {\em Proceedings of {{GAMM Workshop}} "{{Discrete Modelling}} and
+  Discrete {{Algorithms}} in {{Continuum Mechanics}}"}, page~10.
+
+\bibitem[Hietel et~al., 2005]{hietelMeshlessMethodsConservation2005}
+Hietel, D., Junk, M., Kuhnert, J., and Tiwari, S. (2005).
+\newblock Meshless methods for conservation laws.
+\newblock {\em Analysis and Numerics for Conservation Laws (G. Warnecke Edt.)},
+  pages 339--362.
+
+\bibitem[Hopkins, 2015]{hopkinsGIZMONewClass2015}
+Hopkins, P.~F. (2015).
+\newblock {{GIZMO}}: {{A New Class}} of {{Accurate}}, {{Mesh-Free Hydrodynamic
+  Simulation Methods}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  450(1):53--110.
+
+\bibitem[Hopkins and Grudic, 2019]{hopkinsNumericalProblemsCoupling2019}
+Hopkins, P.~F. and Grudic, M.~Y. (2019).
+\newblock Numerical {{Problems}} in {{Coupling Photon Momentum}} ({{Radiation
+  Pressure}}) to {{Gas}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  483(3):4187--4196.
+
+\bibitem[Hubber et~al., 2018]{hubberGANDALFGraphicalAstrophysics2018}
+Hubber, D.~A., Rosotti, G.~P., and Booth, R.~A. (2018).
+\newblock {{GANDALF}} - {{Graphical Astrophysics}} code for {{N-body Dynamics
+  And Lagrangian Fluids}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  473:1603--1632.
+
+\bibitem[Iliev et~al., 2006]{ilievCosmologicalRadiativeTransfer2006}
+Iliev, I.~T., Ciardi, B., Alvarez, M.~A., Maselli, A., Ferrara, A., Gnedin,
+  N.~Y., Mellema, G., Nakamoto, T., Norman, M.~L., Razoumov, A.~O., Rijkhorst,
+  E.-J., Ritzerveld, J., Shapiro, P.~R., Susa, H., Umemura, M., and Whalen,
+  D.~J. (2006).
+\newblock Cosmological {{Radiative Transfer Codes Comparison Project I}}: {{The
+  Static Density Field Tests}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  371(3):1057--1086.
+
+\bibitem[Iliev et~al., 2009]{ilievCosmologicalRadiativeTransfer2009}
+Iliev, I.~T., Whalen, D., Mellema, G., Ahn, K., Baek, S., Gnedin, N.~Y.,
+  Kravtsov, A.~V., Norman, M., Raicevic, M., Reynolds, D.~R., Sato, D.,
+  Shapiro, P.~R., Semelin, B., Smidt, J., Susa, H., Theuns, T., and Umemura, M.
+  (2009).
+\newblock Cosmological {{Radiative Transfer Comparison Project II}}: {{The
+  Radiation-Hydrodynamic Tests}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  400(3):1283--1316.
+
+\bibitem[Inoue et~al., 2014]{inoueUpdatedAnalyticModel2014}
+Inoue, A.~K., Shimizu, I., Iwata, I., and Tanaka, M. (2014).
+\newblock An updated analytic model for attenuation by the intergalactic
+  medium.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  442:1805--1820.
+
+\bibitem[Ivanova et~al., 2013]{ivanovaCommonEnvelopeEvolution2013}
+Ivanova, N., Justham, S., Chen, X., De~Marco, O., Fryer, C.~L., Gaburov, E.,
+  Ge, H., Glebbeek, E., Han, Z., Li, X.-D., Lu, G., Marsh, T., Podsiadlowski,
+  P., Potter, A., Soker, N., Taam, R., Tauris, T.~M., van~den Heuvel, E. P.~J.,
+  and Webbink, R.~F. (2013).
+\newblock Common {{Envelope Evolution}}: {{Where}} we stand and how we can move
+  forward.
+\newblock {\em The Astronomy and Astrophysics Review}, 21(1).
+
+\bibitem[Ivkovic and Teyssier, 2022]{ivkovicACACIANewMethod2022}
+Ivkovic, M. and Teyssier, R. (2022).
+\newblock {{ACACIA}}: A new method to produce on-the-fly merger trees in the
+  {{RAMSES}} code.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  510:959--979.
+
+\bibitem[Jaura et~al., 2018]{jauraSPRAICouplingRadiative2018}
+Jaura, O., Glover, S. C.~O., Klessen, R.~S., and Paardekooper, J.~P. (2018).
+\newblock {{SPRAI}}: Coupling of radiative feedback and primordial chemistry in
+  moving mesh hydrodynamics.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  475:2822--2834.
+
+\bibitem[Jaura et~al., 2020]{jauraSPRAIIIMultifrequencyRadiative2020}
+Jaura, O., Magg, M., Glover, S. C.~O., and Klessen, R.~S. (2020).
+\newblock {{SPRAI-II}}: Multifrequency radiative transfer for variable gas
+  densities.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  499(3):3594--3609.
+
+\bibitem[Jiang et~al., 2008]{jiangFittingFormulaMerger2008}
+Jiang, C.~Y., Jing, Y.~P., Faltenbacher, A., Lin, W.~P., and Li, C. (2008).
+\newblock A {{Fitting Formula}} for the {{Merger Timescale}} of {{Galaxies}} in
+  {{Hierarchical Clustering}}.
+\newblock {\em The Astrophysical Journal}, 675(2):1095.
+
+\bibitem[Jiang et~al., 2014]{jiangNbodyDarkMatter2014}
+Jiang, L., Helly, J.~C., Cole, S., and Frenk, C.~S. (2014).
+\newblock N-body dark matter haloes with simple hierarchical histories.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  440:2115--2135.
+
+\bibitem[Jung et~al., 2014]{jungEffectsLargescaleEnvironment2014}
+Jung, I., Lee, J., and Yi, S.~K. (2014).
+\newblock Effects of {{Large-scale Environment}} on the {{Assembly History}} of
+  {{Central Galaxies}}.
+\newblock {\em The Astrophysical Journal}, 794(1):74.
+
+\bibitem[Kang et~al., 2005]{kangSemianalyticalModelGalaxy2005}
+Kang, X., Jing, Y.~P., Mo, H.~J., and Boerner, G. (2005).
+\newblock Semi-analytical model of galaxy formation with high-resolution
+  {{N-body}} simulations.
+\newblock {\em The Astrophysical Journal}, 631(1):21--40.
+
+\bibitem[Kannan et~al., 2019]{kannanAREPORTRadiationHydrodynamics2019}
+Kannan, R., Vogelsberger, M., Marinacci, F., McKinnon, R., Pakmor, R., and
+  Springel, V. (2019).
+\newblock {{AREPO-RT}}: {{Radiation}} hydrodynamics on a moving mesh.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  485(1):117--149.
+
+\bibitem[Karypis and Kumar, 1998]{karypisFastHighQuality1998}
+Karypis, G. and Kumar, V. (1998).
+\newblock A {{Fast}} and {{High Quality Multilevel Scheme}} for {{Partitioning
+  Irregular Graphs}}.
+\newblock {\em SIAM Journal on Scientific Computing}, 20(1):359--392.
+
+\bibitem[Katz, 2022]{katzRAMSESRTZNonEquilibriumMetal2022}
+Katz, H. (2022).
+\newblock {{RAMSES-RTZ}}: {{Non-Equilibrium Metal Chemistry}} and {{Cooling
+  Coupled}} to {{On-The-Fly Radiation Hydrodynamics}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  512(1):348--365.
+
+\bibitem[Katz et~al., 2017]{katzInterpretingALMAObservations2017}
+Katz, H., Kimm, T., Sijacki, D., and Haehnelt, M.~G. (2017).
+\newblock Interpreting {{ALMA}} observations of the {{ISM}} during the epoch of
+  reionization.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  468:4831--4861.
+
+\bibitem[Katz et~al., 1996]{katzCosmologicalSimulationsTreeSPH1996}
+Katz, N., Weinberg, D.~H., and Hernquist, L. (1996).
+\newblock Cosmological {{Simulations}} with {{TreeSPH}}.
+\newblock {\em The Astrophysical Journal Supplement Series}, 105:19.
+
+\bibitem[Kauffmann et~al., 1993]{kauffmannFormationEvolutionGalaxies1993}
+Kauffmann, G., White, S. D.~M., and Guiderdoni, B. (1993).
+\newblock The {{Formation}} and {{Evolution}} of {{Galaxies Within Merging Dark
+  Matter Haloes}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}, 264:201.
+
+\bibitem[Khandai et~al., 2015]{khandaiMassiveBlackIISimulationEvolution2015}
+Khandai, N., Di~Matteo, T., Croft, R., Wilkins, S., Feng, Y., Tucker, E.,
+  DeGraf, C., and Liu, M.-S. (2015).
+\newblock The {{MassiveBlack-II}} simulation: The evolution of haloes and
+  galaxies to z {$\sim$} 0.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  450(2):1349--1374.
+
+\bibitem[Kim et~al., 2017]{kimModelingUVRadiation2017}
+Kim, J.-G., Kim, W.-T., Ostriker, E.~C., and Skinner, M.~A. (2017).
+\newblock Modeling {{UV Radiation Feedback}} from {{Massive Stars}}. {{I}}.
+  {{Implementation}} of {{Adaptive Ray-tracing Method}} and {{Tests}}.
+\newblock {\em The Astrophysical Journal}, 851:93.
+
+\bibitem[Kim et~al., 2016]{kimAGORAHighresolutionGalaxy2016}
+Kim, J.-h., Agertz, O., Teyssier, R., Butler, M.~J., Ceverino, D., Choi, J.-H.,
+  Feldmann, R., Keller, B.~W., Lupi, A., Quinn, T., Revaz, Y., Wallace, S.,
+  Gnedin, N.~Y., Leitner, S.~N., Shen, S., Smith, B.~D., Thompson, R., Turk,
+  M.~J., Abel, T., Arraki, K.~S., Benincasa, S.~M., Chakrabarti, S., DeGraf,
+  C., Dekel, A., Goldbaum, N.~J., Hopkins, P.~F., Hummels, C.~B., Klypin, A.,
+  Li, H., Madau, P., Mandelker, N., Mayer, L., Nagamine, K., Nickerson, S.,
+  O'Shea, B.~W., Primack, J.~R., {Roca-F{\`a}brega}, S., Semenov, V., Shimizu,
+  I., Simpson, C.~M., Todoroki, K., Wadsley, J.~W., Wise, J.~H., and {AGORA
+  Collaboration} (2016).
+\newblock The {{AGORA High-resolution Galaxy Simulations Comparison Project}}.
+  {{II}}. {{Isolated Disk Test}}.
+\newblock {\em The Astrophysical Journal}, 833:202.
+
+\bibitem[Knebe et~al., 2011]{knebeHaloesGoneMAD2011}
+Knebe, A., Knollmann, S.~R., Muldrew, S.~I., Pearce, F.~R., {Aragon-Calvo},
+  M.~A., Ascasibar, Y., Behroozi, P.~S., Ceverino, D., Colombi, S., Diemand,
+  J., Dolag, K., Falck, B.~L., Fasel, P., Gardner, J., Gottl{\"o}ber, S., Hsu,
+  C.-H., Iannuzzi, F., Klypin, A., Luki{\'c}, Z., Maciejewski, M., McBride, C.,
+  Neyrinck, M.~C., Planelles, S., Potter, D., Quilis, V., Rasera, Y., Read,
+  J.~I., Ricker, P.~M., Roy, F., Springel, V., Stadel, J., Stinson, G., Sutter,
+  P.~M., Turchaninov, V., Tweed, D., Yepes, G., and Zemp, M. (2011).
+\newblock Haloes gone {{MAD}}: {{The Halo-Finder Comparison Project}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  415:2293--2318.
+
+\bibitem[Knebe et~al., 2010]{knebeImpactBaryonicPhysics2010}
+Knebe, A., Libeskind, N.~I., Knollmann, S.~R., Yepes, G., Gottl{\"o}ber, S.,
+  and Hoffman, Y. (2010).
+\newblock The impact of baryonic physics on the shape and radial alignment of
+  substructures in cosmological dark matter haloes.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}.
+
+\bibitem[Knollmann and Knebe, 2009]{knollmannAHFAmigaHalo2009}
+Knollmann, S.~R. and Knebe, A. (2009).
+\newblock {{AHF}}: {{Amiga}}'s {{Halo Finder}}.
+\newblock {\em The Astrophysical Journal Supplement Series}, 182:608--624.
+
+\bibitem[Komatsu et~al., 2011]{komatsuSevenYearWilkinsonMicrowave2011}
+Komatsu, E., Smith, K.~M., Dunkley, J., Bennett, C.~L., Gold, B., Hinshaw, G.,
+  Jarosik, N., Larson, D., Nolta, M.~R., Page, L., Spergel, D.~N., Halpern, M.,
+  Hill, R.~S., Kogut, A., Limon, M., Meyer, S.~S., Odegard, N., Tucker, G.~S.,
+  Weiland, J.~L., Wollack, E., and Wright, E.~L. (2011).
+\newblock Seven-{{Year Wilkinson Microwave Anisotropy Probe}} ({{WMAP}})
+  {{Observations}}: {{Cosmological Interpretation}}.
+\newblock {\em The Astrophysical Journal Supplement Series}, 192(2):18.
+
+\bibitem[Kravtsov et~al., 2002]{kravtsovConstrainedSimulationsReal2002}
+Kravtsov, A.~V., Klypin, A., and Hoffman, Y. (2002).
+\newblock Constrained {{Simulations}} of the {{Real Universe}}. {{II}}.
+  {{Observational Signatures}} of {{Intergalactic Gas}} in the {{Local
+  Supercluster Region}}.
+\newblock {\em The Astrophysical Journal}, 571:563--575.
+
+\bibitem[Kravtsov et~al., 1997]{kravtsovAdaptiveRefinementTree1997}
+Kravtsov, A.~V., Klypin, A.~A., and Khokhlov, A.~M. (1997).
+\newblock Adaptive {{Refinement Tree}}: {{A New High-Resolution N-Body Code}}
+  for {{Cosmological Simulations}}.
+\newblock {\em The Astrophysical Journal Supplement Series}, 111(1):73.
+
+\bibitem[Lacey and Cole, 1993]{laceyMergerRatesHierarchical1993}
+Lacey, C. and Cole, S. (1993).
+\newblock Merger rates in hierarchical models of galaxy formation.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  262:627--649.
+
+\bibitem[Lanson and Vila, 2008a]{lansonRenormalizedMeshfreeSchemes2008a}
+Lanson, N. and Vila, J. (2008a).
+\newblock Renormalized {{Meshfree Schemes II}}: {{Convergence}} for {{Scalar
+  Conservation Laws}}.
+\newblock {\em SIAM Journal on Numerical Analysis}, 46(4):1935--1964.
+
+\bibitem[Lanson and Vila, 2008b]{lansonRenormalizedMeshfreeSchemes2008}
+Lanson, N. and Vila, J.-P. (2008b).
+\newblock Renormalized {{Meshfree Schemes I}}: {{Consistency}}, {{Stability}},
+  and {{Hybrid Methods}} for {{Conservation Laws}}.
+\newblock {\em SIAM J. Numer. Anal.}, 46(4):1912--1934.
+
+\bibitem[Lee et~al., 2014]{leeSussingMergerTrees2014}
+Lee, J., Yi, S.~K., Elahi, P.~J., Thomas, P.~A., Pearce, F.~R., Behroozi, P.,
+  Han, J., Helly, J., Jung, I., Knebe, A., Mao, Y.-Y., Onions, J.,
+  {Rodriguez-Gomez}, V., Schneider, A., Srisawat, C., and Tweed, D. (2014).
+\newblock Sussing {{Merger Trees}} : {{The Impact}} of {{Halo Merger Trees}} on
+  {{Galaxy Properties}} in a {{Semi-Analytic Model}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  445(4):4197--4210.
+
+\bibitem[Leitherer et~al., 1999]{leithererStarburst99SynthesisModels1999}
+Leitherer, C., Schaerer, D., Goldader, J.~D., Delgado, R. M.~G., Robert, C.,
+  Kune, D.~F., de~Mello, D.~F., Devost, D., and Heckman, T.~M. (1999).
+\newblock Starburst99: {{Synthesis Models}} for {{Galaxies}} with {{Active Star
+  Formation}}.
+\newblock {\em ApJS}, 123(1):3.
+
+\bibitem[Leveque, 2002]{levequeFiniteVolumeMethods2002}
+Leveque, R.~J. (2002).
+\newblock {\em Finite {{Volume Methods}} for {{Hyperbolic Problems}}}.
+\newblock {Cambridge University Press}.
+
+\bibitem[Levermore, 1984]{levermoreRelatingEddingtonFactors1984}
+Levermore, C.~D. (1984).
+\newblock Relating {{Eddington}} factors to flux limiters.
+\newblock {\em Journal of Quantitative Spectroscopy and Radiative Transfer},
+  31:149--160.
+
+\bibitem[Li and White, 2009]{liDistributionStellarMass2009}
+Li, C. and White, S. D.~M. (2009).
+\newblock The distribution of stellar mass in the low-redshift {{Universe}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  398(4):2177--2187.
+
+\bibitem[Maselli et~al., 2003]{maselliCRASHRadiativeTransfer2003}
+Maselli, A., Ferrara, A., and Ciardi, B. (2003).
+\newblock {{CRASH}}: A radiative transfer scheme.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  345:379--394.
+
+\bibitem[McNally et~al., 2012]{mcnallyWellposedKelvinHelmholtzInstability2012}
+McNally, C.~P., Lyra, W., and Passy, J.-C. (2012).
+\newblock A {{Well-posed Kelvin-Helmholtz Instability Test}} and
+  {{Comparison}}.
+\newblock {\em The Astrophysical Journal Supplement Series}, 201:18.
+
+\bibitem[Mellema et~al., 2006a]{mellemaDynamicalIiRegion2006}
+Mellema, G., Arthur, S.~J., Henney, W.~J., Iliev, I.~T., and Shapiro, P.~R.
+  (2006a).
+\newblock Dynamical {{H}} {\textsc{ii}} {{Region Evolution}} in {{Turbulent
+  Molecular Clouds}}.
+\newblock {\em ApJ}, 647(1):397--403.
+
+\bibitem[Mellema et~al., 2006b]{mellema2RayNewMethod2006}
+Mellema, G., Iliev, I.~T., Alvarez, M.~A., and Shapiro, P.~R. (2006b).
+\newblock C\^2-{{Ray}}: {{A}} new method for photon-conserving transport of
+  ionizing radiation.
+\newblock {\em New Astronomy}, 11(5):374--395.
+
+\bibitem[Mellema et~al., 1998]{mellemaPhotoevaporationClumpsPlanetary1998}
+Mellema, G., Raga, A.~C., Canto, J., Lundqvist, P., Balick, B., Steffen, W.,
+  and {Noriega-Crespo}, A. (1998).
+\newblock Photo-evaporation of clumps in planetary nebulae.
+\newblock {\em Astronomy and Astrophysics, v.331, p.335-346 (1998)}, 331:335.
+
+\bibitem[Menon et~al., 2015]{menonAdaptiveTechniquesClustered2015}
+Menon, H., Wesolowski, L., Zheng, G., Jetley, P., Kale, L., Quinn, T., and
+  Governato, F. (2015).
+\newblock Adaptive techniques for clustered {{N-body}} cosmological
+  simulations.
+\newblock {\em Computational Astrophysics and Cosmology}, 2(1).
+
+\bibitem[Menon et~al., 2022]{menonVETTAMSchemeRadiation2022}
+Menon, S.~H., Federrath, C., Krumholz, M.~R., Kuiper, R., Wibking, B.~D., and
+  Jung, M. (2022).
+\newblock {{VETTAM}}: A scheme for radiation hydrodynamics with adaptive mesh
+  refinement using the variable {{Eddington}} tensor method.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  512:401--423.
+
+\bibitem[{Michel-Dansac} et~al.,
+  2020]{michel-dansacRASCASRAdiationSCattering2020}
+{Michel-Dansac}, L., Blaizot, J., Garel, T., Verhamme, A., Kimm, T., and
+  Trebitsch, M. (2020).
+\newblock {{RASCAS}}: {{RAdiation SCattering}} in {{Astrophysical
+  Simulations}}.
+\newblock {\em A\&A}.
+
+\bibitem[Mignone et~al., 2012]{mignonePLUTOCodeAdaptive2012}
+Mignone, A., Zanni, C., Tzeferacos, P., {van Straalen}, B., Colella, P., and
+  Bodo, G. (2012).
+\newblock The {{PLUTO Code}} for {{Adaptive Mesh Computations}} in
+  {{Astrophysical Fluid Dynamics}}.
+\newblock {\em The Astrophysical Journal Supplement Series}, 198:7.
+
+\bibitem[Mihalas and Mihalas,
+  1984]{mihalasFoundationsRadiationHydrodynamics1984}
+Mihalas, D. and Mihalas, B.~W. (1984).
+\newblock {\em Foundations of Radiation Hydrodynamics}.
+\newblock {Courier Corporation}.
+
+\bibitem[Mo et~al., 2010]{moGalaxyFormationEvolution2010}
+Mo, H., {van den Bosch}, F.~C., and White, S. (2010).
+\newblock {\em Galaxy {{Formation}} and {{Evolution}}}.
+\newblock {Cambridge University Press}.
+
+\bibitem[Molaro et~al., 2019]{molaroARTISTFastRadiative2019}
+Molaro, M., Dav{\'e}, R., Hassan, S., Santos, M.~G., and Finlator, K. (2019).
+\newblock {{ARTIST}}: {{Fast}} radiative transfer for large-scale simulations
+  of the epoch of reionisation.
+\newblock {\em arXiv:1901.03340 [astro-ph]}.
+
+\bibitem[Monaghan, 1992]{monaghanSmoothedParticleHydrodynamics1992}
+Monaghan, J.~J. (1992).
+\newblock Smoothed particle hydrodynamics.
+\newblock {\em Annual Review of Astronomy and Astrophysics}, 30:543--574.
+
+\bibitem[Monaghan and Lattanzio, 1985]{monaghanRefinedParticleMethod1985}
+Monaghan, J.~J. and Lattanzio, J.~C. (1985).
+\newblock A refined particle method for astrophysical problems.
+\newblock {\em Astronomy and Astrophysics}, 149:135--143.
+
+\bibitem[Moster et~al., 2013]{mosterGalacticStarFormation2013}
+Moster, B.~P., Naab, T., and White, S. D.~M. (2013).
+\newblock Galactic star formation and accretion histories from matching
+  galaxies to dark matter haloes.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  428(4):3121--3138.
+
+\bibitem[Moster et~al., 2010]{mosterConstraintsRelationshipStellar2010}
+Moster, B.~P., Somerville, R.~S., Maulbetsch, C., van~den Bosch, F.~C.,
+  Maccio', A.~V., Naab, T., and Oser, L. (2010).
+\newblock Constraints on the relationship between stellar mass and halo mass at
+  low and high redshift.
+\newblock {\em The Astrophysical Journal}, 710(2):903--923.
+
+\bibitem[Nagai and Kravtsov, 2005]{nagaiRadialDistributionGalaxies2005}
+Nagai, D. and Kravtsov, A.~V. (2005).
+\newblock The {{Radial Distribution}} of {{Galaxies}} in {{$\Lambda$ Cold Dark
+  Matter Clusters}}.
+\newblock {\em The Astrophysical Journal}, 618(2):557.
+
+\bibitem[Nakamoto et~al., 2001]{nakamotoEffectsRadiativeTransfer2001}
+Nakamoto, T., Umemura, M., and Susa, H. (2001).
+\newblock The effects of radiative transfer on the reionization of an
+  inhomogeneous universe.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  321(4):593--604.
+
+\bibitem[Navarro et~al., 1996]{navarroStructureColdDark1996b}
+Navarro, J.~F., Frenk, C.~S., and White, S. D.~M. (1996).
+\newblock The {{Structure}} of {{Cold Dark Matter Halos}}.
+\newblock {\em The Astrophysical Journal}, 462:563.
+
+\bibitem[Noether, 1918]{noetherInvarianteVariationsprobleme1918}
+Noether, E. (1918).
+\newblock Invariante {{Variationsprobleme}}.
+\newblock {\em Nachr. D. K\"onig. Gesellsch. D. Wiss. Zu G\"ottingen,
+  Math-phys. Klasse, Weidmannsche Buchhandlung}.
+
+\bibitem[Norman et~al., 2007]{normanSimulatingCosmologicalEvolution2007a}
+Norman, M.~L., Bryan, G.~L., Harkness, R., Bordner, J., Reynolds, D., O'Shea,
+  B., and Wagner, R. (2007).
+\newblock Simulating {{Cosmological Evolution}} with {{Enzo}}.
+
+\bibitem[Nuza et~al., 2013]{nuzaClusteringGalaxiesSDSSIII2013}
+Nuza, S.~E., S{\'a}nchez, A.~G., Prada, F., Klypin, A., Schlegel, D.~J.,
+  Gottl{\"o}ber, S., {Montero-Dorta}, A.~D., Manera, M., McBride, C.~K., Ross,
+  A.~J., Angulo, R., Blanton, M., Bolton, A., Favole, G., Samushia, L.,
+  Montesano, F., Percival, W.~J., Padmanabhan, N., Steinmetz, M., Tinker, J.,
+  Skibba, R., Schneider, D.~P., Guo, H., Zehavi, I., Zheng, Z., Bizyaev, D.,
+  Malanushenko, O., Malanushenko, V., Oravetz, A.~E., Oravetz, D.~J., and
+  Shelden, A.~C. (2013).
+\newblock The clustering of galaxies at z {$\approx$} 0.5 in the {{SDSS-III
+  Data Release}} 9 {{BOSS-CMASS}} sample: A test for the {{$\Lambda$CDM}}
+  cosmology.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  432(1):743--760.
+
+\bibitem[Ocvirk et~al., 2019]{ocvirkImpactReducedSpeed2019}
+Ocvirk, P., Aubert, D., Chardin, J., Deparis, N., and Lewis, J. (2019).
+\newblock Impact of the reduced speed of light approximation on the
+  post-overlap neutral hydrogen fraction in numerical simulations of the epoch
+  of reionization.
+\newblock {\em Astronomy \& Astrophysics}, 626:A77.
+
+\bibitem[Onions et~al., 2012]{onionsSubhaloesGoingNotts2012}
+Onions, J., Knebe, A., Pearce, F.~R., Muldrew, S.~I., Lux, H., Knollmann,
+  S.~R., Ascasibar, Y., Behroozi, P., Elahi, P., Han, J., Maciejewski, M.,
+  Merch{\'a}n, M.~E., Neyrinck, M., Ruiz, A.~N., Sgr{\'o}, M.~A., Springel, V.,
+  and Tweed, D. (2012).
+\newblock Subhaloes going {{Notts}}: The subhalo-finder comparison project.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  423:1200--1214.
+
+\bibitem[Paardekooper et~al., 2015]{paardekooperFirstBillionYears2015}
+Paardekooper, J.-P., Khochfar, S., and Vecchia, C.~D. (2015).
+\newblock The {{First Billion Years}} project: The escape fraction of ionizing
+  photons in the epoch of reionization.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  451(3):2544--2563.
+
+\bibitem[Pawlik and Schaye, 2008]{pawlikTRAPHICRadiativeTransfer2008}
+Pawlik, A.~H. and Schaye, J. (2008).
+\newblock Traphic\textendash{} radiative transfer for smoothed particle
+  hydrodynamics simulations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  389(2):651--677.
+
+\bibitem[Pawlik and Schaye, 2011]{pawlikMultifrequencyThermallyCoupled2011}
+Pawlik, A.~H. and Schaye, J. (2011).
+\newblock Multifrequency, thermally coupled radiative transfer with traphic:
+  Method and tests: Traphic- multifrequency and thermal coupling.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  412(3):1943--1964.
+
+\bibitem[Peacock and Smith, 2000]{peacockHaloOccupationNumbers2000}
+Peacock, J.~A. and Smith, R.~E. (2000).
+\newblock Halo occupation numbers and galaxy bias.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  318:1144--1156.
+
+\bibitem[Peebles, 1993]{peeblesPrinciplesPhysicalCosmology1993b}
+Peebles, P. J.~E. (1993).
+\newblock {\em Principles of {{Physical Cosmology}}}.
+
+\bibitem[Perret, 2016]{DICE}
+Perret, V. (2016).
+\newblock {{DICE}}: {{Disk Initial Conditions Environment}}.
+\newblock {\em Astrophysics Source Code Library}, page ascl:1607.002.
+
+\bibitem[Peter et~al., 2023]{peterSweepMethodRadiative2023}
+Peter, T., Klessen, R.~S., Kanschat, G., Glover, S. C.~O., and Bastian, P.
+  (2023).
+\newblock The sweep method for radiative transfer in {{AREPO}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  519:4263--4278.
+
+\bibitem[Petkova and Springel,
+  2009]{petkovaImplementationRadiativeTransfer2009}
+Petkova, M. and Springel, V. (2009).
+\newblock An implementation of radiative transfer in the cosmological
+  simulation code {{GADGET}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  396(3):1383--1403.
+
+\bibitem[Petkova and Springel, 2011]{petkovaNovelApproachAccurate2011}
+Petkova, M. and Springel, V. (2011).
+\newblock A novel approach for accurate radiative transfer in cosmological
+  hydrodynamic simulations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  415:3731--3749.
+
+\bibitem[Pillepich et~al., 2018]{pillepichFirstResultsIllustrisTNG2018}
+Pillepich, A., Nelson, D., Hernquist, L., Springel, V., Pakmor, R., Torrey, P.,
+  Weinberger, R., Genel, S., Naiman, J., Marinacci, F., and Vogelsberger, M.
+  (2018).
+\newblock First results from the {{IllustrisTNG}} simulations: The stellar mass
+  content of groups and clusters of galaxies.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  475(1):648--675.
+
+\bibitem[Potter et~al., 2017]{potterPKDGRAV3}
+Potter, D., Stadel, J., and Teyssier, R. (2017).
+\newblock {{PKDGRAV3}}: Beyond trillion particle cosmological simulations for
+  the next era of galaxy surveys.
+\newblock {\em Computational Astrophysics and Cosmology}, 4:2.
+
+\bibitem[Poulton et~al., 2018]{poultonObservingMergerTrees2018}
+Poulton, R. J.~J., Robotham, A. S.~G., Power, C., and Elahi, P.~J. (2018).
+\newblock Observing merger trees in a new light.
+\newblock {\em Publications of the Astronomical Society of Australia}, 35:e042.
+
+\bibitem[Press and Schechter, 1974]{pressFormationGalaxiesClusters1974}
+Press, W.~H. and Schechter, P. (1974).
+\newblock Formation of {{Galaxies}} and {{Clusters}} of {{Galaxies}} by
+  {{Self-Similar Gravitational Condensation}}.
+\newblock {\em The Astrophysical Journal}, 187:425--438.
+
+\bibitem[Price, 2012]{priceSmoothedParticleHydrodynamics2012}
+Price, D.~J. (2012).
+\newblock Smoothed {{Particle Hydrodynamics}} and {{Magnetohydrodynamics}}.
+\newblock {\em Journal of Computational Physics}, 231(3):759--794.
+
+\bibitem[Razoumov and Cardall, 2005]{razoumovFullyThreadedTransport2005}
+Razoumov, A.~O. and Cardall, C.~Y. (2005).
+\newblock Fully threaded transport engine: New method for multi-scale radiative
+  transfer.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  362:1413--1417.
+
+\bibitem[Reddick et~al., 2013]{reddickConnectionGalaxiesDark2013}
+Reddick, R.~M., Wechsler, R.~H., Tinker, J.~L., and Behroozi, P.~S. (2013).
+\newblock The {{Connection}} between {{Galaxies}} and {{Dark Matter
+  Structures}} in the {{Local Universe}}.
+\newblock {\em The Astrophysical Journal}, 771(1):30.
+
+\bibitem[Revaz and Jablonka, 2012]{revazDynamicalChemicalEvolution2012}
+Revaz, Y. and Jablonka, P. (2012).
+\newblock The {{Dynamical}} and {{Chemical Evolution}} of {{Dwarf Spheroidal
+  Galaxies}} with {{GEAR}}.
+\newblock {\em Astronomy \& Astrophysics}, 538:A82.
+
+\bibitem[Revaz and Jablonka, 2018]{revazPushingBackLimits2018}
+Revaz, Y. and Jablonka, P. (2018).
+\newblock Pushing back the limits: Detailed properties of dwarf galaxies in a
+  {{$\Lambda$CDM}} universe.
+\newblock {\em Astronomy and Astrophysics}, 616:A96.
+
+\bibitem[Richings et~al., 2014]{richingsNonequilibriumChemistryCooling2014}
+Richings, A.~J., Schaye, J., and Oppenheimer, B.~D. (2014).
+\newblock Non-equilibrium chemistry and cooling in the diffuse interstellar
+  medium - {{I}}. {{Optically}} thin regime.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  440:3349--3369.
+
+\bibitem[Rijkhorst et~al., 2006]{rijkhorstHybridCharacteristics3D2006}
+Rijkhorst, E.-J., Plewa, T., Dubey, A., and Mellema, G. (2006).
+\newblock Hybrid characteristics: {{3D}} radiative transfer for parallel
+  adaptive mesh refinement hydrodynamics.
+\newblock {\em Astronomy and Astrophysics, Volume 452, Issue 3, June IV 2006,
+  pp.907-920}, 452(3):907.
+
+\bibitem[Ritzerveld et~al.,
+  2004]{ritzerveldTriangulatingRadiationRadiative2004}
+Ritzerveld, J., Icke, V., and Rijkhorst, E.-J. (2004).
+\newblock Triangulating {{Radiation}}: {{Radiative Transfer}} on {{Unstructured
+  Grids}}.
+
+\bibitem[Robertson, 2022]{robertsonGalaxyFormationReionization2022}
+Robertson, B.~E. (2022).
+\newblock Galaxy {{Formation}} and {{Reionization}}: {{Key Unknowns}} and
+  {{Expected Breakthroughs}} by the {{James Webb Space Telescope}}.
+\newblock {\em Annu. Rev. Astron. Astrophys.}, 60(1):121--158.
+
+\bibitem[{Roca-F{\`a}brega} et~al.,
+  2021]{roca-fabregaAGORAHighresolutionGalaxy2021b}
+{Roca-F{\`a}brega}, S., Kim, J.-h., Hausammann, L., Nagamine, K., Powell,
+  J.~W., Shimizu, I., Ceverino, D., Lupi, A., Primack, J.~R., Quinn, T., Revaz,
+  Y., Vel{\'a}zquez, H., Abel, T., Buehlmann, M., Dekel, A., Dong, B., Hahn,
+  O., Hummels, C.~B., Kim, K.-w., Smith, B.~D., Strawn, C.~J., Teyssier, R.,
+  and Turk, M. (2021).
+\newblock The {{AGORA High-resolution Galaxy Simulations Comparison Project}}.
+  {{III}}: {{Cosmological}} zoom-in simulation of a {{Milky Way-mass}} halo.
+\newblock {\em ApJ}, 917(2):64.
+
+\bibitem[{Rodriguez-Gomez} et~al., 2015]{rodriguez-gomezMergerRateGalaxies2015}
+{Rodriguez-Gomez}, V., Genel, S., Vogelsberger, M., Sijacki, D., Pillepich, A.,
+  Sales, L.~V., Torrey, P., Snyder, G., Nelson, D., Springel, V., Ma, C.-P.,
+  and Hernquist, L. (2015).
+\newblock The merger rate of galaxies in the {{Illustris Simulation}}: A
+  comparison with observations and semi-empirical models.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  449(1):49--64.
+
+\bibitem[Roe, 1981]{roep.l.NumericalAlgorithmsLinear1981}
+Roe, P.~L. (1981).
+\newblock Numerical {{Algorithms}} for the {{Linear Wave Equation}}.
+\newblock Technical {{Report}} 81047, {Royal Aircraft Establishment}, {Bedford,
+  England}.
+
+\bibitem[Rosdahl et~al., 2013]{ramses-rt13}
+Rosdahl, J., Blaizot, J., Aubert, D., Stranex, T., and Teyssier, R. (2013).
+\newblock {{RAMSES-RT}}: Radiation hydrodynamics in the cosmological context.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  436:2188--2231.
+
+\bibitem[Rosdahl et~al., 2018]{rosdahlSPHINXCosmologicalSimulations2018}
+Rosdahl, J., Katz, H., Blaizot, J., Kimm, T., {Michel-Dansac}, L., Garel, T.,
+  Haehnelt, M., Ocvirk, P., and Teyssier, R. (2018).
+\newblock The {{SPHINX}} cosmological simulations of the first billion years:
+  The impact of binary stars on reionization.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  479(1):994--1016.
+
+\bibitem[Rosdahl et~al., 2017]{rosdahlSnapCracklePop2017}
+Rosdahl, J., Schaye, J., Dubois, Y., Kimm, T., and Teyssier, R. (2017).
+\newblock {Snap, crackle, pop: Sub-grid supernova feedback in AMR simulations
+  of disc galaxies}.
+\newblock {\em Monthly notices of the Royal Astronomical Society},
+  466(1):11--33.
+
+\bibitem[Rosdahl and Teyssier, 2015]{ramses-rt15}
+Rosdahl, J. and Teyssier, R. (2015).
+\newblock A scheme for radiation pressure and photon diffusion with the {{M1}}
+  closure in {{RAMSES-RT}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  449(4):4380--4403.
+
+\bibitem[Rosswog, 2020]{rosswogLagrangianHydrodynamicsCode2020}
+Rosswog, S. (2020).
+\newblock The {{Lagrangian}} hydrodynamics code {{MAGMA2}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  498:4230--4255.
+
+\bibitem[Roukema et~al., 1993]{roukemaSpectralEvolutionMerging1993}
+Roukema, B.~F., Quinn, P.~J., and Peterson, B.~A. (1993).
+\newblock Spectral {{Evolution}} of {{Merging}}/{{Accreting Galaxies}}.
+\newblock In {\em Observational {{Cosmology}}}, volume~51, page~51.
+
+\bibitem[Roukema and Yoshii, 1993]{roukemaFailureSimpleMerging1993}
+Roukema, B.~F. and Yoshii, Y. (1993).
+\newblock The {{Failure}} of {{Simple Merging Models}} to {{Save}} a {{Flat}},
+  {{Omega}} 0 = 1 {{Universe}}.
+\newblock {\em The Astrophysical Journal Letters}, 418:L1.
+
+\bibitem[Saitoh and Makino, 2009]{saitohNecessaryConditionIndividual2009}
+Saitoh, T.~R. and Makino, J. (2009).
+\newblock A {{Necessary Condition For Individual Time Steps In SPH
+  Simulations}}.
+\newblock {\em The Astrophysical Journal}, 697(2):L99--L102.
+
+\bibitem[Sarkar et~al., 2021]{sarkarNewIonizationNetwork2021}
+Sarkar, K.~C., Sternberg, A., and Gnat, O. (2021).
+\newblock A new ionization network and radiation transport module in {{PLUTO}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  503:5807--5825.
+
+\bibitem[Schaerer, 2002]{schaererPropertiesMassivePopulation2002}
+Schaerer, D. (2002).
+\newblock On the properties of massive {{Population III}} stars and metal-free
+  stellar populations.
+\newblock {\em Astronomy and Astrophysics}, 382:28--42.
+
+\bibitem[Schaller et~al., 2016]{schallerSWIFTUsingTaskbased2016}
+Schaller, M., Gonnet, P., Chalk, A. B.~G., and Draper, P.~W. (2016).
+\newblock {{SWIFT}}: {{Using}} task-based parallelism, fully asynchronous
+  communication, and graph partition-based domain decomposition for strong
+  scaling on more than 100,000 cores.
+\newblock {\em Proceedings of the Platform for Advanced Scientific Computing
+  Conference PASC '16}, pages 1--10.
+
+\bibitem[Schaller et~al., 2018]{schallerSWIFTSPHInterdependent2018a}
+Schaller, M., Gonnet, P., Draper, P.~W., Chalk, A. B.~G., Bower, R.~G., Willis,
+  J., and Hausammann, L. (2018).
+\newblock {{SWIFT}}: {{SPH With Inter-dependent Fine-grained Tasking}}.
+\newblock {\em Astrophysics Source Code Library}, page ascl:1805.020.
+
+\bibitem[Schaller et~al., 2015]{schallerEAGLESimulationsGalaxy2015}
+Schaller, M., Vecchia, C.~D., Schaye, J., Bower, R.~G., Theuns, T., Crain,
+  R.~A., Furlong, M., and McCarthy, I.~G. (2015).
+\newblock The {{EAGLE}} simulations of galaxy formation: The importance of the
+  hydrodynamics scheme.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  454(3):2277--2291.
+
+\bibitem[Schaye et~al., 2015]{schayeEAGLEProjectSimulating2015}
+Schaye, J., Crain, R.~A., Bower, R.~G., Furlong, M., Schaller, M., Theuns, T.,
+  Dalla~Vecchia, C., Frenk, C.~S., McCarthy, I.~G., Helly, J.~C., Jenkins, A.,
+  {Rosas-Guevara}, Y.~M., White, S. D.~M., Baes, M., Booth, C.~M., Camps, P.,
+  Navarro, J.~F., Qu, Y., Rahmati, A., Sawala, T., Thomas, P.~A., and Trayford,
+  J. (2015).
+\newblock The {{EAGLE}} project: Simulating the evolution and assembly of
+  galaxies and their environments.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  446:521--554.
+
+\bibitem[Scoccimarro et~al., 2001]{scoccimarroHowManyGalaxies2001}
+Scoccimarro, R., Sheth, R.~K., Hui, L., and Jain, B. (2001).
+\newblock How {{Many Galaxies Fit}} in a {{Halo}}? {{Constraints}} on {{Galaxy
+  Formation Efficiency}} from {{Spatial Clustering}}.
+\newblock {\em The Astrophysical Journal}, 546:20--34.
+
+\bibitem[Seljak, 2000]{seljakAnalyticModelGalaxy2000}
+Seljak, U. (2000).
+\newblock Analytic model for galaxy and dark matter clustering.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  318:203--213.
+
+\bibitem[Shankar et~al., 2006]{shankarNewRelationshipsGalaxy2006}
+Shankar, F., Lapi, A., Salucci, P., De~Zotti, G., and Danese, L. (2006).
+\newblock New {{Relationships}} between {{Galaxy Properties}} and {{Host Halo
+  Mass}}, and the {{Role}} of {{Feedbacks}} in {{Galaxy Formation}}.
+\newblock {\em The Astrophysical Journal}, 643(1):14--25.
+
+\bibitem[Shapiro et~al.,
+  2004]{shapiroPhotoevaporationCosmologicalMinihaloes2004}
+Shapiro, P.~R., Iliev, I.~T., and Raga, A.~C. (2004).
+\newblock Photoevaporation of cosmological minihaloes during reionization.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  348:753--782.
+
+\bibitem[Smith et~al., 2020]{smithAREPOMCRTMonteCarlo2020}
+Smith, A., Kannan, R., Tsang, B. T.~H., Vogelsberger, M., and Pakmor, R.
+  (2020).
+\newblock {{AREPO-MCRT}}: {{Monte Carlo Radiation Hydrodynamics}} on a {{Moving
+  Mesh}}.
+\newblock {\em The Astrophysical Journal}, 905:27.
+
+\bibitem[Smith et~al., 2017]{smithGrackleChemistryCooling2017}
+Smith, B.~D., Bryan, G.~L., Glover, S. C.~O., Goldbaum, N.~J., Turk, M.~J.,
+  Regan, J., Wise, J.~H., Schive, H.-Y., Abel, T., Emerick, A., O'Shea, B.~W.,
+  Anninos, P., Hummels, C.~B., and Khochfar, S. (2017).
+\newblock {{GRACKLE}}: A chemistry and cooling library for astrophysics.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  466:2217--2234.
+
+\bibitem[Somerville and Primack,
+  1999]{somervilleSemianalyticModellingGalaxy1999}
+Somerville, R.~S. and Primack, J.~R. (1999).
+\newblock Semi-analytic modelling of galaxy formation: The local {{Universe}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  310:1087--1110.
+
+\bibitem[Springel, 2005]{springelCosmologicalSimulationCode2005}
+Springel, V. (2005).
+\newblock The cosmological simulation code {{GADGET-2}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  364:1105--1134.
+
+\bibitem[Springel, 2010]{springelPurSiMuove2010}
+Springel, V. (2010).
+\newblock E pur si muove: {{Galiliean-invariant}} cosmological hydrodynamical
+  simulations on a moving mesh.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  401(2):791--851.
+
+\bibitem[Springel et~al., 2021]{springelSimulatingCosmicStructure2021}
+Springel, V., Pakmor, R., Zier, O., and Reinecke, M. (2021).
+\newblock Simulating cosmic structure formation with the {{GADGET-4}} code.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  506(2):2871--2949.
+
+\bibitem[Springel et~al., 2001]{springelPopulatingClusterGalaxies2001}
+Springel, V., White, S., Tormen, G., and Kauffmann, G. (2001).
+\newblock Populating a cluster of galaxies - {{I}}. {{Results}} at z=0.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  328(3):726--750.
+
+\bibitem[Springel et~al., 2005]{springelSimulationsFormationEvolution2005a}
+Springel, V., White, S. D.~M., Jenkins, A., Frenk, C.~S., Yoshida, N., Gao, L.,
+  Navarro, J., Thacker, R., Croton, D., Helly, J., Peacock, J.~A., Cole, S.,
+  Thomas, P., Couchman, H., Evrard, A., Colberg, J., and Pearce, F. (2005).
+\newblock Simulations of the formation, evolution and clustering of galaxies
+  and quasars.
+\newblock {\em Nature}, 435(7042):629--636.
+
+\bibitem[Srisawat et~al., 2013]{SUSSING_COMPARISON}
+Srisawat, C., Knebe, A., Pearce, F.~R., Schneider, A., Thomas, P.~A., Behroozi,
+  P., Dolag, K., Elahi, P.~J., Han, J., Helly, J., Jing, Y., Jung, I., Lee, J.,
+  Mao, Y.~Y., Onions, J., {Rodriguez-Gomez}, V., Tweed, D., and Yi, S.~K.
+  (2013).
+\newblock Sussing {{Merger Trees}}: {{The Merger Trees Comparison Project}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  436(1):150--162.
+
+\bibitem[Stadel, 2001]{stadelCosmologicalNbodySimulations2001}
+Stadel, J.~G. (2001).
+\newblock {\em Cosmological {{N-body}} Simulations and Their Analysis}.
+\newblock PhD thesis, University of Washington.
+
+\bibitem[Stanway and Eldridge, 2018]{stanwayReevaluatingOldStellar2018}
+Stanway, E.~R. and Eldridge, J.~J. (2018).
+\newblock Re-evaluating old stellar populations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}, 479:75--93.
+
+\bibitem[Stone et~al., 2020]{stoneAthenaAdaptiveMesh2020}
+Stone, J.~M., Tomida, K., White, C.~J., and Felker, K.~G. (2020).
+\newblock The {{Athena}}++ {{Adaptive Mesh Refinement Framework}}: {{Design}}
+  and {{Magnetohydrodynamic Solvers}}.
+\newblock {\em The Astrophysical Journal Supplement Series}, 249:4.
+
+\bibitem[Susa, 2006]{susaSmoothedParticleHydrodynamics2006}
+Susa, H. (2006).
+\newblock Smoothed {{Particle Hydrodynamics}} coupled with {{Radiation
+  Transfer}}.
+\newblock {\em Publ Astron Soc Jpn}, 58(2):445--460.
+
+\bibitem[Sweby, 1984]{swebyHighResolutionSchemes1984}
+Sweby, P.~K. (1984).
+\newblock High {{Resolution Schemes Using Flux Limiters}} for {{Hyperbolic
+  Conservation Laws}}.
+\newblock {\em SIAM J. Numer. Anal.}, 21(5):995--1011.
+
+\bibitem[Teyssier, 2002]{teyssierCosmologicalHydrodynamicsAdaptive2002}
+Teyssier, R. (2002).
+\newblock Cosmological {{Hydrodynamics}} with {{Adaptive Mesh Refinement}}: A
+  new high resolution code called {{RAMSES}}.
+\newblock {\em Astronomy \& Astrophysics}, 385(1):337--364.
+
+\bibitem[Teyssier, 2015]{teyssierGridBasedHydrodynamicsAstrophysical2015a}
+Teyssier, R. (2015).
+\newblock Grid-{{Based Hydrodynamics}} in {{Astrophysical Fluid Flows}}.
+\newblock {\em Annual Review of Astronomy and Astrophysics}, 53(1):325--364.
+
+\bibitem[Teyssier, 2021]{teyssierTheoreticalAstrophysics2021}
+Teyssier, R. (2021).
+\newblock Theoretical {{Astrophysics}}.
+\newblock Lecture Notes. Online:
+  \url{https://www.astro.princeton.edu/~rt3504/ewExternalFiles/course_notes.pdf};
+  accessed 18-Oct-2022.
+
+\bibitem[Theuns et~al., 2015]{theunsSWIFTTaskbasedHydrodynamics2015}
+Theuns, T., Chalk, A., Schaller, M., and Gonnet, P. (2015).
+\newblock {{SWIFT}}: Task-based hydrodynamics and gravity for cosmological
+  simulations.
+\newblock In {\em Proceedings of the {{EASC}} 2015 Conference}, {Edinburgh,
+  UK}.
+
+\bibitem[Toro, 2009]{toroRiemannSolversNumerical2009}
+Toro, E.~F. (2009).
+\newblock {\em Riemann {{Solvers}} and {{Numerical Methods}} for {{Fluid
+  Dynamics}}: {{A Practical Introduction}}}.
+\newblock {Springer-Verlag}, {Berlin Heidelberg}, third edition.
+
+\bibitem[Trac and Pen, 2004]{tracMovingFrameAlgorithm2004}
+Trac, H. and Pen, U.-L. (2004).
+\newblock A moving frame algorithm for high {{Mach}} number hydrodynamics.
+\newblock {\em New Astronomy}, 9:443--465.
+
+\bibitem[Trebitsch et~al.,
+  2017]{trebitschFluctuatingFeedbackregulatedEscape2017}
+Trebitsch, M., Blaizot, J., Rosdahl, J., Devriendt, J., and Slyz, A. (2017).
+\newblock Fluctuating feedback-regulated escape fraction of ionizing radiation
+  in low-mass, high-redshift galaxies.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  470(1):224--239.
+
+\bibitem[Trebitsch et~al., 2021]{trebitschObeliskSimulationGalaxies2021}
+Trebitsch, M., Dubois, Y., Volonteri, M., Pfister, H., Cadiou, C., Katz, H.,
+  Rosdahl, J., Kimm, T., Pichon, C., Beckmann, R.~S., Devriendt, J., and Slyz,
+  A. (2021).
+\newblock The {{Obelisk}} simulation: Galaxies contribute more than {{AGN}} to
+  {{HI}} reionization of protoclusters.
+\newblock {\em A\&A}, 653:A154.
+
+\bibitem[{Trujillo-Gomez} et~al., 2011]{trujillo-gomezGalaxiesLCDMHalo2011}
+{Trujillo-Gomez}, S., Klypin, A., Primack, J., and Romanowsky, A.~J. (2011).
+\newblock Galaxies in {{$\Lambda$CDM}} with {{Halo Abundance Matching}}:
+  {{Luminosity-Velocity Relation}}, {{Baryonic Mass-Velocity Relation}},
+  {{Velocity Function}}, and {{Clustering}}.
+\newblock {\em The Astrophysical Journal}, 742:16.
+
+\bibitem[Tweed et~al., 2009]{tweedBuildingMergerTrees2009}
+Tweed, D., Devriendt, J., Blaizot, J., Colombi, S., and Slyz, A. (2009).
+\newblock Building merger trees from cosmological {{N-body}} simulations.
+  {{Towards}} improving galaxy formation models using subhaloes.
+\newblock {\em Astronomy and Astrophysics}, 506:647--660.
+
+\bibitem[Vacondio et~al., 2021]{vacondioGrandChallengesSmoothed2021}
+Vacondio, R., Altomare, C., De~Leffe, M., Hu, X., Le~Touz{\'e}, D., Lind, S.,
+  Marongiu, J.-C., Marrone, S., Rogers, B.~D., and {Souto-Iglesias}, A. (2021).
+\newblock Grand challenges for {{Smoothed Particle Hydrodynamics}} numerical
+  schemes.
+\newblock {\em Computational Particle Mechanics}, 8(3):575--588.
+
+\bibitem[Vale and Ostriker, 2006]{valeNonparametricModelLinking2006}
+Vale, A. and Ostriker, J.~P. (2006).
+\newblock The non-parametric model for linking galaxy luminosity with
+  halo/subhalo mass.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  371:1173--1187.
+
+\bibitem[{van den Bosch} et~al., 2018]{vandenboschDisruptionDarkMatter2018}
+{van den Bosch}, F.~C., Ogiya, G., Hahn, O., and Burkert, A. (2018).
+\newblock Disruption of dark matter substructure: Fact or fiction?
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  474(3):3043--3066.
+
+\bibitem[{van der Burg} et~al., 2015]{vanderburgEvidenceInsideoutGrowth2015}
+{van der Burg}, R. F.~J., Hoekstra, H., Muzzin, A., Sif{\'o}n, C., Balogh,
+  M.~L., and McGee, S.~L. (2015).
+\newblock Evidence for the inside-out growth of the stellar mass distribution
+  in galaxy clusters since z\textasciitilde 1.
+\newblock {\em Astronomy \& Astrophysics}, 577:A19.
+
+\bibitem[Vandenbroucke and De~Rijcke, 2016]{vandenbrouckeMovingMeshCode2016}
+Vandenbroucke, B. and De~Rijcke, S. (2016).
+\newblock The moving mesh code {{Shadowfax}}.
+\newblock {\em Astronomy and Computing}, 16:109--130.
+
+\bibitem[Vandenbroucke and Wood,
+  2018]{vandenbrouckeMonteCarloPhotoionization2018}
+Vandenbroucke, B. and Wood, K. (2018).
+\newblock The {{Monte Carlo}} photoionization and moving-mesh radiation
+  hydrodynamics code {{CMACIONIZE}}.
+\newblock {\em Astronomy and Computing}, 23:40.
+
+\bibitem[Verner et~al., 1996]{vernerAtomicDataAstrophysics1996}
+Verner, D.~A., Ferland, G.~J., Korista, K.~T., and Yakovlev, D.~G. (1996).
+\newblock Atomic {{Data}} for {{Astrophysics}}. {{II}}. {{New Analytic Fits}}
+  for {{Photoionization Cross Sections}} of {{Atoms}} and {{Ions}}.
+\newblock {\em The Astrophysical Journal}, 465:487.
+
+\bibitem[Vogelsberger et~al.,
+  2014]{vogelsbergerPropertiesGalaxiesReproduced2014}
+Vogelsberger, M., Genel, S., Springel, V., Torrey, P., Sijacki, D., Xu, D.,
+  Snyder, G., Bird, S., Nelson, D., and Hernquist, L. (2014).
+\newblock Properties of galaxies reproduced by a hydrodynamic simulation.
+\newblock {\em Nature}, 509(7499):177--182.
+
+\bibitem[Wadsley et~al., 2017]{wadsleyGasoline2ModernSmoothed2017}
+Wadsley, J.~W., Keller, B.~W., and Quinn, T.~R. (2017).
+\newblock Gasoline2: A modern smoothed particle hydrodynamics code.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  471(2):2357--2369.
+
+\bibitem[Wadsley et~al., 2008]{wadsleyTreatmentEntropyMixing2008}
+Wadsley, J.~W., Veeravalli, G., and Couchman, H. M.~P. (2008).
+\newblock On the treatment of entropy mixing in numerical cosmology.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  387:427--438.
+
+\bibitem[Wang et~al., 2016]{SUSSING_CONVERGENCE}
+Wang, Y., Pearce, F.~R., Knebe, A., Schneider, A., Srisawat, C., Tweed, D.,
+  Jung, I., Han, J., Helly, J., Onions, J., Elahi, P.~J., Thomas, P.~A.,
+  Behroozi, P., Yi, S.~K., {Rodriguez-Gomez}, V., Mao, Y.-Y., Jing, Y., and
+  Lin, W. (2016).
+\newblock Sussing {{Merger Trees}}: {{Stability}} and {{Convergence}}.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  459(2):1554--1568.
+
+\bibitem[Wechsler et~al., 2001]{wechslerGalaxyFormationConstraints2001}
+Wechsler, R.~H., Somerville, R.~S., Bullock, J.~S., Kolatt, T.~S., Primack,
+  J.~R., Blumenthal, G.~R., and Dekel, A. (2001).
+\newblock Galaxy {{Formation}} at z\textasciitilde 3: {{Constraints}} from
+  {{Spatial Clustering}}.
+\newblock {\em The Astrophysical Journal}, 554:85--103.
+
+\bibitem[Wetzel and White, 2010]{wetzelWhatDeterminesSatellite2010}
+Wetzel, A.~R. and White, M. (2010).
+\newblock What determines satellite galaxy disruption?
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  403(2):1072--1088.
+
+\bibitem[Whalen and Norman, 2006]{whalenMultistepAlgorithmRadiation2006}
+Whalen, D. and Norman, M.~L. (2006).
+\newblock A {{Multistep Algorithm}} for the {{Radiation Hydrodynamical
+  Transport}} of {{Cosmological Ionization Fronts}} and {{Ionized Flows}}.
+\newblock {\em The Astrophysical Journal Supplement Series}, 162:281--303.
+
+\bibitem[White and Frenk, 1991]{whiteGalaxyFormationHierarchical1991}
+White, S. D.~M. and Frenk, C.~S. (1991).
+\newblock Galaxy {{Formation}} through {{Hierarchical Clustering}}.
+\newblock {\em The Astrophysical Journal}, 379:52.
+
+\bibitem[Wise et~al., 2014]{wiseBirthGalaxyIII2014a}
+Wise, J.~H., Demchenko, V.~G., Halicek, M.~T., Norman, M.~L., Turk, M.~J.,
+  Abel, T., and Smith, B.~D. (2014).
+\newblock The {{Birth}} of a {{Galaxy}} - {{III}}. {{Propelling}} reionisation
+  with the faintest galaxies.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  442(3):2560--2579.
+
+\bibitem[Wu et~al., 2021]{wuAccuracyCommonMomentbased2021}
+Wu, X., McQuinn, M., and Eisenstein, D. (2021).
+\newblock On the accuracy of common moment-based radiative transfer methods for
+  simulating reionization.
+\newblock {\em Journal of Cosmology and Astroparticle Physics}, 2021:042.
+
+\bibitem[Xu et~al., 2022]{xuTHESANProjectLymanalpha2022}
+Xu, C., Smith, A., Borrow, J., Garaldi, E., Kannan, R., Vogelsberger, M.,
+  Pakmor, R., Springel, V., and Hernquist, L. (2022).
+\newblock The {{THESAN}} project: {{Lyman-alpha}} emitter luminosity function
+  calibration.
+
+\bibitem[Xu et~al., 2016]{xuGalaxyPropertiesUV2016}
+Xu, H., Wise, J.~H., Norman, M.~L., Ahn, K., and O'Shea, B.~W. (2016).
+\newblock Galaxy {{Properties}} and {{UV Escape Fractions During Epoch}} of
+  {{Reionization}}: {{Results}} from the {{Renaissance Simulations}}.
+\newblock https://arxiv.org/abs/1604.07842v2.
+
+\bibitem[Yeh et~al., 2023]{yehTHESANProjectIonizing2023}
+Yeh, J. Y.~C., Smith, A., Kannan, R., Garaldi, E., Vogelsberger, M., Borrow,
+  J., Pakmor, R., Springel, V., and Hernquist, L. (2023).
+\newblock The {{THESAN}} project: Ionizing escape fractions of reionization-era
+  galaxies.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}.
+
+\bibitem[Zehavi et~al., 2004]{zehaviDeparturesPowerLaw2004}
+Zehavi, I., Weinberg, D.~H., Zheng, Z., Berlind, A.~A., Frieman, J.~A.,
+  Scoccimarro, R., Sheth, R.~K., Blanton, M.~R., Tegmark, M., Mo, H.~J.,
+  Bahcall, N.~A., Brinkmann, J., Burles, S., Csabai, I., Fukugita, M., Gunn,
+  J.~E., Lamb, D.~Q., Loveday, J., Lupton, R.~H., Meiksin, A., Munn, J.~A.,
+  Nichol, R.~C., Schlegel, D., Schneider, D.~P., SubbaRao, M., Szalay, A.~S.,
+  Uomoto, A., York, D.~G., and {SDSS Collaboration} (2004).
+\newblock On {{Departures}} from a {{Power Law}} in the {{Galaxy Correlation
+  Function}}.
+\newblock {\em The Astrophysical Journal}, 608:16--24.
+
+\bibitem[Zentner et~al., 2014]{zentnerGalaxyAssemblyBias2014}
+Zentner, A.~R., Hearin, A.~P., and {van den Bosch}, F.~C. (2014).
+\newblock Galaxy assembly bias: A significant source of systematic error in the
+  galaxy-halo relationship.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  443:3044--3067.
+
+\bibitem[Zhao et~al., 2009]{zhaoAccurateUniversalModels2009}
+Zhao, D.~H., Jing, Y.~P., Mo, H.~J., and Boerner, G. (2009).
+\newblock Accurate universal models for the mass accretion histories and
+  concentrations of dark matter halos.
+\newblock {\em The Astrophysical Journal}, 707(1):354--369.
+
+\end{thebibliography}

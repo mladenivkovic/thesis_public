@@ -1,0 +1,75 @@
+\documentclass[tikz,border=1mm,10pt,dvipsnames]{standalone}
+\usetikzlibrary{backgrounds}
+
+%\usetikzlibrary{shapes.misc}
+%\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%%default radius will be 1pt.
+%cross/.default={1pt}}
+
+\begin{document}
+\begin{tikzpicture}[transform shape, background rectangle/.style={fill=white}, show background rectangle]
+
+	\def\hydroColor{blue};
+	\def\rtColor{ForestGreen};
+
+	\def\Xzero{-1cm};
+	\def\Xmax{16.5cm};
+	\def\Yzero{0cm};
+	\def\Ymax{8.5cm};
+	\def\partoneY{8cm};
+	\def\parttwoY{5cm};
+	\def\partthreeY{2cm};
+	\def\radius{0.15cm};
+	\def\rtOffset{1cm};
+
+	\def\rtCross{node[cross=.2cm,rotate=0, \rtColor, line width=2pt]{}};
+
+
+	% X Axis
+	\draw[thick, ->] (\Xzero,\Yzero) -- (\Xmax,\Yzero) node[anchor=west] {$t$ [$\Delta t]$};
+	\foreach \x in {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+	% Y Axis
+%	\draw[thick] (-1,0) -- (-1,8.5); %node[anchor=south east] {y axis};
+	% Axes ticks
+%	\foreach \y in {0,1,2,3,4,5,6,7,8}
+%		\draw (\Xzero-1pt,\y cm) -- (\Xzero-1pt,\y cm) node[anchor=east] {$\y$};
+
+
+	\foreach \x in {0, 2, 4, 6, 8, 12, 16}
+		\draw [color=red!60] (\x,\Yzero) -- (\x,\Ymax);
+
+
+	% Particle labels
+	\draw node[anchor=east, align=center, \hydroColor] at (\Xzero, \partoneY) {Particle 1\\ steps of $8 \Delta t$};
+
+	\draw node[anchor=east, align=center, \hydroColor] at (\Xzero, \parttwoY) {Particle 2\\ steps of $4 \Delta t$};
+
+	\draw node[anchor=east, align=center, \hydroColor] at (\Xzero, \partthreeY) {Particle 3\\ steps of $2 \Delta t$};
+
+	\draw node[anchor=east, align=center, black] at (\Xzero, \Yzero) {Global simulation\\time};
+
+
+	% Particle 1 Hydro Activity
+	\foreach \px in {0, 8, 16}
+		\fill[color=\hydroColor] (\px,\partoneY) circle (\radius);
+
+
+	% Particle 2 Hydro Activity
+	\foreach \px in {0, 4, 8, 12, 16}
+		\fill[color=\hydroColor] (\px,\parttwoY) circle (\radius);
+
+
+	% Particle 3 Hydro Activity
+	\foreach \px in {0, 2, 4, 6, 8, 12, 16}
+		\fill[color=\hydroColor] (\px,\partthreeY) circle (\radius);
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,119 @@
+\include{header}
+
+
+\begin{document}
+
+%--------------------------------------------
+% Stuff that needs to be done before all else
+%--------------------------------------------
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt} %(needs to be before titlepage and frontmatter to keep the table of contents lists short)
+
+
+\frontmatter
+\include{head/titlepage}
+\include{head/dedication}
+\include{head/preprint_note}
+\setcounter{page}{0}
+\include{head/acknowledgements}
+% \include{head/preface}
+\include{head/abstracts}
+
+
+\cleardoublepage
+\pdfbookmark{\contentsname}{toc}
+\tableofcontents
+
+% Lists of Figures and of Tables
+% \cleardoublepage
+% \phantomsection
+% \addcontentsline{toc}{chapter}{List of Figures} % adds an entry to the table of contents
+% \listoffigures
+%
+% \cleardoublepage
+% \phantomsection
+% \addcontentsline{toc}{chapter}{List of Tables} % adds an entry to the table of contents
+% \listoftables
+%
+
+
+% space before each new paragraph according to the template guidelines.
+%(needs to be after titlepage and frontmatter to keep the table of contents lists short)
+\setlength{\parskip}{1em}
+
+\mainmatter
+\include*{main/introduction}
+
+
+\part{A Primer On Finite Volume Methods for Hyperbolic Conservation Laws}\label{part:finite-volume}
+
+\include*{main/FV/FV-0-introduction}
+\include*{main/FV/FV-1-hyperbolic-conservation-laws}
+\include*{main/FV/FV-2-riemann-problem}
+\include*{main/FV/FV-3-godunov}
+\include*{main/FV/FV-4-higher-order}
+
+
+
+\part{Finite Volume Particle Methods}\label{part:meshless}
+\include*{main/Meshless/ML-0-introduction}
+\include*{main/Meshless/ML-1-partition-of-unity}
+\include*{main/Meshless/ML-2-methods}
+\include*{main/Meshless/ML-3-implementation}
+
+
+
+\part{Radiation Hydrodynamics}\label{part:rt}
+\include*{main/RHD/RHD-1-introduction}
+\include*{main/RHD/RHD-2-rt-equations}
+\include*{main/RHD/RHD-3-rt-numerical-method}
+\include*{main/RHD/RHD-4-validation}
+\include*{main/RHD/RHD-5-conclusion}
+
+
+
+
+\part{ACACIA} \label{part:ACACIA}
+\include*{main/ACACIA/ACA0-introduction}
+\include*{main/ACACIA/ACA1-from-halofinding-to-mocks}
+\include*{main/ACACIA/ACA2-mergertree_algorithm}
+\include*{main/ACACIA/ACA3-mergertree_testing}
+\include*{main/ACACIA/ACA4-mergertree_testing_other_codes}
+\include*{main/ACACIA/ACA5-SHAM_testing}
+\include*{main/ACACIA/ACA6-conclusion}
+
+
+
+
+
+
+\part*{Appendix}
+\addcontentsline{toc}{part}{Appendix} % adds an entry to the table of contents
+\cleardoublepage
+
+\begin{appendices}
+\include*{appendix/app1-primitive-variable-riemann}
+\include*{appendix/app2-roes-theorem}
+\include*{appendix/app3-psi_gradients_full_expressions}
+\include*{appendix/app4-photon-number-to-luminosity}
+\include*{appendix/app5-zero-flux-nonzero-energy}
+\end{appendices}
+
+
+\backmatter
+
+% BIBLIOGRAPHY
+\cleardoublepage
+% Make unnumbered chapter, but add it to the table of contents regardless
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{tail/thesis_references,tail/thesis_references_manually_tweaked}
+\cleardoublepage
+
+% \include*{tail/cv}
+
+
+
+
+\end{document}

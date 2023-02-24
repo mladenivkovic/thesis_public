@@ -1,0 +1,207 @@
+%----------------------------------------
+\chapter{Hyperbolic Conservation Laws}
+%----------------------------------------
+
+First, let's get a little more concrete.
+Formally, conservation laws are systems of partial differential equations (PDEs) that can be
+written in the form
+%
+\begin{align}
+  \deldt \U + \deldx \F(\U) &= 0 \\[.5em] \label{eq:conservation-law-1D-introduction}
+  \text{with } \U = \left( \begin{matrix}
+                    \uc_1 \\ \uc_2 \\ \vdots \\ \uc_m \\
+                    \end{matrix} \right), & \quad \quad
+                \F =\left( \begin{matrix}
+                    \fc_1 \\ \fc_2 \\ \vdots \\ \fc_m \\
+                    \end{matrix} \right)
+\end{align}
+%
+where $\U$ is called the vector of conserved states, and $\F$ is the vector of fluxes, and in
+general is a function of the state vector. This definition of conservation laws is valid for one
+spatial dimension. However, the extension to multiple dimensions is straightforward: Instead of
+being a vector, the flux becomes a tensor, and the partial spatial derivative is a divergence
+operator instead.
+
+A PDE of the form
+%
+\begin{align}
+    \deldt &\U + \mathcal{A} \deldx \U + \mathcal{B} = 0 \\[.5em]
+  \text{with }  &\U = \left( \begin{matrix}
+                    u_1 \\ u_2 \\ \vdots \\ u_m \\
+                    \end{matrix} \right),  \quad \quad
+                \mathcal{B} = \left( \begin{matrix}
+                    b_1 \\ b_2 \\ \vdots \\ b_m \\
+                    \end{matrix} \right), & \quad \quad
+                \mathcal{A} =\left( \begin{matrix}
+                    a_{11} & \ldots & a_{1m} \\
+                    \vdots & \ddots & \vdots \\
+                    a_{m1} & \ldots & a_{mm} \\
+                    \end{matrix} \right)
+\end{align}
+%
+%
+is called
+
+\begin{itemize}
+ \item linear with constant coefficients if $a_{ij} = \CONST$ and $b_i = \CONST$
+ \item linear with variable coefficients if $a_{ij} = a_{ij}(x, t)$ and $b_i = b_i(x, t)$ or
+$\mathcal{B} = \alpha + \beta \U$
+ \item  quasi-linear if $\mathcal{A} = \mathcal{A}(\U)$
+ \item homogeneous if $\mathcal{B} = 0$
+\end{itemize}
+
+
+A conservation laws like \ref{eq:conservation-law-1D-introduction} can be written in homogeneous
+quasi-linear form:
+
+\begin{align}
+ \DELDT{\U} + \DELDX{F} = 0 = \DELDT{\U} + \frac{\del \F}{\del \U} \DELDX{U} = \DELDT{U} +
+\mathcal{A}(\U) \DELDX{U}
+\end{align}
+
+where $\mathcal{A}$ is the Jacobian matrix of the flux function $\F(\U)$ and has the elements
+$a_{ij} = \frac{\del f_i}{\del u_j}$.
+
+Furthermore, a conservation law \ref{eq:conservation-law-1D-introduction} is said to be hyperbolic
+at a point $(x, t)$ if $\mathcal{A}$ has $m$ real eigenvalues $\lambda_1$, ..., $\lambda_m$ and a
+corresponding set of $m$ linearly independent right eigenvectors $\mathbf{K}^{(1)}$, ...,
+$\mathbf{K}^{(m)}$. If the $\lambda_i$ are all distinct, the system is called strictly hyperbolic.
+The fact that the conservation laws under consideration are hyperbolic, i.e. have $m$ eigenvalues
+and linearly independent eigenvectors, is a crucial element for the construction of the numerical
+solution strategy using finite volume methods.
+
+
+
+
+As mentioned before, this part of the work will focus on the linear advection equation and the
+Euler equation which govern ideal gases. The linear advection equation in its general,
+time-dependent form in three dimensions is given by:
+
+\begin{align}
+  \deldt{\uc} +
+    a(\x, t) \deldx{\uc} +
+    b(\x, t) \frac{\partial}{\partial y} \uc +
+    c(\x, t) \frac{\partial}{\partial z} \uc
+    = 0 \ .
+    \label{eq:linear-advection-general}
+\end{align}
+
+If the coefficiens are sufficiently smooth (i.e. differentiable), it can be expressed as a
+conservation law with source terms:
+
+\begin{align}
+  \deldt{\uc} +
+    \deldx{(a \uc)} +
+    \frac{\partial}{\partial y} (b\uc) +
+    \frac{\partial}{\partial z} (c \uc )
+    = \uc \left(
+    \deldx{a} +
+    \frac{\partial}{\partial y} b +
+    \frac{\partial}{\partial z} c
+    \right) \ .
+\end{align}
+
+In its simplest form, which is also the form that will be made heavy use of in this work, we only
+consider one dimension and a constant coefficient $a$:
+
+\begin{align}
+    \deldt{\uc} + a \deldx{\uc} = 0 \label{eq:linear-advection-1D-const-coeff}
+\end{align}
+
+
+
+The Euler equations are given by:
+
+
+\begin{align}
+	\deldt
+	\begin{pmatrix}
+		\rho \\
+		\rho \V \\
+		E
+	\end{pmatrix}
+	+
+	\nabla \cdot
+	\begin{pmatrix}
+		\rho \V\\
+		\rho \V \otimes \V + p\\
+		(E + p) \V
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		0\\
+		\rho \mathbf{a}\\
+		\rho \mathbf{a} \V
+	\end{pmatrix}
+	\label{eq:euler-equations}
+\end{align}
+
+
+
+where
+\begin{itemize}
+	\item $\rho$ is the fluid density
+	\item $\V = (v_1, v_2, v_3)^T$ is the fluid velocity at a given point. This is the mean
+or bulk velocity of the fluid, not the velocity of individual particles that compose the fluid.
+	\item $p$ is the pressure
+	\item $E$ is the specific energy. $E = \frac{1}{2} \rho \V^2 + \rho u$, with $u$ being the
+specific internal thermal energy.
+	\item $\mathbf{a}$ is an acceleration due to some external force.
+\end{itemize}
+
+The outer product $\cdot \otimes \cdot$ gives the following tensor:
+\begin{align}
+	(\V \otimes \V)_{ij} = v_i v_j
+\end{align}
+
+
+Furthermore, for ideal gases, we have the equation of state:
+%
+\begin{align}
+	p &= n k_B T && \text{ideal gas law} \\
+\end{align}
+%
+which can also be written as:
+%
+\begin{align}
+	u &= \frac{1}{\gamma - 1}\frac{p}{\rho} \label{eq:equation-of-state}
+\end{align}
+%
+and the following relations:
+%
+\begin{align}
+	c_s &= \sqrt{\frac{\del p}{\del \rho} \bigg{|}_s } = \sqrt{\frac{\gamma p}{\rho}} &&
+\text{sound speed of the gas} \\
+	s &= c_V \ln \left( \frac{p}{\rho^\gamma} \right) + s_0 && \text{entropy} \label{eq:entropy}\\
+	p &= C \rho ^ \gamma && \text{entropy relation for smooth flow, i.e. no shocks}
+\end{align}
+
+where
+\begin{itemize}
+	\item $n$ is the number density of the gas
+	\item $k_B$ is the Boltzmann constant
+	\item $T$ is the temperature
+	\item $s$ is the entropy
+	\item $\gamma$ is the adiabatic index
+    \item $c_V$ is the specific heat capacity at constant volume
+\end{itemize}
+
+
+In 1D, we can write the Euler equations without source terms ($\mathbf{a} = 0$) and dropping the
+index $1$ from the velocity term $v_1$ as:
+
+\begin{align}
+	\deldt{
+		\begin{pmatrix}
+			\rho \\ \rho v \\ E
+		\end{pmatrix}
+		}
+	+ \deldx {
+		\begin{pmatrix}
+			\rho v\\
+			\rho v^2  + p\\
+			(E + p) v
+		\end{pmatrix}
+	} = 0 \ .
+	\label{eq:euler-equations-1D}
+\end{align}

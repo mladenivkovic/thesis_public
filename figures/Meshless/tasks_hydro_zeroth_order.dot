@@ -1,0 +1,107 @@
+digraph task_dep {
+	 # Header
+	 label="";
+	 compound=true;
+	 ratio=0.66;
+	 node[nodesep=0.15, fontsize=18, penwidth=3.];
+	 edge[fontsize=12, penwidth=0.5];
+	 ranksep=0.8;
+
+	 # Special tasks
+	 self_density[color=blue3];
+	 self_gradient[color=blue3];
+	 self_force[color=blue3];
+	 pair_density[color=blue3];
+	 pair_gradient[color=blue3];
+	 pair_force[color=blue3];
+	 sub_self_density[color=blue3];
+	 sub_self_gradient[color=blue3];
+	 sub_self_force[color=blue3];
+	 sub_pair_density[color=blue3];
+	 sub_pair_gradient[color=blue3];
+	 sub_pair_force[color=blue3];
+	 drift_part[color=blue3];
+	 kick2[color=black];
+	 timestep[color=black];
+	 kick1[color=black];
+
+	 # Clusters
+	 subgraph clusterDensity {
+		 label="";
+		 bgcolor="grey99";
+		 pair_density;
+		 self_density;
+		 sub_pair_density;
+		 sub_self_density;
+	 };
+
+	 subgraph clusterForce {
+		 label="";
+		 bgcolor="grey99";
+		 pair_force;
+		 self_force;
+		 sub_pair_force;
+		 sub_self_force;
+	 };
+
+	 subgraph clusterGradient {
+		 label="";
+		 bgcolor="grey99";
+		 pair_gradient;
+		 self_gradient;
+		 sub_pair_gradient;
+		 sub_self_gradient;
+	 };
+
+	 # Dependencies
+	 self_density->self_gradient[color=blue3,fontcolor=blue3]
+	 self_density->sub_self_gradient[color=blue3,fontcolor=blue3]
+	 self_density->pair_gradient[color=blue3,fontcolor=blue3]
+	 self_density->sub_pair_gradient[color=blue3,fontcolor=blue3]
+
+	 pair_density->self_gradient[color=blue3,fontcolor=blue3]
+	 pair_density->sub_self_gradient[color=blue3,fontcolor=blue3]
+	 pair_density->pair_gradient[color=blue3,fontcolor=blue3]
+	 pair_density->sub_pair_gradient[color=blue3,fontcolor=blue3]
+
+	 sub_self_density->self_gradient[color=blue3,fontcolor=blue3]
+	 sub_self_density->sub_self_gradient[color=blue3,fontcolor=blue3]
+	 sub_self_density->pair_gradient[color=blue3,fontcolor=blue3]
+	 sub_self_density->sub_pair_gradient[color=blue3,fontcolor=blue3]
+
+	 sub_pair_density->self_gradient[color=blue3,fontcolor=blue3]
+	 sub_pair_density->sub_self_gradient[color=blue3,fontcolor=blue3]
+	 sub_pair_density->pair_gradient[color=blue3,fontcolor=blue3]
+	 sub_pair_density->sub_pair_gradient[color=blue3,fontcolor=blue3]
+
+	 self_gradient->self_force[color=blue3,fontcolor=blue3]
+	 self_gradient->sub_self_force[color=blue3,fontcolor=blue3]
+	 self_gradient->pair_force[color=blue3,fontcolor=blue3]
+	 self_gradient->sub_pair_force[color=blue3,fontcolor=blue3]
+
+	 pair_gradient->self_force[color=blue3,fontcolor=blue3]
+	 pair_gradient->sub_self_force[color=blue3,fontcolor=blue3]
+	 pair_gradient->pair_force[color=blue3,fontcolor=blue3]
+	 pair_gradient->sub_pair_force[color=blue3,fontcolor=blue3]
+
+	 sub_self_gradient->self_force[color=blue3,fontcolor=blue3]
+	 sub_self_gradient->sub_self_force[color=blue3,fontcolor=blue3]
+	 sub_self_gradient->pair_force[color=blue3,fontcolor=blue3]
+	 sub_self_gradient->sub_pair_force[color=blue3,fontcolor=blue3]
+
+	 sub_pair_gradient->self_force[color=blue3,fontcolor=blue3]
+	 sub_pair_gradient->sub_self_force[color=blue3,fontcolor=blue3]
+	 sub_pair_gradient->pair_force[color=blue3,fontcolor=blue3]
+	 sub_pair_gradient->sub_pair_force[color=blue3,fontcolor=blue3]
+
+	 self_force->kick2[color=blue3,fontcolor=blue3]
+	 pair_force->kick2[color=blue3,fontcolor=blue3]
+	 sub_self_force->kick2[color=blue3,fontcolor=blue3]
+	 sub_pair_force->kick2[color=blue3,fontcolor=blue3]
+	 drift_part->pair_density[color=blue3,fontcolor=blue3]
+	 drift_part->self_density[color=blue3,fontcolor=blue3]
+	 drift_part->sub_pair_density[color=blue3,fontcolor=blue3]
+	 drift_part->sub_self_density[color=blue3,fontcolor=blue3]
+	 kick2->timestep[color=black,fontcolor=black]
+	 kick1->drift_part[color=black,fontcolor=black]
+}

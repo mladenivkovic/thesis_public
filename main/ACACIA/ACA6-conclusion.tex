@@ -1,0 +1,179 @@
+%=================================================
+\chapter{Conclusion}\label{chap:acacia-conclusion}
+%=================================================
+
+
+We presented \acacia, a new  algorithm to identify dark matter
+halo  merger trees,  which is  designed  to work  \emph{on-the-fly}  on
+systems  with  distributed  memory architectures,  together  with  the
+adaptive mesh refinement code \ramses\ with its \emph{on-the-fly} clump
+finder  \phew.  Clumps  of dark  matter are  tracked across  snapshots
+through a user-defined  maximum number of most bound  particles of the
+clump  $n_{\mathrm{mb}}$.   We found  that  using  $n_{\mathrm{mb}} \simeq  200$  tracer
+particles is  a safe choice  to obtain  robust results for  our merger
+tree  algorithm,  while   not  being  computationally  unrealistically
+expensive.  We  also recommend adopting a  conservative mass threshold
+of 200  particles per  clump to get  rid of a  few rare  spurious dead
+branches that would need to be pruned from the halo catalogue anyway.
+
+Additionally,  we examined  the  influence of  various definitions  of
+substructure  properties on  the  resulting merger  trees. Whether  we
+define substructures to contain their respective substructures' masses
+or not  had negligible effect  on the merger trees.   However defining
+particles  to  be  strictly  gravitationally  bound  to  their  parent
+substructure  (by requiring  that  particles can't  leave the  spatial
+extent of that  substructure) leads to better results,  with much less
+extreme  mass growths  and extreme  mass growth  fluctuations of  dark
+matter clumps.  We recommend to  use this strictly bound definition as
+the  preferred  definition for  robust  merger  trees.  The  resulting
+merger  trees  are  in   agreement  with  the  bottom-up  hierarchical
+structure formation picture  for dark matter haloes.  The merger trees
+of massive  haloes at $z=0$ have  more branches than their  lower mass
+counterparts.  Their  formation history  can often  be traced  to very
+high redshifts.
+
+Once a progenitor  clump is merged into  a descendant, \acacia
+keeps track of the progenitor's most strongly bound particle, called the
+``orphan particle''.  It is possible for a temporarily merged sub-halo
+to re-emerge from its host halo  at a later snapshot because it hasn't
+actually dissolved  or merged completely,  but only because  it wasn't
+detected  by the  clump finder  as a  separate density  peak.  Such  a
+situation  is illustrated  in Figure  \ref{fig:jumper-demo}. In  these
+cases,  orphan  particles  are  used   to  establish  a  link  between
+progenitor  and  descendant   clumps  across  non-adjacent  snapshots.
+By  default, \acacia will track orphans until the end of the
+simulation, and orphans are only removed after they have indeed established
+a link between a progenitor and descendant and thus have served their
+purpose. Nonetheless, the current implementation
+offers the option to remove orphan particles after a user defined number
+of snapshots has passed. Keeping track of orphan particles indefinitely
+might lead to misidentifications of progenitor-descendant pairs and
+therefore to wrong formation histories. Our analysis shows however that
+matches between progenitor-descendant pairs over an interval greater
+than 10 snapshots are quite rare, so we expect this type of
+misidentifications to be a negligible issue.
+
+Compared to the test results in \citet{SUSSING_HALOFINDER}, our results
+are comparable to e.g. the \codename{MergerTree}, \codename{TreeMaker} and
+\codename{VELOCIraptor} tree builders with \codename{AHF}, \codename{Subfind},
+or \codename{Rockstar} halo finders as presented in A14, demonstrating that
+\acacia performs similarly to other state-of-the-art tools.
+However, the performance is inferior to the one of the \codename{HBTtree}
+algorithm, which together with the \codename{HBThalo} halo finder follows
+structure from one timestep to the next and makes use of this information
+when constructing both halo catalogues and trees. Furthermore we have encountered issues, e.g. main branch lengths of massive haloes being cut
+short, due to failures in the \phew\ halo finder that we used. In those
+cases, substructure changed their order in the hierarchy, and the subsequent
+particle unbinding stripped particles from clumps in lower levels in the
+hierarchy, preventing \acacia to establish any links between
+progenitor and descendant clumps. The resolution of these issues with the
+clump finder will be a high priority in future work, where we plan on
+modifying the way \phew\ creates the hierarchies.
+For example, we could define the peak hierarchy not based on the peak
+density, but rather on the peak mass \citep[e.g. similarly to
+\codename{AdaptaHOP},][]{aubertOriginImplicationsDark2004}. Additionally,
+with the structure information from previous snapshots available now through
+\acacia, further improvements can be made by taking this information
+into account when constructing the sub-halo hierarchies, in a similar spirit
+as \codename{HBThalo} does.
+
+Orphan particles also serve a second purpose besides tracing disappearing
+clumps. If we also
+want to produce a mock galaxy catalogue on-the-fly using a dark matter
+only simulation, the orphan particles are also used to track orphan
+\emph{galaxies}. Those are  galaxies that  don't have  an associated
+dark  matter  clump  any  longer  because  of  numerical  overmerging.
+If we interpret orphan particles as orphan galaxies, there could be
+additional reasons to consider stopping tracking them. For example, the
+effects of dynamical friction makes them fall towards the central
+galaxies. Once the orphan galaxies have lost enough energy, they may
+find themselves in close proximity to the central galaxies, even below
+the resolution limit. In these cases, it makes little sense to keep
+track of these orphans as individual galaxies. They should rather be
+regarded as merged into the central galaxy, and for that reason removed
+from the list of tracked orphans. Given that the model we employ
+doesn't provide us with the galaxy radii, this approach requires some
+form of galaxy-galaxy merging cross-sections to compute the probability
+of a collision between galaxies that will result in a galaxy merger.
+A different approach that other models use is to estimate the time for
+orphan galaxies to merge into the parent structure. This estimate could
+be e.g. the dynamical friction time (as is done in \citet{mosterGalacticStarFormation2013}), or
+the fitting formula for the merger timescale of galaxies in cold dark
+matter models by \citet{jiangFittingFormulaMerger2008}. These physically motivated
+approaches to remove orphans will be the subject of future work, where
+we also intend to make use of the tools and methods presented in
+\citet{poultonObservingMergerTrees2018} in order to improve our resulting
+merger trees and mock galaxy catalogues.
+
+
+
+%From a technical viewpoint, one clear bottleneck in the current merger tree algorithm is the requirement to write progenitor particles and data to file and read them back in and sort them out at a later snapshot.
+%A possible improvement would be to track which particles left each task's domain and which particles entered in between two snapshots. The progenitor particles would still be read and written to and from files, but it would minimise the sorting part of the algorithm where each MPI task figures out which tracer particles it contains.
+%Another option would be to change the amount of data each MPI task needs to read in.
+%The maximal velocity of any particle in the time interval between two snapshots should be traced. This way, once the simulation advances to the next snapshot, it would be possible to estimate the maximal distance any particle could've travelled.
+%Provided every MPI task has knowledge on how the entire computational domain is split between tasks, it could skip reading in data written by tasks where no particle currently in this task's domain could have come from.
+
+%In this work, two mock galaxy catalogues were generated from dark matter simulations using the  	te{behrooziAVERAGESTARFORMATION2013} SMHM relation and the merger trees obtained on the fly with \acacia.
+%The obtained stellar mass functions (Figure \ref{fig:smf}) demonstrate that the 	te{behrooziAVERAGESTARFORMATION2013} SMHM relation can be used with the built-in clump finder \phew.
+%Finally, we demonstrate the influence of the merger trees on the mock galaxy catalogues by computing two-point correlation functions of the galaxies, shown in Figure \ref{fig:correlations}.
+%The influence of the merger tree on the galaxy catalogue is twofold:
+%Firstly, the sub-halo masses used to obtain the satellite galaxies are peak masses during the sub-halo's formation history, and secondly, no orphan galaxies can be tracked without \acacia.
+%The correlation functions have been evaluated both with and without orphan galaxies.
+%When orphan galaxies are included, much better results are obtained.
+%Given that the mock galaxy catalogues in this work were created using simulations with relatively low spatial and mass resolution of $512^3$ particles in boxes of 69 and 100 comoving Mpc each, the obtained stellar mass functions and correlation functions show good agreement with observed stellar mass functions.
+%By comparing the results of the two simulations it can be expected that a higher spatial resolution should improve the clustering statistics, and together with a higher mass resolution the stellar mass functions of central galaxies should also improve.
+%Thereby we demonstrate that our new merger tree builder and the generation of mock galaxy catalogues from DMO simulations can be successfully performed on the fly with \ramses.
+
+Finally, as a  proof of concept and using the  known formation history
+of  dark matter  clumps from  the merger  trees and  a widely  adopted
+stellar-mass-to-halo-mass  relation  \citep{behrooziAVERAGESTARFORMATION2013}, we  generate  a
+mock  galaxy  catalogue  from  a dark  matter  only  simulation.   The
+influence of the merger trees on  the quality of the galaxy catalogues
+is twofold.   First, while the stellar-mass-to-halo-mass  relation can
+be directly  applied to  central galaxies  associated to  main haloes,
+using the  peak clump  mass for  sub-haloes is  a better  approach for
+satellite galaxies.   The reason is  that tidal stripping  of galaxies
+inside  a dark  matter halo  sets in  much later  than for  their host
+sub-halo \citep{nagaiRadialDistributionGalaxies2005}.  Second, without properly keeping track of all
+merging  events, no  orphan  galaxies  can be  traced,  nor can  their
+stellar  mass  be   estimated  through  the  stellar-mass-to-halo-mass
+relation  unless  it's  known  from   which  halo  the  orphan  galaxy
+originated from, and what properties this halo had in the past.
+
+To highlight  the impact of  the merger trees, we  compute observables
+from our  mock galaxy catalogue,  both including and  excluding orphan
+galaxies.  Specifically,   we  compute  the  stellar   mass  two-point
+correlation  functions   and  radial  profiles  of   projected  number
+densities and projected stellar mass densities in galaxy clusters. When orphan
+galaxies are included in the analysis, we obtain correlation functions
+and radial  profiles in  good agreement with  observations, validating
+the different steps in our overall methodology.
+
+
+
+%=================================================
+% \section*{Data Availability}
+%=================================================
+
+
+%
+% =================================================
+% \section*{Acknowledgements}
+% =================================================
+%
+% MI would like  to thank B. Roukema for  helpful suggestions concerning
+% the history  of the application  of merger trees in  the astrophysical
+% context, S.   Avila for discussions  on details of the  Sussing Merger
+% Tree Comparison  project, the referee C. Power for his suggestions
+% which improved this paper, and Y. Revaz for  his support in many  ways.
+% This  work  was supported  by the  Swiss
+% National Supercomputing  Center (CSCS)  under projects s1006  and uzh5
+% and  by the  Swiss  National Science  Foundation  (SNF) under  project
+% 72535 ``Multi-scale multi-physics models of galaxy formation''.  This
+% work        made        use        of        the        \codename{numpy}
+% \citep{harrisArrayProgrammingNumPy2020}       and       \codename{scipy}
+% \citep{virtanenSciPyFundamentalAlgorithms2020}  python  libraries  for
+% the      data      analysis      and      the      \codename{matplotlib}
+% \citep{hunterMatplotlib2DGraphics2007}  python  library  for  plotting
+% tools.
+%

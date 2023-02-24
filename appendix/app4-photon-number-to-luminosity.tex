@@ -1,0 +1,67 @@
+%-------------------------------------------------------------------------------
+\chapter{Converting Photon Number Emission Rates to Photon Energy Emission 
+Rates}\label{app:number-to-luminosity}
+%-------------------------------------------------------------------------------
+
+Some radiative transfer codes use photon \emph{number} injection rates $\dot{N}_{\gamma}$ for their 
+emission rates rather than the \emph{energy} injection rates $\dot{E}_\gamma$, or equivalently 
+luminosities $L$. To convert between these two quantities, we need to assume that the emission 
+follows some spectrum $J(\nu)$.
+
+In the case of a single photon group, the conversion is quite simple: We first need to compute the 
+average photon energy $\overline{E}_\gamma$:
+
+\begin{align}
+	\overline{E}_\gamma = \frac{\int J(\nu) \ \de \nu }{\int J(\nu) / (h \nu) \ \de \nu}
+\end{align}
+
+then the emitted luminosity (energy per unit time) is
+
+\begin{align}
+	L = \overline{E}_\gamma \ \dot{N}_{\gamma}
+\end{align}
+
+Note that in many cases, the given emission photon number rate is the number rate of \emph{ionizing} 
+photons. This means that we need to start the integrals at the lowest ionizing frequency 
+$\nu_{\text{ion, min}}$ in order to have the correct translation to the luminosity of the 
+\emph{ionizing} energy:
+
+
+\begin{align}
+	\overline{E}_\gamma = \frac{\int\limits_{\nu_{\text{ion, min}}}^\infty J(\nu) \ \de \nu 
+}{\int\limits_{\nu_{\text{ion, min}}}^\infty J(\nu) / (h \nu) \ \de \nu}
+\end{align}
+
+
+In the case of several photon frequency groups being used, the conversion requires a little 
+adaptation in order to preserve the correct number of photons emitted. For each photon group $i$, 
+the average photon energy is given by
+
+\begin{align}
+	\overline{E}_i = \frac{\int\limits_{\nu_{i \text{, min}}}^{\nu_{i \text{, max}}} J(\nu) \ \de 
+\nu }{\int\limits_{\nu_{i \text{, min}}}^{\nu_{i \text{, max}}} J(\nu) / (h \nu) \ \de \nu}
+\end{align}
+
+
+Secondly, we need to compute the fraction $f_i$ of ionizing photons in each bin, which is given by
+
+\begin{align}
+	f_i = \frac{\int\limits_{\nu_{i \text{, min}}}^{\nu_{i \text{, max}}} J(\nu) / (h \nu)  \ \de 
+\nu }{\int\limits_{\nu_{min}}^{\infty} J(\nu) / (h \nu) \ \de \nu}
+\end{align}
+
+Then the number of emitted photons in each bin is given by
+
+\begin{align}
+\dot{N}_i = f_i\ \dot{N}_\gamma
+\end{align}
+
+And the luminosities are given by
+
+\begin{align}
+	L_i &= \overline{E}_i \ \dot{N}_i \\
+			&= \frac{\int\limits_{\nu_{i \text{, min}}}^{\nu_{i \text{, max}}} J(\nu) \ \de \nu 
+}{\int\limits_{\nu_{min}}^{\infty} J(\nu) / (h \nu) \ \de \nu} \ \dot{N}_\gamma
+\end{align}
+
+

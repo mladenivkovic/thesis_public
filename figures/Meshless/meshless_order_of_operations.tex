@@ -1,0 +1,58 @@
+\documentclass[tikz, border=1mm, 12pt]{standalone}
+%\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+
+\newcommand{\vsp}{2.5em}
+\newcommand{\hsp}{15em}
+
+\newcommand{\horizontalwidth}{1.2 * \hsp}
+\newcommand{\verticalwidth}{0.3 * \hsp}
+
+%\newcommand{\usewidth}{\horizontalwidth}
+\newcommand{\usewidth}{\verticalwidth}
+
+\tikzstyle{general} = [rectangle, draw, fill=gray!10,
+    text width=\usewidth, text centered, rounded corners, minimum height=3em]
+\tikzstyle{iact} = [rectangle, draw=teal, fill=teal!10,
+    text width=\usewidth, text centered, rounded corners, minimum height=3em]
+\tikzstyle{merge} = [rectangle, draw=olive, fill=olive!10,
+    text width=\usewidth, text centered, rounded corners, minimum height=3em]
+
+\tikzstyle{generalEdge} = [draw, very thick, -latex']
+
+
+
+
+\begin{tikzpicture}[align=center, auto]
+
+\node [general] (kick1) {kick};
+% VERTICAL
+%\node [general, below = \vsp of kick1] (drift) {drift};
+%\node [iact, below = \vsp of drift] (density) {neighbour search; Find $h$};
+%\node [iact, below = \vsp of density] (gradient) {determine gradients};
+%\node [iact, below = \vsp of gradient] (force) {exchange fluxes};
+%\node [general, below = \vsp of force] (kick2) {kick};
+%\node [general, below = \vsp of kick2] (timestep) {find new time step $\Delta t$};
+
+% HORIZONTAL
+\node [general, right = \vsp of kick1] (drift) {drift};
+\node [iact, right = \vsp of drift] (density) {neighbour search; Find $h$};
+\node [iact, right = \vsp of density] (gradient) {determine gradients};
+\node [iact, right = \vsp of gradient] (force) {exchange fluxes};
+\node [general, right = \vsp of force] (kick2) {kick};
+\node [general, right = \vsp of kick2] (timestep) {find new time step $\Delta t$};
+
+\path [generalEdge] (kick1) -- (drift);
+\path [generalEdge] (drift) -- (density);
+\path [generalEdge] (density) -- (gradient);
+\path [generalEdge] (gradient) -- (force);
+\path [generalEdge] (force) -- (kick2);
+\path [generalEdge] (kick2) -- (timestep);
+
+\end{tikzpicture}
+
+\end{document}

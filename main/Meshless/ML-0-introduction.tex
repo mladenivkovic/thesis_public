@@ -1,0 +1,166 @@
+%===============================================
+\chapter{Introduction}
+%===============================================
+
+This section is dedicated to the discussion of a particular class of finite volume methods and
+their application to the Euler equations in the context of cosmological simulations of galaxy
+formation - the so-called ``finite volume particle methods''.
+Cosmological simulations are challenging in several aspects. One of them is the sheer size of the
+problem. For example, suppose we want to simulate a volume of 20 co-moving Mpc, a relatively modest
+size for cosmological purposes. Say we wanted to be able to resolve galaxies with typical radii of
+$\sim 20$ kpc with at least 100 cells across the radius, giving us a cell size of $\Delta x \sim
+200$ pc. Then a simulation software that uses a regular grid as the underlying discretization
+technique would need to evolve $10^{15}$ cells each time step until the desired end time is reached.
+Assuming each cell only stores three fluid variables as single precision floating point numbers,
+e.g. the primitive variables density, fluid velocity, and pressure, that would require roughly 10.7
+Petabytes of memory just for the primitive variables alone. And this completely neglects the most
+dominant force on cosmological scales, which is gravity, as well as everything else besides the gas.
+
+This problem needs to be addressed on several fronts. On one hand, clearly more sophisticated
+methods than discretizing the simulation volume using a regular grid with cells of equal sizes is
+necessary. On the other hand, a single personal computer is not sufficient to solve problems on
+cosmological scales, and we need to turn towards dedicated high performance computing facilities.
+Such supercomputers allow us to solve a single problem using a multitude of processors (and other
+hardware specialized for performance like GPUs) with both shared and distributed memory
+architectures. This type of computing, where a program makes use of several processors
+simultaneously to solve a single problem, is called parallel computing. Parallel computing permits
+us to solve a problem with a smaller time-to-solution by using more processing power for a single
+problem. The basic idea is similar to children's maths problems like ``If it takes one painter eight hours to paint a house, how long would it take four painters''? Parallel computing also allows to
+significantly increase the total problem size. There is an upper limit to how much memory is
+available per processor, but using more processors with their respective memories can increase the
+maximal solvable problem size. For example, the recent IllustrisTNG-300
+(\cite{pillepichFirstResultsIllustrisTNG2018}) simulation was able to complete a simulation with a
+volume of 300 co-moving Mpc in each dimension using $2500^3 \approx 1.6 \times 10^{10}$ gas
+resolution elements on 24000 processors, which took 34.9 Million CPU hours.
+
+While the usage of supercomputing facilities enables us to complete incredible simulations like
+IllustrisTNG-300 and generate amazing results, it comes at the price of having to invest significant
+effort into developing simulation software that is capable of efficient parallel computing, and is
+able to utilize the capabilities of these facilities and take advantage of the benefits they offer.
+This effort is by no means trivial, and state of the art simulation software needs to be designed
+with parallel computing in mind from the start.
+However, simply throwing more processing power at a problem is not sufficient. Parallel computing
+comes with overheads, as additional computational work needs to be done to enable the parallelism.
+The overheads increase with the number of computing nodes used, and eventually will dominate the
+total workload. Hence there is an upper limit to how much extra performance can be gained. In a
+similar manner, not all parts of the simulation program are parallelizable, and there is an upper
+theoretical limit to the maximal possible speedup, which is known as Amdahl's law
+(\cite{amdahlValiditySingleProcessor1967}). So we need to also look for more sophisticated methods
+to solve the hydrodynamics in a cosmological context.
+
+For example, we can make use of the fact that the Universe evolves from an initially remarkably
+uniform state to large structures forming over time from initially minute perturbations. As the
+structures such as dark matter halos and subhalos, filaments between such halos, galaxies and galaxy
+clusters form, increasingly more mass is tied up in gravitationally bound structures. So as time
+evolves, only the relatively small regions where the mass is situated become of prime interest,
+particularly so for the topic of galaxy formation and evolution. This motivates the approach to not
+treat all regions of the Universe equally: We can for example insist on an adequate resolution in
+and around galaxies, like for a cell size of $\Delta x \sim 200$pc in the example above, while we
+can reduce the spatial resolution in void regions which can span several Mpc. The ansatz is then to
+use cells of different sizes whenever and wherever necessary, and adaptively refine cells to
+sufficiently small sizes according to the current state of the medium. This approach is called
+adaptive mesh refinement (AMR), and is widely used in astrophysical simulation codes
+\citep[e.g.][]{teyssierCosmologicalHydrodynamicsAdaptive2002, stoneAthenaAdaptiveMesh2020,
+hayesSimulatingRadiatingMagnetized2006, kravtsovAdaptiveRefinementTree1997,
+mignonePLUTOCodeAdaptive2012, bryanENZOAdaptiveMesh2014}. An additional advantage of
+AMR codes is that the cell refinement strategy can be made use of not only to guarantee a desired
+resolution in interesting regions, but can also be applied to ensure a required level of stability,
+accuracy, and reduce truncation errors \citep[see
+e.g.][]{teyssierGridBasedHydrodynamicsAstrophysical2015a}). For example, take a cell with size
+$\Delta x$ and density $\rho$. To achieve the desired mass resolution within a cell, we can impose
+a minimal mass, $m_{\min}$, which we want a cell to contain. The refinement criterion is then given
+by:
+
+\begin{align}
+\text{If } \quad \Delta x > \left(\frac{m_{\min}}{\rho}\right)^{\frac{1}{3}}, \quad \text{ refine.}
+\end{align}
+
+However, we can add an additional refinement criterion based on the numerical diffusion, which
+depends on the cell size $\Delta x$ (see Chapter~\ref{chap:numerical_diffusion}) and the second
+derivative of the conserved states w.r.t. space. The refinement criterion is then motivated by
+requiring the numerical diffusion term to be ``small enough''. This effectively puts an upper
+threshold on the local truncation error, and is expressed by the diffusion term being smaller than
+the actual gradients of the conserved states (which are terms we make use of in our method).
+Explicitly, the refinement criterion can be written as:
+
+\begin{align}
+\text{If } \quad \Delta x \left| \frac{\del^2 \U}{\del x^2} \right| > C_{thresh}
+\left|\frac{\del \U}{\del x} \right|, \quad \text{ refine,}
+\end{align}
+
+where $C_{thresh}$ constitutes a dimensionless threshold we choose.
+
+Unfortunately, grid based methods aren't without caveats. For example, it is known that grid
+methods are in general not Galilei-invariant \citep[e.g.][]{wadsleyTreatmentEntropyMixing2008}, and
+poorly resolved disc galaxies can show alignment of the disc with along the grid
+\citep[e.g.][]{hahnLargescaleOrientationsDisc2010}. This motivates to look towards other methods
+that don't suffer from the same issues. However, no method is without caveats and limitations, as
+they all offer approximate discrete solutions to continuous problems. Even though various methods
+are employed on the same underlying conservation laws, the solutions they find can differ,
+especially so in strongly nonlinear regimes \citep[e.g.][For an example of difference in results
+of two different methods on the same problem in this work, see Figures~\ref{fig:kelvin-helmholtz-1}
+and~\ref{fig:kelvin-helmholtz-2} ]{frenkSantaBarbaraCluster1999,
+agertzFundamentalDifferencesSPH2007a, braspenningSensitivityNonradiativeCloudwind2022a}. So it is
+desirable to have several various well-studied and well-understood methods in order to confirm
+the findings beyond doubt.
+
+Other approaches, like the so-called ``Moving Mesh'' methods \citep[e.g][]{springelPurSiMuove2010,
+vandenbrouckeMovingMeshCode2016, gaburovMagneticallyLevitatingAccretion2012} depart from the use of
+a static (Eulerian) grid and construct irregular cells based on the local fluid flow. Typically
+particles, i.e. a collection of points which may change their individual positions  over time, are
+used as mesh generating points, which are also advected along with the fluid in a co-moving
+(Lagrangian) fashion. By tracing the fluid's motion, the resolution naturally follows the flows and
+in this fashion increases the resolution of regions where the fluid accumulates. It should be noted
+that while in principle the mesh \emph{can} be constructed in a Lagrangian fashion, it doesn't
+\emph{need} to be. The mesh generating points may as well be kept at fixed positions, and the
+simulation executed in an Eulerian fashion. For this reason, such methods are called Arbitrary
+Langrangian-Eulerian (ALE).
+
+
+A third approach used in astrophysical simulations, called ``meshless methods'', completely departs
+from cells as an underlying discretization technique, and uses particles instead. A famous class of
+meshless methods are Smooth Particle Hydrodynamics (SPH) methods, where particles are typically
+given some constant mass, and are evolved using the Lagrangian equations of fluid dynamics. SPH is
+based on estimating the local fluid density as a weighted sum over neighboring particles, where the
+weights are smoothly decreasing functions such that the noise in the density estimate introduced by
+distant neighboring particles is reduced. Using this density estimate and the Lagrangian equations
+of motion, the system can be evolved in time. While SPH is technically a meshless method, in
+astrophysical circles it is usually talked about as a class of methods on its own, and is widely
+used \citep[e.g.][]{springelCosmologicalSimulationCode2005, wadsleyGasoline2ModernSmoothed2017,
+rosswogLagrangianHydrodynamicsCode2020, menonAdaptiveTechniquesClustered2015,
+gonnetSWIFTFastAlgorithms2013}.
+
+Recently, another form of ``meshless method'' has made its entrance for astrophysical applications,
+which are the so-called ``finite volume particle methods''. Similarly to moving mesh methods, they
+can be used arbitrarily in a Lagrangian or Eulerian manner, but they do not require the
+constructions of any cells to solve the hydrodynamics. Instead, similarly to SPH, they make use of
+particles as interpolation points, and determine the volumes associated with particles as a local
+estimate depending on the neighboring particles. However, in contrast to SPH, they solve the
+integral form of the fluid equations, which is more akin to finite volume methods, albeit without
+mutually exclusive volume elements such as cells. Another (more formal) difference to SPH is that
+the convergence and stability of finite volume particle methods has been demonstrated in
+\cite{lansonRenormalizedMeshfreeSchemes2008} and \cite{lansonRenormalizedMeshfreeSchemes2008a},
+which is yet to be shown for SPH (see e.g. \cite{vacondioGrandChallengesSmoothed2021}). Some
+astrophysical simulation codes \citep[e.g.][]{gaburovAstrophysicalWeightedParticle2011,
+hopkinsGIZMONewClass2015, hubberGANDALFGraphicalAstrophysics2018,
+grothCosmologicalSimulationCode2023a, alonsoasensioMeshfreeHydrodynamicsPKDGRAV32023} apply the
+finite volume particle methods for hydrodynamics. These codes use the scheme described by
+\cite{lansonRenormalizedMeshfreeSchemes2008} and \cite{lansonRenormalizedMeshfreeSchemes2008a}.
+However, there are other formulations \citep[e.g.][]{hietelFiniteVolumeParticleMethodConservation2001,
+hietelMeshlessMethodsConservation2005, ivanovaCommonEnvelopeEvolution2013}, which to date have not been explored in literature in an astrophysical context. This second Part of my thesis is dedicated to first providing a full derivation of the two formulations of finite volume particle methods, and to qualitatively compare their performance. Then the implementation of finite volume particle methods for hydrodynamics in the task-based parallelized code \swift \cite{gonnetSWIFTFastAlgorithms2013} is presented.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

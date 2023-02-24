@@ -1,0 +1,65 @@
+digraph G {
+    // rankdir = LR; /* doesn't look good :( */
+    compound=true; // Needed to connect subgraphs
+    ranksep=0.5;
+    nodesep=0.55;
+    
+
+    /* Tasks            */
+    /*------------------*/
+    drift [label="drift", color=blue3]
+    gdrift [label="drift", color=red3]
+    drift -> hydro[color=blue3]
+    gdrift -> gravity[color=red3]
+    gravity [label="gravity\n(condensed)", color=red3];
+    hydro [label="hydro\n(condensed)", color=blue3];
+    kick2 [color=black];
+    timestep [label="timestep", color=black];
+    kick1 [color=black];
+
+    subgraph clusterStar{
+        color=black;
+        label="Additions to star tasks";
+        labeljust="l";
+        labelloc="b";
+        stars_density [label="stars density:\nstar-particle interaction", color=darkorange1, shape="box"];
+        stars_ghost [label="stars ghost", color=darkorange1];
+        stars_feedback [label="stars feedback\nstar-particle interaction", color=darkorange1, shape="box"];
+        rt_injection_neighbour_prep [color=springgreen, label="prepare injection\ngather stars' neighbour data", shape="box"];
+        rt_injection_energy_prep [color=springgreen, label="prepare injection\nget how much energy star will emit", shape="box"];
+        rt_inject[color=springgreen, label="inject radiation"];
+
+        {rank=same; stars_density; rt_injection_neighbour_prep;}
+        {rank=same; stars_ghost; rt_injection_energy_prep;}
+        {rank=same; stars_feedback; rt_inject;}
+
+        stars_density -> stars_ghost [color=darkorange1];
+        stars_ghost -> stars_feedback [color=darkorange1];
+
+        rt_injection_neighbour_prep -> stars_density [color=springgreen, style=dashed, dir=none];
+        rt_injection_energy_prep -> stars_ghost [color=springgreen, style=dashed, dir=none];
+        rt_inject -> stars_feedback [color=springgreen, style=dashed, dir=none];
+    }
+
+    rt_ghost1 [color=springgreen, label="Ghost1: Finish up injection"];
+    rt_ghost2 [color=springgreen, label="Ghost2: Finish up gradients"];
+    rt_gradient [ color = springgreen, shape="box", label="Gradient: particle-particle interactions" ]
+    rt_transport [ color = springgreen, shape="box", label="Transport: particle-particle interactions" ]
+    thermochemistry [color = springgreen];
+
+    /* Dependencies     */
+    /*------------------*/
+    hydro -> kick2 [color=blue3];
+    gravity -> kick2 [color=red3];
+    kick2 -> stars_density [color=black];
+    stars_feedback -> rt_ghost1 [color=darkorange1];
+    timestep -> kick1 [color=black];
+
+    kick2 -> rt_ghost1 [color=black];
+    rt_ghost1 -> rt_gradient [color=springgreen];
+    rt_gradient -> rt_ghost2 [color=springgreen];
+    rt_ghost2 -> rt_transport [color=springgreen];
+    rt_transport -> thermochemistry [color=springgreen];
+    thermochemistry -> timestep [color=springgreen];
+
+}

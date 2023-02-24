@@ -1,0 +1,36 @@
+\begin{table*}
+
+  \caption{Number of dead trees pruned from the merger tree catalogue
+    for varying numbers of tracer particles $n_{\mathrm{mb}}$ throughout
+    all snapshots.  ``LIDIT'' is an abbreviation for ``last
+    identifiable descendant in tree''.  For a LIDIT, no descendant
+    could have been identified throughout the simulation and
+    consequently the corresponding tree is considered dead and pruned
+    from the merger tree catalogue. LIDITS are obviously a spurious
+    feature of the merger tree algorithm.
+    \label{tab:ntracers-pruning}
+  }
+
+  %	\begin{center}
+  {\small
+    \begin{tabular}[c]{l | p{0.8cm} | p{0.8cm} | p{0.8cm} | p{0.8cm} | p{0.8cm} | p{0.8cm} | p{0.8cm} |}
+      $n_{\mathrm{mb}}=$				&	1 		& 	10 	& 	50 	& 100 	& 200 	& 500 	& 1000
+      \\
+      \hline
+      dead trees pruned from tree catalogue	&	23617	&	15438	&	14467	& 14433 & 14432 & 14432 & 14433
+      \\
+      %
+      highest particle number of a LIDIT		&	6418	&	674		&	182		&	182 	& 182 	& 182 	& 182
+      \\
+      %
+      median particle number of a LIDIT			&	19		&	20		&	20		&	20 		& 20 		& 20 		& 20
+      \\
+      %
+      LIDITs with >100 particles pruned 		&	493		&	61		&	32		&	28 		& 26 		& 26 		& 26
+      \\
+      %
+      \hline
+    \end{tabular}
+  }
+  %	\end{center}
+\end{table*}

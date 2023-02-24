@@ -1,0 +1,164 @@
+%====================================================================================
+\chapter{Roe's Theorems On The Accuracy Of A Method For Scalar Conservation Laws}
+\label{app:roe}
+%====================================================================================
+
+In this Appendix, Roe's theorems on the accuracy of a numerical method for the linear advection
+equation are derived. The original reference for these theorems,
+\cite{roep.l.NumericalAlgorithmsLinear1981}, is unfortunately unpublished, so a more practical
+reference would be \cite{billetAccuracyStabilityExplicit1997}, who have derived the theorems for
+two and three dimensional problems as well. Here, we only look at the one dimensional case.
+
+Consider the linear advection equation
+
+\begin{align}
+ \deldt \uc + a \deldx \uc = 0 \label{eq:app-roe-linear-advection}
+\end{align}
+
+for a constant wave speed $a$. Consider a general scheme to solve the linear advection equation
+
+\begin{align}
+ \uc_i^{n+1} = \sum_\alpha A_\alpha u_{i+\alpha} ^ n \label{eq:app-roe-general-scheme}
+\end{align}
+
+where $\uc_i^n = \uc (i \Delta x, n \Delta t)$, and $\{A_\alpha \}$ is a finite set of constant
+nonzero coefficients. $\alpha$ denotes the indices of the stencil of the method. For example in
+Godunov's method (eq.~\ref{eq:godunov-advection}), the update formula for $\uc_i^{n+1}$ depends on
+the states $\uc_{i-1}$ and $\uc_{i}$, and hence for that example $\alpha \in \{-1, 0 \}$.
+
+
+The first theorem is as follows: If $\uc_i^n$ is a polynomial of degree $p$ in $i$,
+scheme~\ref{eq:app-roe-general-scheme} will give the exact solution
+to~\ref{eq:app-roe-linear-advection} if and only if
+
+\begin{align}
+ \sum_\alpha A_\alpha \alpha^q = (- C_{CFL})^q \label{eq:app-roe-theorem1}
+\end{align}
+
+for all integers $0 \leq q \leq p$, where $C_{CFL} = \frac{a \Delta t}{\Delta x}$.
+
+To prove this theorem, we take some initial $\uc_i^{n} = \uc(i \Delta x, n \Delta t)$ to be a
+polynomial of degree $p$:
+
+\begin{align}
+    \uc_i^{n} = \sum_{q = 0}^p \beta_q (i \Delta x)^q
+\end{align}
+
+where $\beta_q$ are some constant coefficients.
+
+Performing one time step of the scheme~\ref{eq:app-roe-general-scheme} gives
+
+\begin{align}
+ \uc_i^{n+1}
+    = \sum_\alpha A_\alpha \uc_{i+\alpha}^n
+    =  \sum_\alpha A_\alpha \sum_{q = 0}^p \beta_q ((i + \alpha) \Delta x)^q
+\end{align}
+
+whereas the exact solution is given by
+
+\begin{align}
+\uc_{i,exact}^{n+1}
+    = \uc_{i}^{n} (i \Delta x - a \Delta t, n \Delta t)
+    = \sum_{q = 0}^p \beta_q (i \Delta x - a \Delta t)^q
+\end{align}
+
+Therefore the scheme gives the exact solution if and only if
+
+\begin{align}
+    &\uc_i^{n+1} = \uc_{i, exact}^{n+1} \\
+    &\sum_\alpha A_\alpha \uc_{i+\alpha}^n =
+    \sum_\alpha A_\alpha \sum_{q = 0}^p \beta_q ((i + \alpha) \Delta x)^q
+    = \sum_{q = 0}^p \beta_q (i \Delta x - a \Delta t)^q
+\end{align}
+
+This equality must hold for each exponent $q$ individually, so we can look at each
+summand with index $q$ individually:
+
+
+\begin{align}
+\sum_\alpha A_\alpha \beta_q ((i + \alpha) \Delta x)^q = \beta_q (i \Delta x - a \Delta t)^q
+\end{align}
+
+Dividing the equation by $\beta_q$ and $\Delta x^q$ gives
+
+
+\begin{align}
+\sum_\alpha A_\alpha (i + \alpha)^q = \left(i - \frac{a \Delta t}{\Delta x}\right)^q \ .
+\end{align}
+
+Since this must hold for all cell indices $i$, we can without loss of generality select $i = 0$ and
+write
+
+
+\begin{align}
+\sum_\alpha A_\alpha \alpha^q = \left( - \frac{a \Delta t}{\Delta x}\right)^q = (- C_{CFL})^q
+\end{align}
+
+This relation must hold for each exponent $0 \leq q \leq p$ individually, and hence the first
+theorem is proven.
+
+
+It remains to demonstrate the second theorem, which states that a scheme of
+form~\ref{eq:app-roe-general-scheme} that satisfies condition~\ref{eq:app-roe-theorem1} is $p$-th
+order accurate.
+
+A scheme is called $p$-th order accurate if the leading term of the point-wise error is proportional
+to $\Delta x^p$. The point-wise error $P_i^{n+1}$ is defined as the difference between the exact
+solution and the numerical solution divided by the time step:
+
+\begin{align}
+ P_i^{n+1} = \frac{\uc_{i,exact}^{n+1} - \uc_i^{n+1}}{\Delta t}
+\end{align}
+
+Without loss of generality, we once again consider the case for cell index $i = 0$. The point-wise
+error is $P_0^{n+1}$ is then given by
+
+\begin{align}
+P_0^{n+1}
+&= \frac{1}{\Delta t} \left[
+    \uc_(i=0, (n+1) \Delta t) - \uc_{i=0}^{n+1}
+    \right] \\
+&= \frac{1}{\Delta t} \left[
+    \uc(-a\Delta t, n \Delta t) - \sum_\alpha A_\alpha \uc_\alpha^n
+    \right]
+\end{align}
+
+Now we Taylor-expand both the terms $\uc(-a \Delta t, n \Delta t)$ and $\uc_\alpha^n$ around $x =
+0$ to obtain
+
+
+\begin{align}
+P_0^{n+1}
+&= \frac{1}{\Delta t} \left[
+    \sum_{q = 0}^\infty \frac{(-a \Delta t)^q}{q!} \frac{\del^q \uc^n}{\del x^q} -
+    \sum_\alpha A_\alpha
+        \left( \sum_{q=0}^\infty \frac{(\alpha \Delta x)^q}{q!} \frac{\del^q \uc^n}{\del x^q}
+\right)
+    \right] \\
+&= \frac{1}{\Delta t} \sum_{q = 0}^\infty  \frac{1}{q!} \left[
+    (-a \Delta t)^q - \Delta x^q \sum_\alpha A_\alpha \alpha^q
+    \right] \frac{\del^q \uc^n}{\del x^q}  \\
+&= \frac{1}{\Delta t} \sum_{q = 0}^\infty  \frac{\Delta x^q}{q!} \left[
+    \left(\frac{-a \Delta t}{\Delta x} \right)^q - \sum_\alpha A_\alpha \alpha^q
+    \right] \frac{\del^q \uc^n}{\del x^q} \\
+&= \frac{1}{\Delta t} \sum_{q = 0}^\infty  \frac{\Delta x^q}{q!} \left[
+    \left(- C_{CFL} \right)^q - \sum_\alpha A_\alpha \alpha^q
+    \right] \frac{\del^q \uc^n}{\del x^q}
+\end{align}
+
+Using the property~\ref{eq:app-roe-theorem1}, it is obvious that the term in parentheses vanishes
+for all $q \leq p$, and hence the leading term of the error is given by $q = p +1$:
+
+\begin{align}
+\frac{1}{\Delta t} \frac{\Delta x^{p + 1}}{(p + 1)!} \left[
+    \left(- C_{CFL} \right)^{p + 1} - \sum_\alpha A_\alpha \alpha^{p + 1}
+    \right] \frac{\del^{p + 1} \uc^n}{\del x^{p + 1}} \\
+=
+\frac{a \Delta x^p}{C_{CFL} (p + 1)!} \left[
+    \left(- C_{CFL} \right)^{p + 1} - \sum_\alpha A_\alpha \alpha^{p + 1}
+    \right] \frac{\del^{p + 1} \uc^n}{\del x^{p + 1}}
+\end{align}
+
+
+The leading term is proportional to $\Delta x^p$, and therefore a method that satisfies
+condition~\ref{eq:app-roe-theorem1} will be $p$-th order accurate.

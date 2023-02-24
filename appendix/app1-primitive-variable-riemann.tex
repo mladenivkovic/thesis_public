@@ -1,0 +1,124 @@
+%============================================================================================
+\chapter{Approximate Linearized Primitive Variable Riemann Solver for the Euler Equations}
+\label{app:riemann-primitive-variables}
+%============================================================================================
+
+
+Consider the one dimensional Euler equations in the primitive variable formulation:
+
+\begin{align}
+    \deldt \W + A(\W) \deldx \W = 0 &&
+\end{align}
+
+with the primitive state vector $\W$ and Jacobi matrix $A(\W)$
+
+\begin{align}
+    \W = \begin{pmatrix}
+          \rho \\ v \\ p
+         \end{pmatrix}
+&&
+    A(\W) = \frac{\del \F(\W)}{\del \W} = 
+            \begin{pmatrix}
+              v & \rho & 0 \\
+              0 & v & 1/\rho \\
+              0 & \rho c_s^2 & v
+             \end{pmatrix}
+\end{align}
+
+The corresponding Eigenvalues of $A(\W)$ are
+
+\begin{align}
+ \lambda_1 = v - c_s \ , && \lambda_2 = v \ , && \lambda_3 = v + c_s
+\end{align}
+
+A simple linearized solution of the Riemann problem for the Euler equations can be obtained by 
+assuming that the initial left and right states, $\W_L$ and $\W_R$, as well as the state of the 
+star region for $t > 0$, $\W_*$, are close to some \emph{constant} state $\overline{\W}$, and that 
+the Jacobi matrix can hence be approximated as
+
+\begin{align}
+\overline{A} = A(\overline{\W}) = \CONST
+\end{align}
+
+Using an expression for a ``primitive flux'' $\F_{\W} \equiv \overline{A} \W$, for a constant 
+$\overline{A}$ we can write the primitive variable form of the Euler equations as a conservation 
+law:
+
+\begin{align}
+ &\deldt \W + \overline{A} \deldx W = 0 \\
+= &\deldt \W + \deldx \left(\overline{A}  W \right)  \\
+= &\deldt \W + \deldx \F_{\W}
+\end{align}
+
+
+In this form (and furthermore approximating emanating waves as jump discontinuities), we can make 
+use of the Rankine-Hugeniot relations (eq.~\ref{eq:rankine-hugeniot}) to relate fluxes $\F_{\W, k}$ 
+and states $\W_k$ across each wave with associated characteristic speed $\overline{\lambda_k}$:
+
+\begin{align}
+    & \F_{\W, k + 1} - \F_{\W, k} = \lambda_k (\W_{k+1} - \W_k) \\
+    = & \overline{A} \W_{k+1} - \overline{A} \W_k = \overline{A} (\W_{k+1} - \W_k) 
+\end{align}
+
+Applying the Rankine-Hugeniot relations across wave 1, which separates the states $\W_L$ and 
+$\W_{*L}$ through a discontinuity with characteristic velocity $\overline{\lambda_1} = \overline{v} 
+- \overline{c}_s$ gives us:
+
+\begin{align*}
+    \overline{v} (\rho_* - \rho_L)  + \overline{\rho} (v_* - v_L) &= 
+        (\overline{v} - \overline{c}_s) (\rho_{*L} - \rho_L) \\
+    \overline{v} (v_* - v_L) + \frac{1}{\overline{\rho}} (p_* - p_L) &= 
+        (\overline{v} - \overline{c}_s) (v_* - v_L) \\
+    \overline{\rho} \ \overline{c}_s^2 (v_* - v_L) + \overline{v} (p_* - p_L) &=
+        (\overline{v} - \overline{c}_s) (p_* - p_L)
+\end{align*}
+
+Using the relation $c_s^2 = p / \rho$, it's easy to show that the third relation is exactly equal 
+to the second one, so we'll leave it out in what follows. The first two relations can be simplified 
+to:
+
+\begin{align}
+    \overline{\rho} (v_* - v_L) + \overline{c}_s (\rho_{*L} - \rho_L) &= 0 \label{eq:app-PV1}\\
+    \frac{1}{\overline{\rho}} (p_* - p_L) + \overline{c}_s (v_* - v_L) &= 0 \label{eq:app-PV2}
+\end{align}
+
+Similarly, from the application of the Rankine-Hugeniot relations across wave 3, which has the 
+characteristic velocity $\overline{\lambda}_3 = \overline{v} + \overline{c}_s$ we obtain:
+
+\begin{align}
+    \overline{\rho} (v_R - v_*) - \overline{c}_s (\rho_{R} - \rho_{*R}) &= 0 \label{eq:app-PV3} \\
+    \frac{1}{\overline{\rho}} (p_R - p_*) - \overline{c}_s (v_R - v_*) &= 0 \label{eq:app-PV4}
+\end{align}
+
+Combining these four equations, we obtain relations for the primitive states of the star region:
+
+\begin{align}
+    p_* &= \frac{1}{2}(p_L + p_R) + 
+            \frac{1}{2} (v_L - v_R) \overline{\rho} \ \overline{c}_s \\
+    v_* &= \frac{1}{2}(p_L - p_R) + 
+            \frac{1}{2} (v_L + v_R) \frac{1}{\overline{\rho} \ \overline{c}_s }\\
+    \rho_{*L} &= \rho_L + (v_L - v_*) \frac{\overline{\rho}}{ \overline{c}_s }\\
+    \rho_{*R} &= \rho_R + (v_* - v_R) \frac{\overline{\rho}}{ \overline{c}_s }
+\end{align}
+
+which only depend on the constant values $\overline{\rho}$ and $\overline{c}_s$. A sensible choice 
+is to take the arithmetic mean:
+
+\begin{align}
+    \overline{\rho} &= \frac{1}{2} (\rho_L + \rho_R) \\
+    \overline{c}_s &= \frac{1}{2} (c_{s,L} + c_{s,R})
+\end{align}
+
+which finally gives us
+
+
+\begin{align}
+    p_* &= \frac{1}{2}(p_L + p_R) + 
+            \frac{1}{8} (v_L - v_R) (\rho_L + \rho_R)(c_{s,L} + c_{s, R}) \\
+    v_* &= \frac{1}{2}(p_L - p_R) + 
+             \frac{2 (v_L + v_R)}{ (\rho_L + \rho_R)(c_{s,L} + c_{s, R}) }\\
+    \rho_{*L} &= \rho_L + (v_L - v_*) \frac{\rho_L + \rho_R}{c_{s,L} + c_{s,R} }\\
+    \rho_{*R} &= \rho_R + (v_* - v_R)  \frac{\rho_L + \rho_R}{c_{s,L} + c_{s,R} }
+\end{align}
+
+

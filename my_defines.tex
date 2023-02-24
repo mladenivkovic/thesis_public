@@ -1,0 +1,284 @@
+%==============================================
+% This file contains my definitions and
+% newcommands. Makes things easy to copypaste
+% between projects.
+%==============================================
+
+
+%--------------------------------------------
+% Math Stuff
+%--------------------------------------------
+
+\newcommand{\corresponds}{\mathrel{\widehat{=}}}       % equals with hat
+
+\newcommand {\arctanh}{\mathrm{arctanh}}               % Atanh
+\newcommand{\arccot}{\mathrm{arccot }}                 % Acotanh
+
+\newcommand{\limz}[1]{\lim\limits_{#1 \rightarrow 0}}  % Limes of something towards zero
+
+\newcommand{\bm}{\boldmath}                            % Bold font in math
+\newcommand{\dps}{\displaystyle}
+
+\newcommand{\e}{\mbox{e}}                              % e noncursive in math mode
+
+\newcommand{\del}{\partial}                            % partial diff operator
+\newcommand{\de}{\mathrm{d}}                           % differential d
+\newcommand{\D}{\mathrm{d}}                            % differential d
+\newcommand{\GRAD}{\mathrm{grad}\ }                    % gradient
+\newcommand{\DIV}{\mathrm{div}\ }                      % divergence
+\newcommand{\ROT}{\mathrm{rot}\ }                      % rotation
+
+\newcommand{\CONST}{\mathrm{const.\ }}                 % constant
+\newcommand{\var}{\mathrm{var}}                        % variance
+
+\newcommand{\g}{^\circ}                                % degrees
+\newcommand{\degr}{^\circ}                             % degrees
+
+\newcommand{\msol}{M_\odot}                            % solar mass
+\newcommand{\Lsol}{L_\odot}                            % solar luminosity
+\newcommand{\Lsun}{L_\odot}                            % solar luminosity
+\newcommand{\order}{\mathcal{O}}                       % order, e.g. O(h^2)
+
+
+\newcommand{\x}{\mathbf{x}}                            % x vector
+\newcommand{\xdot}{\dot{\mathbf{x}}}                   % x dot vector
+\newcommand{\xddot}{\ddot{\mathbf{x}}}                 % x doubledot vector
+\newcommand{\R}{\mathbf{r}}                            % r vector
+\newcommand{\rdot}{\dot{\mathbf{r}}}                   % r dot vector
+\newcommand{\rddot}{\ddot{\mathbf{r}}}                 % r doubledot vector
+\newcommand{\vel}{\mathbf{v}}                          % v vector
+\newcommand{\V}{\mathbf{v}}                            % v vector
+\newcommand{\vdot}{\dot{\mathbf{v}}}                   % v dot vector
+\newcommand{\vddot}{\ddot{\mathbf{v}}}                 % v doubledot vector
+
+\newcommand{\dete}{\mathrm{d}t}                        % dt
+\newcommand{\delte}{\del t}                            % partial t
+\newcommand{\dex}{\mathrm{d}x}                         % dx
+\newcommand{\delx}{\del x}                             % partial x
+\newcommand{\der}{\mathrm{d}r}                         % dr
+\newcommand{\delr}{\del r}                             % partial r
+
+
+\newcommand{\deldx}{\frac{\del}{\del x}}				% shortcut partial derivative, in line
+\newcommand{\ddx}{\frac{\de}{\de x}}					% shortcut total derivative, in line
+\newcommand{\DELDX}[1]{\frac{\del  #1}{\del x}}			% shortcut partial derivative, on fraction
+\newcommand{\DDX}[1]{\frac{\de  #1}{\de x}}				% shortcut total derivative, on fraction
+
+\newcommand{\deldvecx}{\frac{\del}{\del \x}}	   		% shortcut partial derivative, in line
+\newcommand{\ddvecx}{\frac{\de}{\de \x}}				% shortcut total derivative, in line
+\newcommand{\DELDVECX}[1]{\frac{\del  #1}{\del \x}}		% shortcut partial derivative, on fraction
+\newcommand{\DDVECX}[1]{\frac{\de  #1}{\de \x}}			% shortcut total derivative, on fraction
+
+\newcommand{\deldr}{\frac{\del}{\del r}}				% shortcut partial derivative, in line
+\newcommand{\ddr}{\frac{\de}{\de r}}					% shortcut total derivative, in line
+\newcommand{\DELDR}[1]{\frac{\del  #1}{\del r}}			% shortcut partial derivative, on fraction
+\newcommand{\DDR}[1]{\frac{\de  #1}{\de r}}				% shortcut total derivative, on fraction
+
+\newcommand{\deldt}{\frac{\del}{\del t}}				% shortcut partial derivative, in line
+\newcommand{\ddt}{\frac{\de}{\de t}}					% shortcut total derivative, in line
+\newcommand{\DELDT}[1]{\frac{\del  #1}{\del t}}			% shortcut partial derivative, on fraction
+\newcommand{\DDT}[1]{\frac{\de  #1}{\de t}}				% shortcut total derivative, on fraction
+
+\newcommand{\deldxalpha}{\frac{\del}{\del x^\alpha}}
+\newcommand{\DELDXALPHA}[1]{\frac{\del #1}{\del x^\alpha}}
+\newcommand{\ddxalpha}{\frac{\de}{\de x^\alpha}}
+\newcommand{\DDXALPHA}[1]{\frac{\de #1}{\de x^\alpha}}
+
+
+
+
+%-----------------------------------------------
+% Work related project specific math stuff
+%-----------------------------------------------
+
+\newcommand{\Aij}{$\mathcal{A}_{ij}$\xspace}	% A_ij
+\newcommand{\Aijm}{\ensuremath{\mathcal{A}_{ij}}}	% A_ij math
+\newcommand{\U}{\ensuremath{\mathcal{U}}}			% State vector
+\newcommand{\W}{\ensuremath{\mathcal{W}}}			% State vector
+\newcommand{\F}{\ensuremath{\mathcal{F}}}			% Flux tensor
+\newcommand{\uc}{\ensuremath{\mathcal{u}}}			% Component of State vector
+\newcommand{\wc}{\ensuremath{\mathcal{w}}}			% Component of State vector
+\newcommand{\fc}{\ensuremath{\mathcal{f}}}			% Component of Flux tensor
+\newcommand{\Ubf}{\ensuremath{\mathbf{U}}}			% State vector
+\newcommand{\Fbf}{\ensuremath{\mathbf{F}}}			% Flux tensor
+\newcommand{\psitilde}{\ensuremath{\tilde{\psi}}}	% psi tilde
+\newcommand{\half}{1/2}                 % 1/2
+
+
+\newcommand{\absorbers}{\text{HI, HeI, HeII}}
+\newcommand{\Ndot}{\dot{N}}
+
+
+\newcommand{\lingo}[1]{\texttt{#1}}
+\newcommand{\jargon}[1]{\lingo{#1}}
+
+\newcommand{\codename}[1]{\textsc{#1}}
+% you need the xspace package for \xspace
+\newcommand{\swift}{\codename{Swift}\xspace}
+\newcommand{\swiftsimio}{\codename{Swiftsimio}\xspace}
+\newcommand{\ramses}{\codename{Ramses}\xspace}
+\newcommand{\acacia}{\codename{Acacia}\xspace}
+\newcommand{\GEARRT}{\codename{Gear-RT}\xspace}
+\newcommand{\grackle}{\codename{Grackle}\xspace}
+\newcommand{\meshhydro}{\codename{Mesh-Hydro}\xspace}
+
+\newcommand{\phew}{\codename{Phew}\xspace}
+\newcommand{\dice}{\codename{Dice}\xspace}
+
+\newcommand{\exc}{\texttt{exclusive}}
+\newcommand{\inc}{\texttt{inclusive}}
+\newcommand{\sad}{\texttt{strictly bound}}
+\newcommand{\nosad}{\texttt{loosely bound}}
+
+\newcommand{\gsmall}{\texttt{G69}}
+\newcommand{\glarge}{\texttt{G100}}
+
+\newcommand{\dt}{\texttt{dice-twobody}}
+\newcommand{\ds}{\texttt{dice-levels}}
+\newcommand{\cosmo}{\texttt{cosmo}}
+\newcommand{\simple}{\texttt{simple}}
+\newcommand{\neigh}{\texttt{neighbours}}
+\newcommand{\iter}{\texttt{iter}}
+\newcommand{\phewon}{\texttt{PHEW only}}
+
+
+
+
+
+
+
+%----------------------------------
+% Redefinitions
+%----------------------------------
+
+
+% replace \sum with \sum\limits
+\let\oldsum\sum
+\renewcommand{\sum}{\oldsum\limits}
+
+
+
+
+
+
+
+
+
+
+%---------------------------------------------------
+% Journal abbreviations
+%---------------------------------------------------
+
+%  http://adsabs.harvard.edu/abs_doc/aas_macros.sty
+%
+%  These Macros are taken from the AAS TeX macro package version 5.2
+%  and are compatible with the macros in the A&A document class
+%  version 7.0
+%  Include this file in your LaTeX source only if you are not using
+%  the AAS TeX macro package or the A&A document class and need to
+%  resolve the macro definitions in the TeX/BibTeX entries returned by
+%  the ADS abstract service.
+%
+%  If you plan not to use this file to resolve the journal macros
+%  rather than the whole AAS TeX macro package, you should save the
+%  file as ``aas_macros.sty'' and then include it in your LaTeX paper
+%  by using a construct such as:
+%	\documentstyle[11pt,aas_macros]{article}
+%
+%  For more information on the AASTeX and A&A packages, please see:
+%       http://journals.aas.org/authors/aastex.html
+%       ftp://ftp.edpsciences.org/pub/aa/readme.html
+%  For more information about ADS abstract server, please see:
+%       http://adsabs.harvard.edu/ads_abstracts.html
+%
+
+% Abbreviations for journals.  The object here is to provide authors
+% with convenient shorthands for the most "popular" (often-cited)
+% journals; the author can use these markup tags without being concerned
+% about the exact form of the journal abbreviation, or its formatting.
+% It is up to the keeper of the macros to make sure the macros expand
+% to the proper text.  If macro package writers agree to all use the
+% same TeX command name, authors only have to remember one thing, and
+% the style file will take care of editorial preferences.  This also
+% applies when a single journal decides to revamp its abbreviating
+% scheme, as happened with the ApJ (Abt 1991).
+
+
+\makeatletter
+
+\let\jnl@style=\rm
+\def\ref@jnl#1{{\jnl@style#1}}
+
+\def\aj{\ref@jnl{AJ}}                   % Astronomical Journal
+\def\actaa{\ref@jnl{Acta Astron.}}      % Acta Astronomica
+\def\araa{\ref@jnl{ARA\&A}}             % Annual Review of Astron and Astrophys
+\def\apj{\ref@jnl{ApJ}}                 % Astrophysical Journal
+\def\apjl{\ref@jnl{ApJ}}                % Astrophysical Journal, Letters
+\def\apjs{\ref@jnl{ApJS}}               % Astrophysical Journal, Supplement
+\def\ao{\ref@jnl{Appl.~Opt.}}           % Applied Optics
+\def\apss{\ref@jnl{Ap\&SS}}             % Astrophysics and Space Science
+\def\aap{\ref@jnl{A\&A}}                % Astronomy and Astrophysics
+\def\aapr{\ref@jnl{A\&A~Rev.}}          % Astronomy and Astrophysics Reviews
+\def\aaps{\ref@jnl{A\&AS}}              % Astronomy and Astrophysics, Supplement
+\def\azh{\ref@jnl{AZh}}                 % Astronomicheskii Zhurnal
+\def\baas{\ref@jnl{BAAS}}               % Bulletin of the AAS
+\def\bac{\ref@jnl{Bull. astr. Inst. Czechosl.}}
+                % Bulletin of the Astronomical Institutes of Czechoslovakia
+\def\caa{\ref@jnl{Chinese Astron. Astrophys.}}
+                % Chinese Astronomy and Astrophysics
+\def\cjaa{\ref@jnl{Chinese J. Astron. Astrophys.}}
+                % Chinese Journal of Astronomy and Astrophysics
+\def\icarus{\ref@jnl{Icarus}}           % Icarus
+\def\jcap{\ref@jnl{J. Cosmology Astropart. Phys.}}
+                % Journal of Cosmology and Astroparticle Physics
+\def\jrasc{\ref@jnl{JRASC}}             % Journal of the RAS of Canada
+\def\memras{\ref@jnl{MmRAS}}            % Memoirs of the RAS
+\def\mnras{\ref@jnl{MNRAS}}             % Monthly Notices of the RAS
+\def\na{\ref@jnl{New A}}                % New Astronomy
+\def\nar{\ref@jnl{New A Rev.}}          % New Astronomy Review
+\def\pra{\ref@jnl{Phys.~Rev.~A}}        % Physical Review A: General Physics
+\def\prb{\ref@jnl{Phys.~Rev.~B}}        % Physical Review B: Solid State
+\def\prc{\ref@jnl{Phys.~Rev.~C}}        % Physical Review C
+\def\prd{\ref@jnl{Phys.~Rev.~D}}        % Physical Review D
+\def\pre{\ref@jnl{Phys.~Rev.~E}}        % Physical Review E
+\def\prl{\ref@jnl{Phys.~Rev.~Lett.}}    % Physical Review Letters
+\def\pasa{\ref@jnl{PASA}}               % Publications of the Astron. Soc. of Australia
+\def\pasp{\ref@jnl{PASP}}               % Publications of the ASP
+\def\pasj{\ref@jnl{PASJ}}               % Publications of the ASJ
+\def\rmxaa{\ref@jnl{Rev. Mexicana Astron. Astrofis.}}%
+                % Revista Mexicana de Astronomia y Astrofisica
+\def\qjras{\ref@jnl{QJRAS}}             % Quarterly Journal of the RAS
+\def\skytel{\ref@jnl{S\&T}}             % Sky and Telescope
+\def\solphys{\ref@jnl{Sol.~Phys.}}      % Solar Physics
+\def\sovast{\ref@jnl{Soviet~Ast.}}      % Soviet Astronomy
+\def\ssr{\ref@jnl{Space~Sci.~Rev.}}     % Space Science Reviews
+\def\zap{\ref@jnl{ZAp}}                 % Zeitschrift fuer Astrophysik
+\def\nat{\ref@jnl{Nature}}              % Nature
+\def\iaucirc{\ref@jnl{IAU~Circ.}}       % IAU Cirulars
+\def\aplett{\ref@jnl{Astrophys.~Lett.}} % Astrophysics Letters
+\def\apspr{\ref@jnl{Astrophys.~Space~Phys.~Res.}}
+                % Astrophysics Space Physics Research
+\def\bain{\ref@jnl{Bull.~Astron.~Inst.~Netherlands}}
+                % Bulletin Astronomical Institute of the Netherlands
+\def\fcp{\ref@jnl{Fund.~Cosmic~Phys.}}  % Fundamental Cosmic Physics
+\def\gca{\ref@jnl{Geochim.~Cosmochim.~Acta}}   % Geochimica Cosmochimica Acta
+\def\grl{\ref@jnl{Geophys.~Res.~Lett.}} % Geophysics Research Letters
+\def\jcp{\ref@jnl{J.~Chem.~Phys.}}      % Journal of Chemical Physics
+\def\jgr{\ref@jnl{J.~Geophys.~Res.}}    % Journal of Geophysics Research
+\def\jqsrt{\ref@jnl{J.~Quant.~Spec.~Radiat.~Transf.}}
+                % Journal of Quantitiative Spectroscopy and Radiative Transfer
+\def\memsai{\ref@jnl{Mem.~Soc.~Astron.~Italiana}}
+                % Mem. Societa Astronomica Italiana
+\def\nphysa{\ref@jnl{Nucl.~Phys.~A}}   % Nuclear Physics A
+\def\physrep{\ref@jnl{Phys.~Rep.}}   % Physics Reports
+\def\physscr{\ref@jnl{Phys.~Scr}}   % Physica Scripta
+\def\planss{\ref@jnl{Planet.~Space~Sci.}}   % Planetary Space Science
+\def\procspie{\ref@jnl{Proc.~SPIE}}   % Proceedings of the SPIE
+
+\let\astap=\aap
+\let\apjlett=\apjl
+\let\apjsupp=\apjs
+\let\applopt=\ao
+
+
+\makeatother

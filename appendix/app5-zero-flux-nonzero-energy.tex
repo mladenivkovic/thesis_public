@@ -1,0 +1,130 @@
+%---------------------------------------------------------------------------------
+\chapter{A Time Step For A Particle With Nonzero Radiation Energy Density And Zero Radiation Flux}
+\label{app:zero-flux-nonzero-energy}
+%---------------------------------------------------------------------------------
+
+We could encounter cases where we have nonzero radiation energy, but zero radiation flux, for
+example through diffusion, or when exception handling unphysical scenarios, or by intentionally only
+injecting energy density.) In these cases, recall that (index $i$ below is for photon
+frequency group, not particle index!)
+
+\begin{align}
+	\DELDT{\Fbf_i} + c^2 \ \nabla \cdot \mathds{P}_i &=
+		- \sum\limits_{j}^{\mathrm{HI, HeI, HeII}} n_j \sigma_{i j} c \Fbf_i \\
+	\mathds{P}_i &=
+		\mathds{D}_i E_i \\
+	\mathds{D}_i &=
+		\frac{1- \chi_i}{2} \mathds{I} + \frac{3 \chi_i - 1}{2} \mathbf{n}_i \otimes \mathbf{n}_i\\
+	\mathbf{n}_i &=
+		\frac{\Fbf_i}{|\Fbf_i|} \\
+	\chi_i &=
+		\frac{3 + 4 f_i ^2}{5 + 2 \sqrt{4 - 3 f_i^2}} \\
+	f_i &=
+		\frac{|\Fbf_i|}{c E_i}
+\end{align}
+
+For $\Fbf_i = 0$, we get
+\begin{align}
+	f_i &= 0 \\
+	\chi_i &= \frac{3}{5 + 2 \sqrt{4}} = \frac{1}{3} \\
+	\mathds{D}_i &= \frac{1- \frac{1}{3}}{2} \mathds{I} = \frac{1}{3} \mathds{I} \\
+	\mathds{P}_i &= \mathds{D}_i E_i =  \frac{1}{3} E_i \mathds{I}
+\end{align}
+
+which is the solution of the optically thick limit, where the radiation pressure tensor is
+isotropic.
+Now let's look at what happens when a particle $k$ has some nonzero energy $E_0$, but zero flux,
+and interacts with particle $l$, which has both zero energy density and zero flux. The initial
+state is then:
+
+\begin{align}
+    \mathcal{U}_k(t = 0) &= \left( \begin{matrix}
+                    E_0 \\
+                    \mathbf{0}
+                  \end{matrix} \right)
+    \quad & \quad \quad
+    \F_k(t = 0)  &= \left( \begin{matrix}
+                   \mathbf{0} \\
+                   c^2 \mathds{P}
+                  \end{matrix} \right)
+                = \left( \begin{matrix}
+                   \mathbf{0} \\
+                   \frac{c^2}{3} E_0 \mathds{I}
+                  \end{matrix} \right)\\
+%
+    \mathcal{U}_l(t = 0) &= \left( \begin{matrix}
+                    0 \\
+                    \mathbf{0}
+                  \end{matrix} \right)
+    \quad & \quad \quad
+    \F_l(t = 0)  &= \left( \begin{matrix}
+                   \mathbf{0} \\
+                   0
+                  \end{matrix} \right)
+\end{align}
+
+To simplify matters, let's assume both particles have equal volumes, $V_k = V_l = V$, and let's
+omit the gradient extrapolation to the interface position that makes the method second order
+accurate. Let's also assume that the particles are aligned parallel to a coordinate axis,  thus
+making the projection along the normal vector to their interaction surface trivial.
+
+Then the intercell flux given by the GLF Riemann solver (eq. \ref{eq:riemann-GLF}) is
+
+\begin{align}
+	\F_{1/2}(\mathcal{U}_L, \mathcal{U}_R) &=
+		\frac{\F_{L} + \F_{R}}{2} -
+		\frac{c}{2} \left(\mathcal{U}_R - \mathcal{U}_L \right) \\
+	&=	\left(\begin{matrix}
+        \frac{0 - 0}{2} - \frac{c}{2} (0 - E_0)\\
+        \frac{c^2 / 3 \ E_0 - 0}{2} - \frac{c}{2} (0 -0)
+	  	\end{matrix} \right)
+	=	\left(\begin{matrix}
+        \frac{c}{2} E_0 \\
+        \frac{c^2}{6} E_0
+	  	\end{matrix} \right)
+\end{align}
+
+Let $\beta \equiv \frac{\Delta t \mathcal{A}_{kl} c}{2 V}$. Using the update formula given in eq.
+\ref{eq:transport-update-explicit}, the states at $t = \Delta t$ will be
+
+\begin{align}
+	\mathcal{U}_k(t = \Delta t) &= \mathcal{U}_k (t = 0) - \frac{\Delta t}{V} \F_{1/2}
+\mathcal{A}_{kl} \\
+	&=	\left(\begin{matrix}
+        E_0 -  \frac{\Delta t \mathcal{A}_{kl}}{V} \frac{c}{2} E_0 \\
+        \mathbf{0} - \frac{\Delta t \mathcal{A}_{kl}}{V} \frac{c^2}{6} E_0
+	  	\end{matrix} \right)
+    = \left( \begin{matrix}
+             E_0 (1 - \beta) \\
+             -\frac{\beta}{3} c E_0
+             \end{matrix} \right) \\
+%
+	\mathcal{U}_l(t = \Delta t) &= \mathcal{U}_l (t = 0) - \frac{\Delta t}{V} (-F_{1/2})
+\mathcal{A}_{kl} \label{eq:zero-flux-update-l}\\
+	&=	\left(\begin{matrix}
+        0 +  \frac{\Delta t \mathcal{A}_{kl}}{V} \frac{c}{2} E_0 \\
+        \mathbf{0} + \frac{\Delta t \mathcal{A}_{kl}}{V} \frac{c^2}{6} E_0
+	  	\end{matrix} \right)
+    = \left( \begin{matrix}
+             \beta E_0 \\
+             \frac{\beta}{3} c E_0
+             \end{matrix} \right)
+\end{align}
+
+where the minus sign for the inter-cell flux $(-\F_{1/2})$ in eq. \ref{eq:zero-flux-update-l} stems
+from the orientation of the effective surface $\mathcal{A}_{kl}$.
+
+
+The takeaway here is that after a single time step, both particles $k$ and $l$ will have nonzero
+energy \emph{and} nonzero photon flux $\Fbf$. For the photon fluxes of the particle $l$, we see that
+$|\Fbf_l| = \frac{1}{3} c E_l$ with $E_l = \beta E_0$, meaning that the photon flux corresponds to
+the optically thick, diffusion limit. For particle $k$ we have $|\Fbf_k| = \frac{\beta}{1 - \beta} c
+E_k$ with $E_k = (1 - \beta) E_0$. Comparing the particle volume $V$ and effective surface
+$\mathcal{A}_{kl}$ to a regular cell of edge length $L$, then $V = L^3$ and $\mathcal{A}_{kl} =
+L^2$. Simultaneously this gives us a comparative CFL condition: $L \geq c \Delta t$. This simple
+comparison limits the possible values of $\beta$ to $0 \leq \beta \leq \frac{1}{2}$, given that all
+terms of $\beta$ must be positive. The limits translate to $0 \leq |\Fbf_k| \leq c E_k$ for the
+photon flux, meaning that particle $k$ can end up in any state between no net flux, and the free
+streaming, optically thin limit.
+
+

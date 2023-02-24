@@ -1,0 +1,92 @@
+\cleardoublepage
+
+\thispagestyle{empty}
+\vspace*{7cm}
+
+
+\begin{center}
+    Dedicated to my teachers and mentors\\
+    Whose blood, sweat, and tears opened doors\\
+    So I may walk down this path.
+\end{center}
+
+\cleardoublepage
+
+\thispagestyle{empty}
+
+\textit{ 
+In the beginning was the source code, and the source code was on gitlab, and the source code was 
+good.}
+
+\textit{
+And I wrote: ``Let there be light!''
+} \\
+
+
+\textit{And the compiler said:}
+
+\begin{lstlisting}
+        In file included from rt.h:38,
+                        from space.c:55:
+        ./rt/GEAR/rt.h:475:40: error: 'p' undeclared here (not in a function)
+        475 |   struct rt_part_data* restrict rtd = &p->rt_data;
+             |                                        ^
+        ./rt/GEAR/rt.h:478:3: error: expected identifier or '(' before 'for'
+        478 |   for (int g = 0; g < RT_NGROUPS; g++) {
+             |   ^~~
+        ./rt/GEAR/rt.h:478:21: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' 
+        token
+        478 |   for (int g = 0; g < RT_NGROUPS; g++) {
+             |                     ^
+        ./rt/GEAR/rt.h: In function 'rt_kick_extra':
+        ./rt/GEAR/rt.h:538:18: error: declaration of 'p' shadows previous non-variable 
+        [-Werror=shadow]
+        538 |     struct part* p, float dt_therm, float dt_grav, float dt_hydro,
+             |     ~~~~~~~~~~~~~^
+        In file included from rt.h:39:
+        ./rt/GEAR/rt_iact.h: In function 'runner_iact_rt_inject':
+        ./rt/GEAR/rt_iact.h:162:15: error: declaration of 'Vinv' shadows a global declaration 
+        [-Werror=shadow]
+        162 |   const float Vinv = 1.f / pj->geometry.volume;
+             |               ^~~~
+            ./rt/GEAR/rt.h:475:40: error: 'p' undeclared here (not in a function)
+        475 |   struct rt_part_data* restrict rtd = &p->rt_data;
+             |                                        ^
+\end{lstlisting}
+
+
+
+
+\textit{And the linker said:}
+
+\begin{lstlisting}
+        /usr/bin/ld: swift-swift.o: in function `main':
+        swift.c:(.text.startup+0x2de2): undefined reference to `rt_cross_sections_init'
+        collect2: error: ld returned 1 exit status
+\end{lstlisting}
+
+
+
+
+\textit{And the debugger said:}
+
+\begin{lstlisting}
+        Program received signal SIGFPE, Arithmetic exception.
+        compute_interaction (pi=pi@entry=0x7fffffff7440, pj=pj@entry=0x7fffffff75a0, 
+            a=a@entry=0.874422371, H=H@entry=1) at testDistance.c:45
+        45	    runner_iact_gradient(r2, dx, pi->h, pj->h, pi, pj, a, H);
+\end{lstlisting}
+
+
+\textit{And the scheduler said:}
+
+\begin{lstlisting}
+        [00000.0] scheduler.c:scheduler_ranktasks():1871: Unsatisfiable task dependencies detected.
+\end{lstlisting}
+
+\vspace{3mm}
+
+\textit{And I went to make another cup of coffee, for it was going to be a long night.}
+
+
+

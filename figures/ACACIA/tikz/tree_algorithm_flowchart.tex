@@ -1,0 +1,161 @@
+\documentclass[tikz, border=1mm, 12pt]{standalone}
+%\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+
+\newcommand{\vsp}{2.5em}
+\newcommand{\hsp}{15em}
+
+\tikzstyle{general} = [rectangle, draw, fill=gray!10,
+    text width=1.2*\hsp, text centered, rounded corners, minimum height=3em]
+\tikzstyle{descloop} = [rectangle, draw=magenta, fill=magenta!10,
+    text width=1.2*\hsp, text centered, rounded corners, minimum height=3em]
+\tikzstyle{progloop} = [rectangle, draw=teal, fill=teal!10,
+    text width=1.2 * \hsp, text centered, rounded corners, minimum height=3em]
+\tikzstyle{merge} = [rectangle, draw=olive, fill=olive!10,
+    text width=\hsp, text centered, rounded corners, minimum height=3em]
+
+\tikzstyle{generalEdge} = [draw, very thick, -latex']
+\tikzstyle{descEdge} = [draw, very thick, color=magenta, -latex']
+\tikzstyle{progEdge} = [draw, very thick, color=teal, -latex']
+\tikzstyle{mergeEdge} = [draw, very thick, color=olive, -latex', tension=1.0]
+
+
+
+
+\begin{tikzpicture}[align=center, auto]
+%
+\node [general, text width = 1.45 * \hsp]   							(topNode) 
+	{Find all descendant candidates for each \mbox{progenitor}
+		and all progenitor candidates for each 
+		descendant and compute their merits.};
+\node [general, below = \vsp of topNode, text width = 1.45 * \hsp] 							(isThereWork) 	
+	{Are there descendants that have progenitor 
+	candidates and no true main progenitor (yet)? };
+%
+% Descendant Loop
+%
+\node [descloop, 	below = \vsp of isThereWork] 					(descLoop)
+	{Loop over these descendant clumps. Is this the 
+	first iteration of this loop?};
+\node [descloop, 	below right = \vsp and -0.9 * \hsp of descLoop] (descDiscardProg)
+	{Discard the current main progenitor candidate 
+	from the list of progenitor candidates of this 
+	descendant.};
+\node [descloop, 	below left = \vsp and -0.9 * \hsp of descDiscardProg] (descSetProg)
+	{Set the progenitor candidate with the highest 
+	merit as main progenitor	candidate of this 
+	descendant.};
+%
+% Progenitor Loop
+%
+\node [progloop, 	below = \vsp of descSetProg]					(progLoop) 			
+	{Loop over each progenitor:};
+\node [progloop, 	below = \vsp of progLoop]							(progHasCandidates) 			
+	{Does this progenitor have any descendant 
+	candidates?};
+\node [progloop, above left = 0. and 0.5*\hsp of progHasCandidates, text width = 0.7 * 
+\hsp] (progDissolved) 			
+	{Mark it as dissolved.};
+\node [progloop, 	below = \vsp of progHasCandidates] 		(progCheckMatch) 			
+	{Is this progenitor the main progenitor 
+	candidate of its main descendant candidate?};
+\node [progloop, 	below = \vsp of progDissolved, text width = \hsp] 				(matchFound) 			
+	{Mark this progenitor as the true main 
+	progenitor of its main descendant and vice versa.};
+\node [progloop, below = \vsp of matchFound, text width = \hsp] (progHasOtherCandidate) 			
+	{Does this progenitor have another descendant 	candidate?};
+\node [progloop, below = \vsp of progHasOtherCandidate] (progReset) 			
+	{Set the main descendant candidate of this progenitor
+	back to the descendant candidate with the highest merit.};
+\node [progloop, below = \vsp of progCheckMatch] 				(progChangeCandidate) 			
+	{Set the descendant candidate with the
+	next highest merit as this progenitor's
+	main descendant candidate};
+\node[color=teal, above left = -0. * \vsp and 0.3 * \hsp of progLoop, text width=\hsp, text 
+centered,] (progContinue) 
+	{Continue with next progenitor in loop};
+%
+% Merging Loop
+%
+\node [merge, right = 0.2 * \hsp of descLoop, text width = 1.3 * \hsp]		 				(progsToMerge) 	
+	{Are there progenitors that
+	have descendant candidates
+	and no true main descendant?
+	};
+\node [merge, below right = \vsp and -0.8 * \hsp of progsToMerge] (merge)
+	{ Mark these progenitors as
+	 merged into their respective
+	 main descenant candidate.
+	};
+\node [merge,	below left = \vsp and -0.8 * \hsp of merge] (newDescsLeft)
+	{Are there descendants with
+	no main progenitors?};
+\node [merge,	below = \vsp  of newDescsLeft] (hasOrphans)
+	{Do some of these descendants
+	contain orphan particles?};
+\node [merge,	below left = \vsp and -0.5 * \hsp of hasOrphans, text width = 0.8 * \hsp] (orphans)
+	{Find the most tightly bound
+	orphan particle in the descendant
+	clump, if it exists, and mark
+	the descendant as having a
+	progenitor from a non-adjacent
+	snapshot. Otherwise, mark the
+	descendant as newly formed.};
+\node [merge,	below right = \vsp and -0.5*\hsp of hasOrphans, text width = 0.7*\hsp] (newDescs)
+	{Mark these descendants	as newly formed};
+\node [general,	below right = \vsp and -0.5*\hsp of orphans] (end)
+	{The merger trees are \mbox{complete}. Write the
+	results to file.};
+%
+%
+% EDGES
+%
+%
+\path [generalEdge] (topNode) -- (isThereWork);
+\path [generalEdge] (isThereWork) -- node {yes} (descLoop) ;
+\path [generalEdge] (isThereWork) -- node {no} (progsToMerge);
+%
+% Descendant loop
+%
+\path [descEdge] (descLoop) -- node[anchor=west] {no} (descDiscardProg);
+\path [descEdge] (descDiscardProg) -- (descSetProg);
+\path [descEdge, out=215, in=145] (descLoop) to node[anchor=east, near start] {yes} (descSetProg);
+\path [descEdge] (descSetProg) --  node {after loop ends} (progLoop);
+%
+% Progenitor loop
+%
+\path [progEdge] (progLoop) -- (progHasCandidates);
+\path [progEdge] (progHasCandidates) -- node[near start] {no} (progDissolved);
+\path [progEdge] (progHasCandidates) -- node {yes} (progCheckMatch);
+\path [progEdge] (progDissolved) -- (progContinue);
+\path [progEdge, out=90, in=180] (progContinue) to node [near start] {after loop ends} 
+(isThereWork);
+\path [progEdge] (progContinue) to (progHasCandidates);
+\path [progEdge] (progCheckMatch) -- node[anchor=south]{yes} (matchFound);
+\path [progEdge] (progCheckMatch) -- node[anchor=north] {no} (progHasOtherCandidate);
+\path [progEdge, out=158, in = 200] (matchFound) to (progContinue);
+\path [progEdge] (progHasOtherCandidate) to node {no} (progReset);
+\path [progEdge, out=158, in = 200] (progReset) to (progContinue);
+\path [progEdge] (progHasOtherCandidate) to node[near start, anchor=north] {yes} 
+(progChangeCandidate);
+\path [progEdge] (progChangeCandidate) -- (progCheckMatch);
+%
+% Merging loop
+%
+\path [mergeEdge] (progsToMerge) -- node[anchor=west] {yes} (merge);
+\path [mergeEdge] (merge) -- (newDescsLeft);
+\path [mergeEdge, out=215, in=155] (progsToMerge) to node[anchor=east, near start] {no} 
+(newDescsLeft);
+\path [mergeEdge] (hasOrphans) -- node [anchor=east] {yes} (orphans);
+\path [mergeEdge] (hasOrphans) -- node [anchor=west]{no} (newDescs);
+\path [mergeEdge] (orphans) -- (end);
+\path [mergeEdge] (newDescs) -- (end);
+\path [mergeEdge, out=-10, in=15] (newDescsLeft) to node[anchor=east, near start] {no} (end);
+\path [mergeEdge] (newDescsLeft) to node {yes} (hasOrphans);
+\end{tikzpicture}
+
+\end{document}

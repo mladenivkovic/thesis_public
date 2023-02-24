@@ -1,0 +1,36 @@
+%-----------------------------
+\chapter{Introduction}
+%-----------------------------
+
+Conservation laws take a prominent role in physics. They pop up everywhere where some conserved
+quantity evolves dynamically, i.e. has fluxes, and allow us to establish a formal description of
+physical systems. Conserved quantities themselves are beloved for the same reason, and it helps that
+there is no scarcity of them. In fact, the Noether theorem
+\citep{noetherInvarianteVariationsprobleme1918} states that for each symmetry of action of a system,
+a conserved quantity (and a corresponding conservation law) can be found. For example, time
+invariant systems conserve energy, translationally invariant systems conserve momentum, and
+rotationally invariant systems conserve angular momentum. Some concrete examples of conservation
+laws are the charge conservation in electrical currents, the Jeans equations, the heat flow in an
+uniform rod, the traffic flow equation, and the shallow water equations. In this part of the
+thesis, I will focus mainly on two sets of conservation laws: The first are the equations of linear advection, whose simple form allows to find exact solutions for many problems arising in numerical
+methods which solve conservation laws, such as the finite volume methods. The second set that will
+be a major focus in this Part of this work are the Euler equations, which describe the mass,
+momentum, and energy conservation of an ideal fluid. While the linear advection equation in this
+Part will mostly be used as a model and example for a conservation law, the solution of Euler
+equations constitutes an essential building block for simulations of astrophysical systems. Details
+of the linear advection equation and the Euler equations are discussed in the subsequent sections.
+Finally, in Part \ref{part:rt} the moments of the equations of radiative transfer, which also take
+form of a hyperbolic conservation law, are discussed and solved. This part of the work aims to
+establish a rudimentary overview and understanding of how finite volume methods in the context of
+hyperbolic conservation laws work, and what complexities and limitations they contain. The outline
+follows selected topics from \citet{toroRiemannSolversNumerical2009} and
+\citet{levequeFiniteVolumeMethods2002}. The content won't be reserved to only theory and equations
+though - where applicable, actual results from simulations using the \meshhydro code are
+shown and discussed. \meshhydro is a code that I have developed in scope of this work to
+serve as a simple didactical tool. It was created to solve linear advection as well as the Euler
+equations using various Riemann solvers, slope and flux limiters, integration schemes, and even
+external source terms. Furthermore, it is extensively documented, it contains a range of
+ready-to-run examples, and comes with a suite of visualization and analysis tools written in Python
+3. It is however limited to discretizing space in a regular grid only, and only in one or two
+dimensions. It is also not parallelized at all. \meshhydro is open source software and
+available on \url{https://github.com/mladenivkovic/mesh-hydro}.

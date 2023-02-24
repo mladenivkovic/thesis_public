@@ -1,0 +1,24 @@
+\documentclass[tikz, border=1mm, 12pt]{standalone}
+%\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\tikzstyle{force} = [draw, very thick, -latex', color=teal,  -stealth, shorten >=0.1cm]
+
+
+\begin{tikzpicture}[align=center, auto]
+%,  every node/.style={scale=0.5}
+
+\draw[thick] (0,0) rectangle (4, 4);
+
+\draw[force] (2, 6) -- (2, 4) node[pos=0.5,right=0.2] {$p \mathbf{A_1}$};
+\draw[force] (6, 2) -- (4, 2) node[pos=0.5,above=0.2] {$p \mathbf{A_2}$};
+\draw[force] (2, -2) -- (2, 0) node[pos=0.5,right=0.2] {$p \mathbf{A_3}$};
+\draw[force] (-2, 2) -- (0, 2) node[pos=0.5,above=0.2] {$p \mathbf{A_4}$};
+
+
+\end{tikzpicture}
+
+\end{document}

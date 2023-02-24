@@ -1,0 +1,71 @@
+\documentclass[tikz, border=1mm, 12pt]{standalone}
+%\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+
+\newcommand{\vsp}{2.5em}
+\newcommand{\hsp}{15em}
+
+\tikzstyle{general} = [rectangle, draw, fill=gray!10,
+    text width=1.2*\hsp, text centered, rounded corners, minimum height=3em]
+\tikzstyle{iact} = [rectangle, draw=teal, fill=teal!10,
+    text width=1.2 * \hsp, text centered, rounded corners, minimum height=3em]
+\tikzstyle{merge} = [rectangle, draw=olive, fill=olive!10,
+    text width=\hsp, text centered, rounded corners, minimum height=3em]
+
+\tikzstyle{generalEdge} = [draw, very thick, -latex']
+\tikzstyle{self} = [draw, very thick, -latex', color=magenta, stealth-stealth, shorten >=0.1cm,shorten <=0.1cm]
+\tikzstyle{pair} = [draw, very thick, -latex', color=teal,  stealth-stealth, shorten >=0.1cm,shorten <=0.1cm]
+
+
+\newcommand{\xshift}{5cm}
+\newcommand{\radius}{0.5mm}
+
+\begin{tikzpicture}[align=center, auto,  every node/.style={scale=0.5}]
+
+\draw[step=2cm,gray,very thin] (0,0) grid (4,2);
+\draw[step=2cm,gray,very thin, xshift=\xshift] (0,0) grid (4,2);
+
+\foreach \shift in {0cm, \xshift} {
+	\fill[color=black] (0.3cm + \shift, 1.1) circle (\radius);
+	\fill[color=black] (0.6cm + \shift, 0.2) circle (\radius);
+	\fill[color=black] (1.4cm + \shift, 1.8) circle (\radius);
+	\fill[color=black] (1.8cm + \shift, 0.3) circle (\radius);
+	\fill[color=black] (2.3cm + \shift, 0.9) circle (\radius);
+	\fill[color=black] (2.7cm + \shift, 1.7) circle (\radius);
+	\fill[color=black] (3.1cm + \shift, 0.7) circle (\radius);
+	\fill[color=black] (3.7cm + \shift, 1.2) circle (\radius);
+}
+
+\draw[self] (0.3cm, 1.1cm) -- (0.6cm, 0.2);
+\draw[self] (0.6cm, 0.2cm) -- (1.4cm, 1.8);
+\draw[self] (0.6cm, 0.2cm) -- (1.8cm, 0.3);
+
+\draw[self] (3.1cm, 0.7cm) -- (2.3cm, 0.9);
+\draw[self] (3.1cm, 0.7cm) -- (3.7cm, 1.2);
+\draw[self] (3.1cm, 0.7cm) -- (2.7cm, 1.7);
+
+\node[] at (2cm, 2.2cm) {self type tasks};
+\node[] at (2cm + \xshift, 2.2cm) {pair type tasks};
+
+
+\draw[pair] (3.1cm + \xshift, 0.7cm) -- (1.8cm + \xshift, 0.3);
+
+\draw[pair] (0.6cm + \xshift, 0.2cm) -- (2.3cm + \xshift, 0.9);
+
+\draw[pair] (3.1cm + \xshift, 0.7cm) -- (1.4cm + \xshift, 1.8);
+
+
+\draw[pair] (0.3cm + \xshift, 1.1cm) -- (2.7cm + \xshift, 1.7);
+
+%\draw[pair] (3.1cm + \xshift, 0.7cm) -- (2.3cm + \xshift, 0.9);
+
+
+
+
+\end{tikzpicture}
+
+\end{document}

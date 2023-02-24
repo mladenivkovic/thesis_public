@@ -1,0 +1,132 @@
+digraph task_dep {
+	 # Header
+	 label="";
+	 compound=true;
+	 ratio=1.;
+	 node[nodesep=0.15, fontsize=18, penwidth=3.];
+	 edge[fontsize=12, penwidth=0.5];
+	 ranksep=0.8;
+
+	 # Special tasks
+	 sort[color=blue3];
+	 self_density[color=blue3];
+	 self_gradient[color=blue3];
+	 self_force[color=blue3];
+	 pair_density[color=blue3];
+	 pair_gradient[color=blue3];
+	 pair_force[color=blue3];
+	 sub_self_density[color=blue3];
+	 sub_self_gradient[color=blue3];
+	 sub_self_force[color=blue3];
+	 sub_pair_density[color=blue3];
+	 sub_pair_gradient[color=blue3];
+	 sub_pair_force[color=blue3];
+	 ghost_in[style=filled,fillcolor=grey90,color=blue3];
+	 ghost[color=blue3];
+	 ghost_out[style=filled,fillcolor=grey90,color=blue3];
+	 extra_ghost[color=blue3];
+	 drift_part[color=blue3];
+	 hydro_end_force[color=blue3];
+	 kick2[color=black];
+	 timestep[color=black];
+	 collect[color=black];
+	 send_gradient[shape=diamond,style=filled,fillcolor=azure,color=blue3];
+	 send_xv[shape=diamond,style=filled,fillcolor=azure,color=blue3];
+	 send_rho[shape=diamond,style=filled,fillcolor=azure,color=blue3];
+	 recv_gradient[shape=diamond,style=filled,fillcolor=azure,color=blue3];
+	 recv_xv[shape=diamond,style=filled,fillcolor=azure,color=blue3];
+	 recv_rho[shape=diamond,style=filled,fillcolor=azure,color=blue3];
+	 recv_tend[shape=diamond,style=filled,fillcolor=azure,color=black];
+	 kick1[color=black];
+	 send_tend[shape=diamond,style=filled,fillcolor=azure,color=black];
+
+	 # Clusters
+	 subgraph clusterDensity {
+		 label="";
+		 bgcolor="grey99";
+		 pair_density;
+		 self_density;
+		 sub_pair_density;
+		 sub_self_density;
+	 };
+
+	 subgraph clusterForce {
+		 label="";
+		 bgcolor="grey99";
+		 pair_force;
+		 self_force;
+		 sub_pair_force;
+		 sub_self_force;
+	 };
+
+	 subgraph clusterGradient {
+		 label="";
+		 bgcolor="grey99";
+		 pair_gradient;
+		 self_gradient;
+		 sub_pair_gradient;
+		 sub_self_gradient;
+	 };
+
+	 # Dependencies
+	 sort->pair_density[color=blue3,fontcolor=blue3]
+	 sort->recv_rho[color=blue3,fontcolor=blue3]
+	 sort->sub_pair_density[color=blue3,fontcolor=blue3]
+	 sort->sub_self_density[color=blue3,fontcolor=blue3]
+	 sort->sub_pair_force[color=blue3,fontcolor=blue3]
+	 sort->pair_force[color=blue3,fontcolor=blue3]
+	 self_density->ghost_in[color=blue3,fontcolor=blue3]
+	 self_gradient->extra_ghost[color=blue3,fontcolor=blue3]
+	 self_force->hydro_end_force[color=blue3,fontcolor=blue3]
+	 pair_density->ghost_in[color=blue3,fontcolor=blue3]
+	 pair_density->recv_rho[color=blue3,fontcolor=blue3]
+	 pair_gradient->extra_ghost[color=blue3,fontcolor=blue3]
+	 pair_gradient->recv_gradient[color=blue3,fontcolor=blue3]
+	 pair_force->hydro_end_force[color=blue3,fontcolor=blue3]
+	 pair_force->recv_tend[color=blue3,fontcolor=blue3]
+	 sub_self_density->ghost_in[color=blue3,fontcolor=blue3]
+	 sub_self_gradient->extra_ghost[color=blue3,fontcolor=blue3]
+	 sub_self_force->hydro_end_force[color=blue3,fontcolor=blue3]
+	 sub_pair_density->ghost_in[color=blue3,fontcolor=blue3]
+	 sub_pair_density->recv_rho[color=blue3,fontcolor=blue3]
+	 sub_pair_gradient->extra_ghost[color=blue3,fontcolor=blue3]
+	 sub_pair_gradient->recv_gradient[color=blue3,fontcolor=blue3]
+	 sub_pair_force->hydro_end_force[color=blue3,fontcolor=blue3]
+	 sub_pair_force->recv_tend[color=blue3,fontcolor=blue3]
+	 ghost_in->ghost[color=blue3,fontcolor=blue3]
+	 ghost->ghost_out[color=blue3,fontcolor=blue3]
+	 ghost_out->pair_gradient[color=blue3,fontcolor=blue3]
+	 ghost_out->self_gradient[color=blue3,fontcolor=blue3]
+	 ghost_out->send_rho[color=blue3,fontcolor=blue3]
+	 ghost_out->sub_pair_gradient[color=blue3,fontcolor=blue3]
+	 ghost_out->sub_self_gradient[color=blue3,fontcolor=blue3]
+	 extra_ghost->pair_force[color=blue3,fontcolor=blue3]
+	 extra_ghost->self_force[color=blue3,fontcolor=blue3]
+	 extra_ghost->send_gradient[color=blue3,fontcolor=blue3]
+	 extra_ghost->sub_pair_force[color=blue3,fontcolor=blue3]
+	 extra_ghost->sub_self_force[color=blue3,fontcolor=blue3]
+	 drift_part->pair_density[color=blue3,fontcolor=blue3]
+	 drift_part->self_density[color=blue3,fontcolor=blue3]
+	 drift_part->sort[color=blue3,fontcolor=blue3]
+	 // drift_part->send_rho[color=blue3,fontcolor=blue3]
+	 drift_part->send_xv[color=blue3,fontcolor=blue3]
+	 drift_part->sub_pair_density[color=blue3,fontcolor=blue3]
+	 drift_part->sub_self_density[color=blue3,fontcolor=blue3]
+	 hydro_end_force->kick2[color=blue3,fontcolor=blue3]
+	 kick2->timestep[color=black,fontcolor=black]
+	 timestep->kick1[color=black,fontcolor=black]
+	 timestep->collect[color=black,fontcolor=black]
+	 collect->send_tend[color=black,fontcolor=black]
+	 send_gradient->hydro_end_force[color=blue3,fontcolor=blue3]
+	 send_xv->ghost_in[color=blue3,fontcolor=blue3]
+	 send_rho->extra_ghost[color=blue3,fontcolor=blue3]
+	 recv_gradient->pair_force[color=blue3,fontcolor=blue3]
+	 recv_gradient->sub_pair_force[color=blue3,fontcolor=blue3]
+	 recv_xv->recv_rho[color=blue3,fontcolor=blue3]
+	 recv_xv->sort[color=blue3,fontcolor=blue3]
+	 recv_xv->pair_density[color=blue3,fontcolor=blue3]
+	 recv_xv->sub_pair_density[color=blue3,fontcolor=blue3]
+	 recv_rho->pair_gradient[color=blue3,fontcolor=blue3]
+	 recv_rho->sub_pair_gradient[color=blue3,fontcolor=blue3]
+	 recv_rho->recv_gradient[color=blue3,fontcolor=blue3]
+}

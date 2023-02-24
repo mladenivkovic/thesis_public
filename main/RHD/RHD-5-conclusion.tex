@@ -1,0 +1,168 @@
+%========================================================
+\chapter{Conclusion and Outlook}
+%========================================================
+
+In this Part of my thesis, the implementation of \GEARRT, a novel radiation hydrodynamics solver for
+astrophysical and cosmological applications into the task-based parallelized code \swift was
+presented. The equations of radiation hydrodynamics, namely the moments of the equation of radiative
+transfer together with the M1 Closure and the Euler equations for hydrodynamics, take the shape of
+hyperbolic conservation laws. Hyperbolic conservation laws are a common problem in physics, and
+solution strategies and associated difficulties and caveats were introduced previously in
+Part~\ref{part:finite-volume} of this thesis. \GEARRT uses a particle based approach to discretize
+the equations to be solved and uses a Finite Volume Particle Method, which was introduced and
+discussed in Part~\ref{part:meshless} of this thesis, along with a description of the task-based
+parallelism of \swift and a discussion of the implementation.
+
+
+In Chapter~\ref{chap:rt-validation} a series of tests and validations of \GEARRT are presented. The
+method is demonstrated to be second order accurate, and the minmod flux limiter
+(eq.~\ref{eq:rt-minmod}) is determined to be the recommended choice, as for the other choices some
+cases have been found where new minima and maxima develop in the radiation fields, making the method
+not TVD, and therefore possibly unstable. Additionally, the drift correction method which \GEARRT
+uses is shown to introduce only insignificant errors. The drift corrections are required because the
+particles are being moved along (``drifted'') with the fluid in a Lagrangian manner, while the
+radiative transfer is being solved by treating the particles as static interpolation points. Since
+the particles move along with the fluid, the radiation field quantities are corrected during a drift
+by extrapolating the local gradients to the new position. These corrections are found not to
+introduce errors above the floating point representation precision limit, and are as deemed to be unconcerningly small, even
+though the method is not strictly photon conserving any longer due to these corrections.
+
+Chapter~\ref{chap:rt-validation} also shows \GEARRT's solution of the tests prescribed by the
+Cosmological Radiative Transfer Comparison Project \citep{ilievCosmologicalRadiativeTransfer2006,
+ilievCosmologicalRadiativeTransfer2009}, and \GEARRT is demonstrated to produce comparable results
+to those of the codes which originally participated in the Comparison Project. Some caveats of the
+moment-based approach which \GEARRT uses to solve radiative transport are apparent, like the
+inability to form and maintain sharp shadows or the unphysical fluid-like collisions of the
+radiation. They are however well-known caveats of the method, not an issue particular to \GEARRT,
+and appear with other simulation codes which use the moment-based method and the M1 closure
+too, like e.g. \citet{ramses-rt13} and \citet{kannanAREPORTRadiationHydrodynamics2019}. \GEARRT is
+also shown to be slightly more diffusive compared to grid codes due to the larger number of
+neighboring particles ($\sim 48$) used for interactions and flux exchanges, compared to 26
+neighboring cells in mesh codes. While this is an unfortunate necessity, it should also not
+constitute a problem with regards to the propagation of the ionization front. In real applications
+particles to follow the flow of the fluid, and overdense regions should be resolved through a higher
+particle number density as well, leading to smaller distances between neighboring particles, and
+adequately slowing down the propagation of the I-front, as was demonstrated in
+Section~\ref{chap:Iliev3}.
+
+
+The task-based parallelism of \swift, while offering numerous benefits, constituted a major
+challenge in the development process due to its complexity and intricacy, and unpredictable,
+irreproducible nature of the execution of the program. In combination with the individual time step
+sizes of particles, both for hydrodynamics and for radiative transfer independently, the
+implementation of a dynamic sub-cycling feature, where a number of radiative transfer time steps is
+being solved during a single hydrodynamics time step depending on local conditions for any particle
+individually, was particularly challenging and required modifications deep inside \swift's core
+functionalities. The sub-cycling is a completely novel feature in \swift, and both the task-based
+algorithm to solve radiation hydrodynamics as well as the sub-cycling have been rigorously tested
+for their correctness. As such, the development of \GEARRT provides \swift not only with a method to
+solve radiation hydrodynamics, but also with the core algorithms to solve moment-based radiative
+transfer and for dynamic sub-cycling which other methods, like \codename{SPHM1RT}
+\citep{chanSmoothedParticleRadiation2021}, can take advantage of.
+
+On the algorithmic side, two further features would improve the stability and flexibility of \GEARRT
+(and other possible RT schemes in \swift) for future projects. Firstly, an option to ``wake up''
+particles whose hydrodynamics time step size has decreased due to the increased specific internal
+energy through the photo-heating is necessary to ensure that the hydrodynamics remain accurate
+enough. This would require a global check after each sub-cycling simulation step for possible
+changes in particles hydrodynamics time bins, and to abort the sequence of the RT sub-cycling
+simulation steps, if necessary, in order to perform a global simulation step which includes
+hydrodynamics updates as well. Secondly, a feature similar to the time step limiting required
+between hydrodynamics time step sizes for all particles would be required between gas particles and
+star particles as well. The time step limiting for gas particles is used to impose an upper
+threshold of a factor of four between any two interacting gas particles' time step sizes. Similarly,
+an upper limit between star and gas particles' time step sizes for strong sources of ionizing
+radiation would ensure that not too large regions of space are ionized instantly after a single
+injection step, since the injection of radiation into the gas is determined by the stars' time step
+sizes. Findings in Section~\ref{chap:results-star-timesteps} suggest that an upper threshold of
+eight can be permitted, but it might be more sensible to impose physically motivated upper thresholds as well.
+
+Aside from these two useful features, the algorithmic side of the development of moment-based
+radiative transfer for \swift is complete with the presented implementation of \GEARRT. This sets
+the stage for future projects to focus on the improvement and extension of physical models and to
+run simulations with scientific goals in mind. Specifically, the following improvements and
+extensions are planned:
+
+\begin{itemize}
+
+\item Adding the explicit treatment of radiation pressure, i.e. transfer of photon momentum onto
+the gas, following the approach of \citet{ramses-rt15} and
+\citet{hopkinsNumericalProblemsCoupling2019}
+
+\item Extending the thermochemistry module to treat more chemical species and to include metal line
+radiative cooling. Aside from the current ``six species network'' containing H$^0$, H$^+$, He$^0$,
+He$^+$, He$^{++}$, and $e^-$, the currently used \grackle \citep{smithGrackleChemistryCooling2017}
+library offers the option to solve non-equilibrium thermochemistry for the ``nine species network'',
+which additionally includes H$_2$, H$^-$, and H$_2^+$. The ``twelve species network'' furthermore
+adds D, D$^+$, and HD. For the metal heating and cooling, \grackle is able to include the
+corresponding rates from pre-computed tables. These options have not been explored yet in
+coordination with the explicit treatment of radiative transfer. For an explicit treatment of
+non-equilibrium thermochemistry including even more species and metals, the use of the \grackle
+library needs to be replaced with some solver which is able to perform these vast networks of
+thermochemistry equations. This can be in the form of a different already existing library like
+\codename{Krome} \citep{grassiKROMEPackageEmbed2014}. Alternatively, \GEARRT may also follow the
+approach of many other codes like e.g. \citet{katzRAMSESRTZNonEquilibriumMetal2022,
+richingsNonequilibriumChemistryCooling2014, baczynskiFerventChemistrycoupledIonizing2015,
+sarkarNewIonizationNetwork2021} and implement a non-equilibrium thermochemistry solver tailored
+towards the specific needs at hand.
+
+\item Move from a global reduced speed of light approximation to a local variable speed of light
+approximation, similar in spirit to the work in \citet{katzInterpretingALMAObservations2017}. By
+how much the speed of light may be reduced without impacting the propagation of ionization fronts
+is limited by the condition that the propagation velocity of the ionization front must remain much
+smaller than the reduced speed of light. The upper limit depends on the local gas conditions, in
+particular the gas density (see discussion in \citet{ramses-rt13}). As such, simulations which
+entail the underdense intergalactic medium will require a high value for the speed of
+light, whereas overdense regions like the interstellar medium could be treated reasonably well with
+a much smaller value for the speed of light. The approach would be to determine the local speed of
+light of each particle individually depending on its local conditions such as density and smoothing
+length.
+
+\item The addition of treatment of Doppler effect for the interactions between
+radiation and the moving gas. This is currently neglected.
+
+\item Treatment of cosmological redshifting of the radiation energy density after each time step
+for each particle. This is currently neglected.
+
+\item Use more sophisticated stellar luminosity spectra, which take into account mass, age, and
+metallicities of stars and stellar populations
+\citep[e.g.][]{bruzualStellarPopulationSynthesis2003, leithererStarburst99SynthesisModels1999,
+stanwayReevaluatingOldStellar2018}. Currently only a blackbody and a constant spectrum are
+supported.
+
+\item Permit for other sources of radiation aside from stars and stellar populations, like active
+galactic nuclei \citep[e.g.][]{costaDrivingGasShells2018, barnesRadiativeAGNFeedback2020}.
+
+\item Use an advanced or modified closure for the moments of the equation of radiative transfer
+\citep[e.g.][]{chanSmoothedParticleRadiation2021}
+
+\item Explicitly account for and trace recombination radiation. This is currently neglected.
+
+\end{itemize}
+
+Lastly, it should be noted that in principle \GEARRT can be coupled to SPH hydrodynamics as well.
+The quantities required for the computation of the effective surfaces \Aij and the gradients, in
+particular the matrix $\mathcal{B}$ (eq.~\ref{eq:matrix_B}), can be added to the second SPH neighbor
+interaction loop (``\lingo{force}'' loop) once the smoothing lengths have been determined in the
+first SPH neighbor interaction loop (``\lingo{density}'' loop), thus making it available for the
+subsequent radiative transfer operations. This would not only enable the use of an entirely
+different class of hydrodynamics methods to use, but also permit to couple \GEARRT to a variety of
+sophisticated sub-grid models which have been developed for use with SPH, such as EAGLE
+\citep{schayeEAGLEProjectSimulating2015} and GEAR \citep{revazDynamicalChemicalEvolution2012}.
+
+
+The long term goals for \GEARRT are to study dwarf galaxies during the Epoch of Reionization. It is
+still debated whether the numerous but fainter dwarf galaxies are the main drivers of cosmic
+reionization in the early universe, or whether massive and brighter but less common galaxies are the
+main actors responsible. We intend to run simulations of both isolated dwarf galaxies using a
+zoom-in technique as well as cosmological volumes in search to determine and constrain the role of
+dwarf galaxies with regards to cosmic reionization. A first milestone for future work will be to
+repeat the simulations of \citet{revazPushingBackLimits2018} using \GEARRT to additionally account
+for the explicit treatment of radiative transfer for the UV background, for the self-shielding of
+the gas, and for stellar emission of radiation, which thus far have been treated as sub-grid models only, or in the case of photo-ionizing radiation from stellar sources, have been neglected. It is our intention to run these zoom-in simulations of dwarf galaxies up to redshift zero, and to verify that the GEAR model of galaxy formation and evolution is able to produce realistic dwarf galaxies which agree well with observations even with the explicit treatment of radiative feedback.
+
+
+
+
+
+
