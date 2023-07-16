@@ -1135,7 +1135,7 @@ the following scheme:
 \begin{align}
     v_{i+\half} &= v_i + a_i \frac{\Delta t}{2}  && \text{kick} \\
     x_{i+1} &= x_i + v_{i+\half} \Delta t  && \text{drift} \\
-    v_{i+1} &= v_i + a_{i+1} \frac{\Delta t}{2}  && \text{kick}
+    v_{i+1} &= v_{i + \half} + a_{i+1} \frac{\Delta t}{2}  && \text{kick}
 \end{align}
 
 Symplectic integrators like the Leapfrog are widely used for their conservational properties. In
